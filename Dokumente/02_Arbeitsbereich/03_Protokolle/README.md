@@ -1,0 +1,1 @@
+Hier werden alle Besprechungsprotokolle verwaltet, die bei Kundengesprächen entstehen. Dies können Protokolle sein, die bei einem Meeting entstehen der aber ein Telefongespräch mit dem Kunden protokollieren.
