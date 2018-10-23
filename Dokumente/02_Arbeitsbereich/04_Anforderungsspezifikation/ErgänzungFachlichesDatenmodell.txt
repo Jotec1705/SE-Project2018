@@ -1,0 +1,19 @@
+Spieler:
+
+Name		3-16 Zeichen (davon mindestens 3 Buchstaben)
+Password	8-20 Zeichen
+
+
+Gebäude:
+
+Name		4-20 Zeichen
+
+
+Missionskarte:
+
+Beschriftung	31-120 Zeichen
+
+
+Fachbereiche:
+
+Name		4-7 Zeichen
