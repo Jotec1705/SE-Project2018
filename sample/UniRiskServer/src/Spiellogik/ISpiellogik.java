@@ -1,6 +1,7 @@
 package Spiellogik;
 
 import java.util.Map;
+import java.util.Observer;
 
 public interface ISpiellogik {
 
@@ -44,6 +45,15 @@ public interface ISpiellogik {
      * @return Gibt True zurück.
      */
     boolean ZugBeendet();
+
+
+    /**
+     * Diese Methode fügt den Beobachter KommunikationSever hinzu, um das Observerpattern zu realisieren.
+     * Die Rückmeldungen die dann über diesen "Beobachter Kanal" kommen werden in der Schnittstelle
+     * IKommunikationServerCallback spezifiziert.
+     * @param KommunikationServer Ist der Observer, der hinzugefügt  wird.
+     */
+    void addObserver(Observer KommunikationServer);
 
 
 
