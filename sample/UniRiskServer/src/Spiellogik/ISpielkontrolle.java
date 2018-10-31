@@ -1,5 +1,7 @@
 package Spiellogik;
 
+import GUIServer.IGUIServerCallback;
+
 public interface ISpielkontrolle {
     /**
      * Diese Methode wird der Komponente "GUIServer" angeboten.
@@ -25,14 +27,14 @@ public interface ISpielkontrolle {
      * Diese Methode wird der Komponente "GUIServer" angeboten.
      * Über den Aufruf dieser Methode wird das angelegte oder geladene Spiel gestartet.
      */
-    void spielStarten();
+    boolean spielStarten();
 
     /**
      * Diese Methode wird der Komponente "GUIServer" angeboten.
      * Über den Aufruf dieser Methode wird nach einer Abfrage, ob das Spiel gespeichert werden soll, das aktuelle Spiel
      * beendet.
      */
-    void spielBeenden();
+    boolean spielBeenden();
 
     /**
      * Diese Methode wird der Komponente "GUIServer" angeboten.
@@ -43,4 +45,6 @@ public interface ISpielkontrolle {
      * @return
      */
     boolean spielSpeichern(String dateipfad);
+
+    boolean beobachterHinzufuegen(IGUIServerCallback beobachter);
 }

@@ -1,6 +1,15 @@
 package GUIClient;
 
 public interface IGUIClientCallback {
-    int setzeErsties (int anzahlErstiesGesamt, int gebaeudeID);
+
+    boolean aktualisierenKarte();
+
+    boolean aktualisierenLobby();
+
+    boolean spielBeendet();
+
+    boolean zugZuteilung(String nameSpieler);
+
+    boolean angriffAbwehren(String nameSpieler, Integer verteidigerGeb);
 
 }
