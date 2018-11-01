@@ -18,7 +18,7 @@ public interface IKommunikationServerCallback {
     boolean zugZuteilung(String nameSpieler);
 
     /**
-     * Diese Funktion wird aufgerufen, sobald ein Spieler ein bestimmtes Gebäude angreifen möchte.
+     * Diese Methode wird aufgerufen, sobald ein Spieler ein bestimmtes Gebäude angreifen möchte.
      * Sie dient der Aufforderung des angegriffenen Clients zur Verteidigung.
      * @param nameSpieler Name des verteidigenden Spielers
      * @param verteidigerGeb Gebäude welches verteidigt werden muss
@@ -26,11 +26,31 @@ public interface IKommunikationServerCallback {
      */
     boolean angriffAbwehren(String nameSpieler, Integer verteidigerGeb);
 
+
+    /**
+     * Diese Methode wird genutzt, um bei allen Clients die Karte zu aktualisieren.
+     * @return ob Aktion erfolgreich.
+     */
     boolean aktualisierenKarte();
 
+
+    /**
+     * Diese Methode wird genutzt, um bei allen Clients die Lobby zu aktualisieren.
+     * @return ob Aktion erfolgreich.
+     */
     boolean aktualisierenLobby();
 
-
-    boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer, Integer verloreneErsties, Integer gewonnen);
+    /**
+     * Über diese Methode wird dem würfelnden Spieler (also Angreifer und Verteidiger) das Ergebnis seines Würfel-
+     * vorgangs mitgeteilt.
+     * @param nameSpieler Name des Spielers den das Ergebnis betrifft.
+     * @param wuerfelVerteidiger Augenzahl(-en) der Würfel des Verteidigers.
+     * @param wuerfelAngreifer Augenzahl(-en) der Würfel des Angreifers.
+     * @param verloreneErsties Anzahl der Ersties, welche der Verliere einbüßt.
+     * @param gewonnen Zeigt an, ob man den Würfelvorgang gewonnen hat, oder nicht
+     * @return ob Aktion erfolgreich war.
+     */
+    boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer,
+                            Integer verloreneErsties, Integer gewonnen);
 
 }

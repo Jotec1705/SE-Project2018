@@ -13,6 +13,12 @@ public interface ISpiellogik {
      */
     boolean spielerAnmelden(String nameSpieler, String passwort);
 
+    /**
+     * Gibt an die Spiellogik weiter, dass ein Spieler auf den Button Aussteigen am GUIClient gedrückt hat
+     * und somit aus dem Spiel ausgestiegen ist.
+     * @param nameSpieler
+     * @return ob Aktion erfolgreich
+     */
     boolean spielerAusgestiegen(String nameSpieler);
 
     /**
@@ -27,7 +33,7 @@ public interface ISpiellogik {
      * Mit dieser Methode kann also der Anwendungsfall Ersties verteilen, und Phase I abgedeckt werden.
      * @param gebaeude ID des Gebäudes, auf welchem die Anzahl erhöht wurde.
      * @param nameSpieler name des ausführenden Spielers
-     * @return Ob das erfolgreich war.
+     * @return ob Aktion erfolgreich war.
      */
     boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler);
 
@@ -38,7 +44,7 @@ public interface ISpiellogik {
      * @param anzahlUrsprung Mit wievielen.
      * @param gebaeudeZiel Auf welches Gebäude.
      * @param nameSpieler name des ausführenden Spielers
-     * @return gibt zurück ob das erfolgreich war.
+     * @return ob Aktion erfolgreich war
      */
     boolean angriffVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
 
@@ -50,7 +56,7 @@ public interface ISpiellogik {
      * @param anzahlUrsprung Mit wievielen.
      * @param gebaeudeZiel Auf welches Gebäude.
      * @param nameSpieler name des ausführenden Spielers
-     * @return gibt zurück ob das erfolgreich war.
+     * @return ob Aktion erfolgreich war
             */
     boolean versetzenVonNach (String gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
 
@@ -63,7 +69,12 @@ public interface ISpiellogik {
      */
     boolean zugBeendet(String nameSpieler);
 
-
+    /**
+     * Diese Methode meldet an die Spiellogik, dass der aktuelle Spieler (Angreifer oder Verteidiger)
+     * gewürfelt hat.
+     * @param nameSpieler name des ausführenden Spielers
+     * @return Gibt True zurück.
+     */
     boolean gewuerfelt(String nameSpieler);
 
 
