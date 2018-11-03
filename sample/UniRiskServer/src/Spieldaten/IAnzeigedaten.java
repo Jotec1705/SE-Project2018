@@ -64,7 +64,7 @@ public interface IAnzeigedaten {
     /**
      * Diese Methode soll den Inhalt einer Missionskarte des Spielers zurückgeben
      * @param nameSpieler Name des Spielers als String
-     * @return Ingalt der Missionskarte als String
+     * @return Inhalt der Missionskarte als String
      */
     String missionskarteInhalt(String nameSpieler);
 
