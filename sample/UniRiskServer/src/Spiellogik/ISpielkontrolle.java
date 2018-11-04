@@ -46,5 +46,11 @@ public interface ISpielkontrolle {
      */
     boolean spielSpeichern(String dateipfad);
 
+    /**
+     * Diese Methode fügt den Beobachter GUIServer hinzu, um das Observerpattern zu realisieren.
+     * Die Rückmeldungen die dann über diesen "Beobachter Kanal" kommen werden in der Schnittstelle
+     * IGUIServerCallback spezifiziert.
+     * @return
+     */
     boolean beobachterHinzufuegen(IGUIServerCallback beobachter);
 }
