@@ -3,18 +3,28 @@ package Spieldaten;
 public interface ISpieldaten {
 
     /**
+     * Diese Methode soll die Anzahl der besetzten Gebäude eines Spielers zurückgeben.
+     * @param nameSpieler Name des Spielers als String
+     * @return Anzahl der besetzten Gebäude als Integer
+     */
+    Integer anzahlGebaeudeSpieler(String nameSpieler);
+
+
+    /**
      * Diese Methode soll den Namen des Besitzers eines Gebäudes zurückgeben
      * @param gebaeude ID des Gebäudes
      * @return Name des Besitzers als String
      */
     String besitzerGebaeude(Integer gebaeude);
 
+
     /**
-     * Diese Methode soll die Anzahl der besetzten Gebäude eines Spielers zurückgeben.
+     * Die Methode soll die Besitzer der Gebäude nachdem Angreifen und Abwehren anpassen.
+     * @param gebaeude ID des Gebäudes als Integer
      * @param nameSpieler Name des Spielers als String
-     * @return Anzahl der besetzten Gebäude als Integer
+     * @return ob Anpassen der Gebäude erfolgreich war
      */
-    Integer anzahlGebaeudeSpieler(String nameSpieler);
+    boolean besitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler);
 
 
     /**
@@ -32,30 +42,6 @@ public interface ISpieldaten {
      */
     Integer anzahlErstiesGebaeude(Integer gebaeude);
 
-    /**
-     * Diese Methode soll die Anzahl der besetzten Fachbereiche eines Spielers zurückgeben.
-     * @param nameSpieler Name des Spielers als String
-     * @return Anzahl der Fachbereiche als Integer
-     */
-    Integer anzahlFachbereicheSpieler(String nameSpieler);
-
-
-    /**
-     * Diese Methode soll die Anzahl der Bonuskarten des jeweiligen Spielers zurückgeben.
-     * @param nameSpieler Name des Spielers als String
-     * @param typBonuskarte Typ als ... der Bonuskarte die auf Anzahl überprüft werden soll
-     * @return Anzahl der Bonuskarten als Integer
-     */
-    Integer anzahlDerBonuskarten(String nameSpieler, Bonuskarte typBonuskarte);
-
-
-    /**
-     * Die Methode soll die Missionskarte des jeweiligen Spielers zurückgeben.
-     * @param nameSpieler Name des Spielers als String
-     * @return Missionskarte als ENUM
-     */
-    Missionskarte missionskarteSpieler(String nameSpieler);
-
 
     /**
      * Die Methode soll die Anzahl der Ersties nachdem Setzen, Angreifen, Abwehren und Verschieben anpassen.
@@ -66,13 +52,31 @@ public interface ISpieldaten {
     boolean anzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties);
 
 
+
     /**
-     * Die Methode soll die Besitzer der Gebäude nachdem Angreifen und Abwehren anpassen.
-     * @param gebaeude ID des Gebäudes als Integer
+     * Diese Methode soll die Anzahl der besetzten Fachbereiche eines Spielers zurückgeben.
      * @param nameSpieler Name des Spielers als String
-     * @return ob Anpassen der Gebäude erfolgreich war
+     * @return Anzahl der Fachbereiche als Integer
      */
-    boolean besitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler);
+    Integer anzahlFachbereicheSpieler(String nameSpieler);
+
+
+    /**
+     * Die Methode soll die Besitzer der Fachbereiche nachdem Angreifen und Abwehren anpassen.
+     * @param fachbereich ID des Fachbereiches als Integer
+     * @param nameSpieler Name des Spielers als String
+     * @return ob Anpassen der Fachbereiche erfolgreich war
+     */
+    boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler);
+
+
+    /**
+     * Diese Methode soll die Anzahl der Bonuskarten des jeweiligen Spielers zurückgeben.
+     * @param nameSpieler Name des Spielers als String
+     * @param typBonuskarte Typ als ... der Bonuskarte die auf Anzahl überprüft werden soll
+     * @return Anzahl der Bonuskarten als Integer
+     */
+    Integer anzahlDerBonuskarten(String nameSpieler, Bonuskarte typBonuskarte);
 
 
     /**
@@ -86,12 +90,11 @@ public interface ISpieldaten {
 
 
     /**
-     * Die Methode soll die Besitzer der Fachbereiche nachdem Angreifen und Abwehren anpassen.
-     * @param fachbereich ID des Fachbereiches als Integer
+     * Die Methode soll die Missionskarte des jeweiligen Spielers zurückgeben.
      * @param nameSpieler Name des Spielers als String
-     * @return ob Anpassen der Fachbereiche erfolgreich war
+     * @return Missionskarte als ENUM
      */
-    boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler);
+    Missionskarte missionskarteSpieler(String nameSpieler);
 
 
     /**
@@ -101,13 +104,21 @@ public interface ISpieldaten {
      */
     boolean aktuellePhaseSetzen(String phase);
 
-    boolean spielAnlegen(int spielerAnzahl);
 
     /**
-     * Diese Methode soll zurückgeben ob Spieler bereit ist
-     * @return true wenn Spieler bereit zum Spiel
+     * Die Methode soll den nächsten Spieler als durchführenden Spieler setzen
+     * @return ob nächster Spieler erfolgreich war
      */
-    boolean[] spielerBereit();
+    boolean naechsterSpieler();
+
+
+    /**
+     * Die Methode soll ein Spiel anlegen
+     * @param spielerAnzahl Anzahl der Spieler als Integer die Mitspielen sollen
+     * @return ob Spielanlegen erfolgreich war
+     */
+    boolean spielAnlegen(int spielerAnzahl);
+
 
     /**
      * Diese Methode meldet einen Spieler an.
@@ -117,12 +128,33 @@ public interface ISpieldaten {
      */
     boolean spielerAnmelden(String nameSpieler, String passwort);
 
-    boolean spielZustandSetzen(Zustand aktuellerZustand);
 
-    Zustand spielZustandHolen();
+    /**
+     * Diese Methode soll zurückgeben ob Spieler bereit ist
+     * @return true wenn Spieler bereit zum Spiel
+     */
+    boolean[] spielerBereit();
 
+
+    /**
+     * Die Methode soll den aktuellen Spieler zurückgeben
+     * @return gibt aktuellen Spieler als String zurück
+     */
     String aktuellerSpieler();
 
-    boolean naechsterSpieler();
+
+    /**
+     * Die Methode soll den aktuellen Spielzustand zurückgeben
+     * @return gibt den Spielzustand als Zustand zurück
+     */
+    Zustand spielZustandHolen();
+
+
+    /**
+     * Die Methode soll den aktuellen Zustand im Spiel setzen
+     * @param aktuellerZustand zusetzenden Zustand als Zustand
+     * @return ob Setzen des Zustandes erfolgreich war
+     */
+    boolean spielZustandSetzen(Zustand aktuellerZustand);
 
 }
