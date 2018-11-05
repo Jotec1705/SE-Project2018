@@ -74,6 +74,10 @@ public interface IAnzeigedaten {
      */
     String aktuellePhase();
 
+    Integer[] eigeneGebaeude(String nameSpieler);
+
+
+
 
 
 

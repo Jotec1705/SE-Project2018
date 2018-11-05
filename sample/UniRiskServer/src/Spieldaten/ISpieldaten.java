@@ -101,4 +101,28 @@ public interface ISpieldaten {
      */
     boolean aktuellePhaseSetzen(String phase);
 
+    boolean spielAnlegen(int spielerAnzahl);
+
+    /**
+     * Diese Methode soll zurückgeben ob Spieler bereit ist
+     * @return true wenn Spieler bereit zum Spiel
+     */
+    boolean[] spielerBereit();
+
+    /**
+     * Diese Methode meldet einen Spieler an.
+     * @param nameSpieler entspricht dem Spielernamen.
+     * @param passwort ist das Passwort des Spielers.
+     * @return gibt zurück ob das Anmelden erfolgreich war.
+     */
+    boolean spielerAnmelden(String nameSpieler, String passwort);
+
+    boolean spielZustandSetzen(Zustand aktuellerZustand);
+
+    Zustand spielZustandHolen();
+
+    String aktuellerSpieler();
+
+    boolean naechsterSpieler();
+
 }

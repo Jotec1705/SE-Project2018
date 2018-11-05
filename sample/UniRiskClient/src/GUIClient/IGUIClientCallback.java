@@ -41,4 +41,18 @@ public interface IGUIClientCallback {
      */
     boolean angriffAbwehren(String nameSpieler, Integer verteidigerGeb);
 
+    /**
+     * Über diese Methode wird dem würfelnden Spieler (also Angreifer und Verteidiger) das Ergebnis seines Würfel-
+     * vorgangs mitgeteilt.
+     * @param nameSpieler Name des Spielers den das Ergebnis betrifft.
+     * @param wuerfelVerteidiger Augenzahl(-en) der Würfel des Verteidigers.
+     * @param wuerfelAngreifer Augenzahl(-en) der Würfel des Angreifers.
+     * @param verloreneErsties Anzahl der Ersties, welche der Verliere einbüßt.
+     * @param gewonnen Zeigt an, ob man den Würfelvorgang gewonnen hat, oder nicht
+     * @return ob Aktion erfolgreich war.
+     */
+    boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer,
+                            Integer verloreneErsties, Integer gewonnen);
+
+
 }

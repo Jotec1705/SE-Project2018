@@ -47,7 +47,7 @@ public interface IClientKommunikation {
      * @param nameSpieler ist der Name des Spielers.
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
-    boolean angriffVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
+    boolean angriffVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
     /**
      * Mit dieser Methode kann man Ersties verschieben.
@@ -83,4 +83,48 @@ public interface IClientKommunikation {
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
     boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
+
+    /**
+     * Diese Methode soll die Anzahl der Ersties auf einem Gebäude zurückgeben
+     * @return
+     */
+    Integer[] anzahlErstiesAufGebaeude();
+
+    /**
+     * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben
+     * @param nameSpieler Name des Spielers als String
+     * @return
+     */
+    Integer[] anzahlBonuskarten(String nameSpieler);
+
+    /**
+     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben
+     * @param nameSpieler Name des Spielers als String
+     * @return Anzahl der zu verteilenden Ersties als Int
+     */
+    Integer anzahlZuVerteilendeErsties(String nameSpieler);
+
+    /**
+     * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der angreifbaren Nachbargebäude zurück
+     */
+    Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler);
+
+    /**
+     * Diese Methode soll die ID´s eigenen Nachbargebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der Nachbargebäude zurück welche dem nameSpieler gehören
+     */
+    Integer[] eigeneNachbarGebaeude(Integer gebaeude, String nameSpieler);
+
+    /**
+     * Diese Methode soll die aktuelle Phase zurückgeben
+     * @return
+     */
+    String aktuellePhase();
+
+    Integer[] eigeneGebaeude(String nameSpieler);
 }

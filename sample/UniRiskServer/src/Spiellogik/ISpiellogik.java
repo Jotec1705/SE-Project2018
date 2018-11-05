@@ -16,7 +16,7 @@ public interface ISpiellogik {
     /**
      * Gibt an die Spiellogik weiter, dass ein Spieler auf den Button Aussteigen am GUIClient gedrückt hat
      * und somit aus dem Spiel ausgestiegen ist.
-     * @param nameSpieler
+     * @param nameSpieler ist der name des Spielers.
      * @return ob Aktion erfolgreich
      */
     boolean spielerAusgestiegen(String nameSpieler);
@@ -83,8 +83,11 @@ public interface ISpiellogik {
      * Die Rückmeldungen die dann über diesen "Beobachter Kanal" kommen werden in der Schnittstelle
      * IKommunikationServerCallback spezifiziert.
      * @param beobachter Ist der Observer, der hinzugefügt  wird.
+     * @return gibt zurück ob erfolgreich.
      */
     boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter);
+
+
 
 
 
