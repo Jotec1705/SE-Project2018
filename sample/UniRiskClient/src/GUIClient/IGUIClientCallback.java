@@ -3,15 +3,6 @@ package GUIClient;
 public interface IGUIClientCallback {
 
     /**
-     * Diese Methode wird aufgerufen, wenn die Karte verändert wurde
-     * und der Client dies angezeigt bekommen sollte.
-     * Beim Aufruf holt sich die Komponente "GUIClient" die aktuellen Daten der Karte und
-     * aktualisiert diese Anzeige.
-     * @return zeigt, ob die Aktualisierung erfolgreich war.
-     */
-    boolean aktualisierenKarte();
-
-    /**
      * Diese Methode wird aufgerufen, wenn die Lobby verändert wurde.
      * Beim Aufruf der Methode holt sich die Komponente "GUIClient" die aktuellen Daten der Lobby
      * und aktualisiert die Anzeige.
@@ -20,10 +11,13 @@ public interface IGUIClientCallback {
     boolean aktualisierenLobby();
 
     /**
-     * Diese Methode beendet das Spiel und schließt die Karte sowie die Lobby beim Client.
-     * @return zeigt, ob das Spiel erfolgreich beendet wurde.
+     * Diese Methode wird aufgerufen, wenn die Karte verändert wurde
+     * und der Client dies angezeigt bekommen sollte.
+     * Beim Aufruf holt sich die Komponente "GUIClient" die aktuellen Daten der Karte und
+     * aktualisiert diese Anzeige.
+     * @return zeigt, ob die Aktualisierung erfolgreich war.
      */
-    boolean spielBeendet();
+    boolean aktualisierenKarte();
 
     /**
      * Diese Methode wird aufgerufen, wenn ein Spieler seinen Zug beendet hat. Dann wird der nächste Spieler ausgewählt.
@@ -47,12 +41,16 @@ public interface IGUIClientCallback {
      * @param nameSpieler Name des Spielers den das Ergebnis betrifft.
      * @param wuerfelVerteidiger Augenzahl(-en) der Würfel des Verteidigers.
      * @param wuerfelAngreifer Augenzahl(-en) der Würfel des Angreifers.
-     * @param verloreneErsties Anzahl der Ersties, welche der Verliere einbüßt.
+     * @param verloreneErsties Anzahl der Ersties, welche die der Betroffene Spieler einbüßt.
      * @param gewonnen Zeigt an, ob man den Würfelvorgang gewonnen hat, oder nicht
      * @return ob Aktion erfolgreich war.
      */
     boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer,
                             Integer verloreneErsties, Integer gewonnen);
 
-
+    /**
+     * Diese Methode beendet das Spiel und schließt die Karte sowie die Lobby beim Client.
+     * @return zeigt, ob das Spiel erfolgreich beendet wurde.
+     */
+    boolean spielBeendet();
 }

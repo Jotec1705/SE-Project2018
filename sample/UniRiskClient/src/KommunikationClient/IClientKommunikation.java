@@ -29,6 +29,12 @@ public interface IClientKommunikation {
     boolean spielerBereitMelden(String nameSpieler);
 
     /**
+     * Diese Methode soll die aktuelle Phase zurückgeben.
+     * @return gibt Informationen über die aktuelle Phase zurück.
+     */
+    String aktuellePhase();
+
+    /**
      * Mit dieser Methode kann man die Anzahl der Ersties auf einem Gebäude erhöhen.
      * Nach klicken auf ein Gebäude(label) wird die Anzahl um eins erhöht.
      * @param gebaeude die ID des Gebäudes.
@@ -36,6 +42,26 @@ public interface IClientKommunikation {
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
     boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler);
+
+    /**
+     * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben.
+     * @param nameSpieler Name des Spielers als String.
+     * @return gibt die Anzahlen der drei Bonuskarten zurück.
+     */
+    Integer[] anzahlBonuskarten(String nameSpieler);
+
+    /**
+     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben.
+     * @param nameSpieler Name des Spielers als String.
+     * @return Anzahl der zu verteilenden Ersties als Int.
+     */
+    Integer anzahlZuVerteilendeErsties(String nameSpieler);
+
+    /**
+     * Diese Methode soll die Anzahl der Ersties auf einem Gebäude zurückgeben.
+     * @return gibt die Anzahl aller Ersties auf jedem Gebäude zurück.
+     */
+    Integer[] anzahlErstiesAufGebaeude();
 
     /**
      * Mit dieser Methode kann man einen Angriff starten.
@@ -50,6 +76,29 @@ public interface IClientKommunikation {
     boolean angriffVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
     /**
+     * Durch diese Methode erhält man alle GebäudeIDs des aktuellen Spielers.
+     * @param nameSpieler Name des aktuellen Spielers.
+     * @return ein Array vom Typ Integer mit allen IDs der Gebäude die dem Spieler gehören.
+     */
+    Integer[] eigeneGebaeude(String nameSpieler);
+
+    /**
+     * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der angreifbaren Nachbargebäude zurück
+     */
+    Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler);
+
+    /**
+     * Diese Methode wird durch den Button "würfeln" aufgerufen und gibt somit an, das von diesem einen Spieler
+     * gewürfelt wurde.
+     * @param nameSpieler ist der Name des Spielers (Angreifer oder Verteidiger kann das sein).
+     * @return gibt zurück, ob die Methode erfolgreich war.
+     */
+    boolean gewuerfelt(String nameSpieler);
+
+    /**
      * Mit dieser Methode kann man Ersties verschieben.
      * Sie wird durch klicken des Buttons "Verschieben" aufgerufen und dann kann man Angeben von wo nach wo man wie
      * viele Ersties verschieben will.
@@ -62,57 +111,6 @@ public interface IClientKommunikation {
     boolean versetzenVonNach(String gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
 
     /**
-     * Diese Methode beendet den Zug und wird durch den Button "Zug beenden" aufgerufen.
-     * @param nameSpieler ist der Name des Spielers.
-     * @return gibt zurück, ob die Methode erfolgreich war.
-     */
-    boolean zugBeendet(String nameSpieler);
-
-    /**
-     * Diese Methode wird durch den Button "würfeln" aufgerufen und gibt somit an, das von diesem einen Spieler
-     * gewürfelt wurde.
-     * @param nameSpieler ist der Name des Spielers.
-     * @return gibt zurück, ob die Methode erfolgreich war.
-     */
-    boolean gewuerfelt(String nameSpieler);
-
-    /**
-     * Diese Methode fügt den Beobachter GUIClient hinzu, um das Observerpattern zu realisieren.
-     * Die Rückmeldungen, die dann über diesen "Beobachter Kanal" kommen werden in IGUIClientCallback spezifiziert.
-     * @param beobachter ist der Observer, der hinzugefügt wird.
-     * @return gibt zurück, ob die Methode erfolgreich war.
-     */
-    boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
-
-    /**
-     * Diese Methode soll die Anzahl der Ersties auf einem Gebäude zurückgeben
-     * @return
-     */
-    Integer[] anzahlErstiesAufGebaeude();
-
-    /**
-     * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben
-     * @param nameSpieler Name des Spielers als String
-     * @return
-     */
-    Integer[] anzahlBonuskarten(String nameSpieler);
-
-    /**
-     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben
-     * @param nameSpieler Name des Spielers als String
-     * @return Anzahl der zu verteilenden Ersties als Int
-     */
-    Integer anzahlZuVerteilendeErsties(String nameSpieler);
-
-    /**
-     * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
-     * @param gebaeude ID des Gebäudes
-     * @param nameSpieler Name des Spielers als String
-     * @return gibt ein Array mit den GebäudeIDs der angreifbaren Nachbargebäude zurück
-     */
-    Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler);
-
-    /**
      * Diese Methode soll die ID´s eigenen Nachbargebäude eines Spieler zurückgeben
      * @param gebaeude ID des Gebäudes
      * @param nameSpieler Name des Spielers als String
@@ -121,10 +119,17 @@ public interface IClientKommunikation {
     Integer[] eigeneNachbarGebaeude(Integer gebaeude, String nameSpieler);
 
     /**
-     * Diese Methode soll die aktuelle Phase zurückgeben
-     * @return
+     * Diese Methode beendet den Zug und wird durch den Button "Zug beenden" aufgerufen.
+     * @param nameSpieler ist der Name des Spielers.
+     * @return gibt zurück, ob die Methode erfolgreich war.
      */
-    String aktuellePhase();
+    boolean zugBeendet(String nameSpieler);
 
-    Integer[] eigeneGebaeude(String nameSpieler);
+    /**
+     * Diese Methode fügt den Beobachter GUIClient hinzu, um das Observerpattern zu realisieren.
+     * Die Rückmeldungen, die dann über diesen "Beobachter Kanal" kommen werden in IGUIClientCallback spezifiziert.
+     * @param beobachter ist der Observer, der hinzugefügt wird.
+     * @return gibt zurück, ob die Methode erfolgreich war.
+     */
+    boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
 }
