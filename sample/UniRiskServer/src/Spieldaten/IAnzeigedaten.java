@@ -37,14 +37,14 @@ public interface IAnzeigedaten {
 
     /**
      * Diese Methode soll die Anzahl der Ersties auf einem Gebäude zurückgeben
-     * @return
+     * @return Int-Array mit Anzahl der Ersties pro Gebäude ( Index entspricht Gebäude ID)
      */
     Integer[] anzahlErstiesAufGebaeude();
 
     /**
      * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben
      * @param nameSpieler Name des Spielers als String
-     * @return
+     * @return Int-Array mit Anzahl der Bonuskarten
      */
     Integer[] anzahlBonuskarten(String nameSpieler);
 
@@ -70,10 +70,15 @@ public interface IAnzeigedaten {
 
     /**
      * Diese Methode soll die aktuelle Phase zurückgeben
-     * @return
+     * @return Aktuelle Phase als String
      */
     String aktuellePhase();
 
+    /**
+     * Diese Methode gibt ein Array zurück mit den IDs der Gebäude, welche dem übergebenene Spieler gehören
+     * @param nameSpieler Name des Spielers als String
+     * @return Int-Array
+     */
     Integer[] eigeneGebaeude(String nameSpieler);
 
 
