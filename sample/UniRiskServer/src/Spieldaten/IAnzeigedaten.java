@@ -50,7 +50,7 @@ public interface IAnzeigedaten {
 
     /**
      * Diese Methode soll die Farben aller Spieler als Int-Wert zurückgeben
-     * @return Array mit Farben der Spieler als Int-Wert
+     * @return Array mit Farben der Spieler als Int-Wert. Array Index entspricht der Gebäude ID
      */
     Integer[] farbeSpieler();
 

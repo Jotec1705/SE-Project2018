@@ -46,7 +46,7 @@ public interface IClientKommunikation {
     /**
      * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben.
      * @param nameSpieler Name des Spielers als String.
-     * @return gibt die Anzahlen der drei Bonuskarten zurück.
+     * @return gibt die Anzahlen der drei Bonuskarten zurück.Index 0 entspricht Wert Ersties, 1 Studenten, 2 Prof
      */
     Integer[] anzahlBonuskarten(String nameSpieler);
 
@@ -132,4 +132,10 @@ public interface IClientKommunikation {
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
     boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
+
+    /**
+     * Diese Methode soll die Farben aller Spieler als Int-Wert zurückgeben
+     * @return Array mit Farben der Spieler als Int-Wert. Array Index entspricht der Gebäude ID
+     */
+    Integer[] farbeSpieler();
 }
