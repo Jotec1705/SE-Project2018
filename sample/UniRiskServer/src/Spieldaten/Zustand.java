@@ -3,7 +3,7 @@ package Spieldaten;
 public enum Zustand {
 
     Initial,
-    Erstiesverteilen,
+    ErstiesVerteilen,
     Aktiv,
     Beendet
 }
