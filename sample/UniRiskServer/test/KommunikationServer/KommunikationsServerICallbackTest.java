@@ -4,6 +4,6 @@ import org.junit.jupiter.api.*;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
-class KommunikationServerTest {
-
+@DisplayName("Test der Callback Schnittstelle")
+public class KommunikationsServerICallbackTest {
 }
