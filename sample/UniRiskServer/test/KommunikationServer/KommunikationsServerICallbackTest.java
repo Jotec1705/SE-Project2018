@@ -1,3 +1,7 @@
+/*Ehrlich gesagt wüsste ich nicht was bei den Methoden dieser Schnittstelle testen könnte. Alle Methoden
+* geben nur Information weiter. Ich kann natürlich einen Test für erfolgreich, nicht erfoglreich schreiben, aber ich
+* glaube dass sollten wir ja nicht machen.*/
+
 package KommunikationServer;
 
 import org.junit.jupiter.api.*;
