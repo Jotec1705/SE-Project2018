@@ -46,7 +46,7 @@ public interface ISpiellogik {
      * @param nameSpieler name des ausführenden Spielers
      * @return ob Aktion erfolgreich war
      */
-    boolean angriffVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
+    boolean angriffVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
 
     /**
@@ -58,7 +58,7 @@ public interface ISpiellogik {
      * @param nameSpieler name des ausführenden Spielers
      * @return ob Aktion erfolgreich war
             */
-    boolean versetzenVonNach (String gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
+    boolean versetzenVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
 
     /**
