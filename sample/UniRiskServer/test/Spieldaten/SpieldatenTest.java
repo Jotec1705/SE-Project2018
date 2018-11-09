@@ -1,6 +1,6 @@
 package Spieldaten;
 
-import
+import org.junit.jupiter.api.*;
 
-public class IAnzeigedatenTest {
+class SpieldatenTest {
 }
