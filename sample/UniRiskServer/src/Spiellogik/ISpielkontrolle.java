@@ -42,7 +42,7 @@ public interface ISpielkontrolle {
      * wird diese Methode aufgerufen und das aktuelle Spiel gespeichert.
      * Der Methode wird der Dateipfad unter dem die Datei gespeichert werden soll übergeben.
      * @param dateipfad
-     * @return
+     * @return True wenn Spiel gespeichert
      */
     boolean spielSpeichern(String dateipfad);
 
@@ -50,7 +50,7 @@ public interface ISpielkontrolle {
      * Diese Methode fügt den Beobachter GUIServer hinzu, um das Observerpattern zu realisieren.
      * Die Rückmeldungen die dann über diesen "Beobachter Kanal" kommen werden in der Schnittstelle
      * IGUIServerCallback spezifiziert.
-     * @return
+     * @return True wenn erfolgreich hinzugefügt wurde
      */
     boolean beobachterHinzufuegen(IGUIServerCallback beobachter);
 }
