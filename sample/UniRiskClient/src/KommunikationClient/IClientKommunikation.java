@@ -1,5 +1,6 @@
 package KommunikationClient;
 
+import GUIClient.GUIClient;
 import GUIClient.IGUIClientCallback;
 
 public interface IClientKommunikation {
@@ -108,7 +109,7 @@ public interface IClientKommunikation {
      * @param nameSpieler ist der Name des Spielers.
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
-    boolean versetzenVonNach(String gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
+    boolean versetzenVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
     /**
      * Diese Methode soll die ID´s eigenen Nachbargebäude eines Spieler zurückgeben
@@ -125,12 +126,6 @@ public interface IClientKommunikation {
      */
     boolean zugBeendet(String nameSpieler);
 
-    /**
-     * Diese Methode fügt den Beobachter GUIClient hinzu, um das Observerpattern zu realisieren.
-     * Die Rückmeldungen, die dann über diesen "Beobachter Kanal" kommen werden in IGUIClientCallback spezifiziert.
-     * @param beobachter ist der Observer, der hinzugefügt wird.
-     * @return gibt zurück, ob die Methode erfolgreich war.
-     */
     boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
 
     /**
