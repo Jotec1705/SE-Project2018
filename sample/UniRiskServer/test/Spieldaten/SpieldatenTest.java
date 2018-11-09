@@ -1,9 +1,6 @@
 package Spieldaten;
 
-import org.junit.jupiter.api.*;
+import
 
-@TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-
-class SpieldatenTest {
-
+public class IAnzeigedatenTest {
 }
