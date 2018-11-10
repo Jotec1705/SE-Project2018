@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
@@ -12,12 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Test der Anzeigedaten Schnittstelle")
 class SpieldatenIAnzeigedatenTest {
 
-    public SpieldatenDummy dummy = null;
-
+    public SpieldatenDummy dummy;
+    boolean[] wert = {true};
 
     @BeforeAll
     public void initVorAllenTests(){
         System.out.println("[Start] Bereite einige Tests vor");
+
     }
 
 
@@ -39,14 +40,27 @@ class SpieldatenIAnzeigedatenTest {
     }
 
 
-
-
-
+    /**
+     * Dieser Test prüft ob der Rückgabewert (int-Array) mit dem Wert im Dummy übereinstimmmt
+     */
     @Test
     public void testAngreifbareNachbarGebaeude() {
-        System.out.println("[AngreifbareNachbarGebaeude] Läuft..");
-
+        System.out.println("Hallo liebe Testumgebung");
 
     }
+
+    /**
+     *
+     */
+    @Test
+    public void testSoielerBereit() {
+        System.out.println("Hallo liebe Testumgebung");
+        assertArrayEquals(wert, dummy.spielerBereit(),"Fehlgeschlagen");
+
+    }
+
+
+
+
 
 }
