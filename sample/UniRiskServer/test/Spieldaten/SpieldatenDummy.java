@@ -11,12 +11,14 @@ public class SpieldatenDummy implements IAnzeigedaten{
 
     @Override
     public Integer[] eigeneNachbarGebaeude(Integer gebaeude, String nameSpieler) {
-        return new Integer[0];
+        Integer[] wert = {1,2};
+        return wert;
     }
 
     @Override
     public String[] spielerNamen() {
-        return new String[0];
+        String[] wertStrArr = {"testA","TestB"};
+        return wertStrArr;
     }
 
     @Override
@@ -27,27 +29,32 @@ public class SpieldatenDummy implements IAnzeigedaten{
 
     @Override
     public String[] ipAdressen() {
-        return new String[0];
-    }
+        String[] wertStrArr = {"testA","TestB"};
+        return wertStrArr;    }
 
     @Override
     public Integer[] anzahlErstiesAufGebaeude() {
-        return new Integer[0];
+        Integer[] wert = {1,2};
+        return wert;
     }
 
     @Override
     public Integer[] anzahlBonuskarten(String nameSpieler) {
-        return new Integer[0];
+        Integer[] wert = {1,2};
+        return wert;
     }
 
     @Override
     public Integer[] farbeSpieler() {
-        return new Integer[0];
+
+        Integer[] wert = {1,2};
+        return wert;
     }
 
     @Override
     public Integer anzahlZuVerteilendeErsties(String nameSpieler) {
-        return null;
+        Integer wert = 1;
+        return wert;
     }
 
     @Override
@@ -64,6 +71,8 @@ public class SpieldatenDummy implements IAnzeigedaten{
 
     @Override
     public Integer[] eigeneGebaeude(String nameSpieler) {
-        return new Integer[0];
+
+        Integer[] wert = {1,2};
+        return wert;
     }
 }
