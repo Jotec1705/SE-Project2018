@@ -1,9 +1,9 @@
 package Spieldaten;
 
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import Spieldaten.ISpieldaten;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
@@ -69,6 +69,8 @@ class SpieldatenTest {
     @Test
     void nachbarGebaeudeTest(Integer gebaeude){
         System.out.println("[NachbarGebäude] läuft");
+        int [] nachabarGebaeude = {2,3,12,13};
+        //assertArrayEquals(nachabarGebaeude, spieldaten.nachbarGebaeude(1));
 
     }
 
@@ -78,6 +80,7 @@ class SpieldatenTest {
     @Test
     void anzahlErstiesGebaeude(Integer gebaeude){
         System.out.println("[AnzahlErstiesGebäude] läuft");
+        //assertEquals(10, spieldaten.anzahlErstiesGebaeude(1));
 
     }
 
