@@ -3,12 +3,14 @@ package GUIServer;
 import Spieldaten.IAnzeigedaten;
 import Spieldaten.Zustand;
 import Spiellogik.ISpielkontrolle;
+import Spiellogik.ISpiellogik;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
@@ -17,27 +19,28 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 class GUIServerISpielkontrolleTest {
     public ISpielkontrolle kontrolle = null;
     public IAnzeigedaten anzeige = null;
+    public ISpiellogik logik = null;
 
     @BeforeAll
     public void initVorAllenTests(){
-        System.out.println("[Start] Bereite einige Tests vor");
+
     }
 
 
     @BeforeEach
     public  void initVorEinemTest(){
-        System.out.println("[Init] Bereite einen konkreten Test vor");
+
 
     }
 
     @AfterEach
     public void testEnde(){
-        System.out.println("..Test erfolgreich beendet!!");
+
     }
 
     @AfterAll
     public void Aufraeumen(){
-        System.out.println("[End] Alle Tests beendet. Räume auf.");
+
 
     }
 
@@ -46,7 +49,7 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielAnlegenTestSpielerAnzahlDrei(){
-        System.out.println("[SpielAnlegen] läuft");
+
 
 
         assertEquals(true, kontrolle.spielAnlegen(3), "Spiel wurde nicht angelegt");
@@ -59,7 +62,7 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielAnlegenTestSpielerAnzahlVier(){
-        System.out.println("[SpielAnlegen] läuft");
+
 
 
         assertEquals(true, kontrolle.spielAnlegen(4), "Spiel wurde nicht angelegt");
@@ -72,7 +75,7 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielAnlegenTestSpielerAnzahlFünf(){
-        System.out.println("[SpielAnlegen] läuft");
+
 
 
         assertEquals(true, kontrolle.spielAnlegen(5), "Spiel wurde nicht angelegt");
@@ -85,11 +88,15 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielStartenTestNeuesSpiel(){
-        System.out.println("[SpielStarten] läuft");
+        //Erst zu testen wenn die Komponenten Spiellogik und Spieldaten mit den angebotenen Schnittstellen Vollständig implementiert und erfolgreich getestet wurden
 
-        kontrolle.spielAnlegen(5);
-        //Hier muss sich mindestens ein Spieler anmelden bzw. ein DummySpieler in den Spieldaten eingetragen sein
-        //danach wird das Spiel mit dem DummySpieler und vier Bots gestartet
+
+        assertTrue(kontrolle.spielAnlegen(5), "Spiel wurde nicht angelegt");
+
+        //Hier wird ein Spieler über die Schnittstelle ISpiellogik angemeldet.
+        assertTrue(logik.spielerAnmelden("Hans", "ABCD1234"),"Spieler konnte nicht angemeldet werden");
+        //Hier muss der Spieler Bereit gemeldet werden, um den eigentlichen Test "spielStarten" durchführen zu können
+        assertTrue(logik.spielerBereitMelden("Hans"), "Spieler konnte nicht bereit gemeldet werden");
 
         assertEquals(true, kontrolle.spielStarten(), "Spiel wurde nicht gestartet");
         assertEquals(Zustand.ErstiesVerteilen, anzeige.aktuellePhase(), "Spiel hat nicht den Zustand ErstiesVerteilen");
@@ -97,7 +104,7 @@ class GUIServerISpielkontrolleTest {
         String spielerNamen[] = anzeige.spielerNamen();
 
         for(int i = 0; i < spielerNamen.length;i++){
-            assertEquals(false, spielerNamen[i].isEmpty(),"Spielwurde nicht ordnungsgemäß gestartet, Spieleranzahl nicht erfüllt");
+            assertEquals(false, spielerNamen[i].isEmpty(),"Spielwurde nicht ordnungsgemäß gestartet, Spieleranzahl nicht aufgefüllt");
         }
 
     }
@@ -107,12 +114,14 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielBeendenTest(){
-        System.out.println("[SpielBeenden] läuft");
+        //Erst zu testen wenn die Komponenten Spiellogik und Spieldaten mit den angebotenen Schnittstellen Vollständig implementiert und erfolgreich getestet wurden
 
-        kontrolle.spielAnlegen(5);
-        //Hier muss sich mindestens ein Spieler anmelden bzw. ein DummySpieler in den Spieldaten eingetragen sein
-        //danach wird das Spiel mit dem DummySpieler und vier Bots gestartet
-        kontrolle.spielStarten();
+        assertTrue(kontrolle.spielAnlegen(5), "Spiel wurde nicht angelegt");
+        //Hier wird ein Spieler über die Schnittstelle ISpiellogik angemeldet.
+        assertTrue(logik.spielerAnmelden("Hans", "ABCD1234"),"Spieler konnte nicht angemeldet werden");
+        //Hier muss der Spieler Bereit gemeldet werden, um den eigentlichen Test "spielStarten" durchführen zu können
+        assertTrue(logik.spielerBereitMelden("Hans"), "Spieler konnte nicht bereit gemeldet werden");
+        assertTrue(kontrolle.spielStarten(), "Spiel wurde nicht gestartet");
 
         assertEquals(true, kontrolle.spielBeenden(), "Spiel wurde nicht beendet");
         assertEquals(null, anzeige.aktuellePhase(), "Es wurde nicht null zurückgegeben. Spiel wurde nicht erfolgeich beendet");
@@ -123,12 +132,14 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielSpeichernTest(){
-        System.out.println("[SpielSpeichern] läuft");
+        //Erst zu testen wenn die Komponenten Spiellogik und Spieldaten mit den angebotenen Schnittstellen Vollständig implementiert und erfolgreich getestet wurden
 
-        kontrolle.spielAnlegen(5);
-        //Hier muss sich mindestens ein Spieler anmelden bzw. ein DummySpieler in den Spieldaten eingetragen sein
-        //danach wird das Spiel mit dem DummySpieler und vier Bots gestartet
-        kontrolle.spielStarten();
+        assertTrue(kontrolle.spielAnlegen(5), "Spiel wurde nicht angelegt");
+        //Hier wird ein Spieler über die Schnittstelle ISpiellogik angemeldet.
+        assertTrue(logik.spielerAnmelden("Hans", "ABCD1234"),"Spieler konnte nicht angemeldet werden");
+        //Hier muss der Spieler Bereit gemeldet werden, um den eigentlichen Test "spielStarten" durchführen zu können
+        assertTrue(logik.spielerBereitMelden("Hans"), "Spieler konnte nicht bereit gemeldet werden");
+        assertTrue(kontrolle.spielStarten(), "Spiel wurde nicht gestartet");
 
         assertEquals(true, kontrolle.spielSpeichern("../GUIServer/gespeichertesSpiel.save"), "Spiel wurde nicht gespeichert");
         assertEquals(true, new File("gespeichertesSpiel.save").exists(), "Datei wurde nicht im Verzeichnis erstellt");
@@ -140,15 +151,17 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielLadenTest(){
-        System.out.println("[SpielLaden] läuft");
+        //Erst zu testen wenn die Komponenten Spiellogik und Spieldaten mit den angebotenen Schnittstellen Vollständig implementiert und erfolgreich getestet wurden
 
-        kontrolle.spielAnlegen(5);
-        //Hier muss sich mindestens ein Spieler anmelden bzw. ein DummySpieler in den Spieldaten eingetragen sein
-        //danach wird das Spiel mit dem DummySpieler und vier Bots gestartet
-        kontrolle.spielStarten();
-        kontrolle.spielSpeichern("../GUIServer/gespeichertesSpiel.save");
+        assertTrue(kontrolle.spielAnlegen(5), "Spiel wurde nicht angelegt");
+        //Hier wird ein Spieler über die Schnittstelle ISpiellogik angemeldet.
+        assertTrue(logik.spielerAnmelden("Hans", "ABCD1234"),"Spieler konnte nicht angemeldet werden");
+        //Hier muss der Spieler Bereit gemeldet werden, um den eigentlichen Test "spielStarten" durchführen zu können
+        assertTrue(logik.spielerBereitMelden("Hans"), "Spieler konnte nicht bereit gemeldet werden");
+        assertTrue(kontrolle.spielStarten(), "Spiel wurde nicht gestartet");
+        assertTrue(kontrolle.spielSpeichern("../GUIServer/gespeichertesSpiel.save"), "Spiel wurde nicht gespeichert");
 
-        kontrolle.spielBeenden();
+        assertTrue(kontrolle.spielBeenden(), "Spiel wurde nicht beendet");
 
         assertEquals(true, kontrolle.spielLaden("../GUIServer/gespeichertesSpiel.save"), "Spiel wurde nicht geladen");
         assertNotEquals(Zustand.Initial, anzeige.aktuellePhase(), "Spiel hat den fehlerhaften Zustand Initial");
@@ -167,15 +180,18 @@ class GUIServerISpielkontrolleTest {
      */
     @Test
     public void spielStartenTestGeladenesSpiel(){
-        System.out.println("[SpielStarten] läuft");
+        //Erst zu testen wenn die Komponenten Spiellogik und Spieldaten mit den angebotenen Schnittstellen Vollständig implementiert und erfolgreich getestet wurden
 
-        kontrolle.spielAnlegen(5);
-        //Hier muss sich mindestens ein Spieler anmelden bzw. ein DummySpieler in den Spieldaten eingetragen sein
-        //danach wird das Spiel mit dem DummySpieler und vier Bots gestartet
-        kontrolle.spielStarten();
-        kontrolle.spielSpeichern("../GUIServer/gespeichertesSpiel.save");
-        kontrolle.spielBeenden();
-        kontrolle.spielLaden("../GUIServer/gespeichertesSpiel.save");
+        assertTrue(kontrolle.spielAnlegen(5), "Spiel wurde nicht angelegt");
+        //Hier wird ein Spieler über die Schnittstelle ISpiellogik angemeldet.
+        assertTrue(logik.spielerAnmelden("Hans", "ABCD1234"),"Spieler konnte nicht angemeldet werden");
+        //Hier muss der Spieler Bereit gemeldet werden, um den eigentlichen Test "spielStarten" durchführen zu können
+        assertTrue(logik.spielerBereitMelden("Hans"), "Spieler konnte nicht bereit gemeldet werden");
+        assertTrue(kontrolle.spielStarten(), "Spiel wurde nicht gestartet");
+        assertTrue(kontrolle.spielSpeichern("../GUIServer/gespeichertesSpiel.save"), "Spiel wurde nicht gespeichert");
+
+        assertTrue(kontrolle.spielBeenden(), "Spiel wurde nicht beendet");
+        assertTrue(kontrolle.spielLaden("../GUIServer/gespeichertesSpiel.save"), "Spiel wurde nicht geladen");
 
         assertEquals(true, kontrolle.spielStarten(), "Spiel wurde nicht gestartet");
         assertEquals(Zustand.ErstiesVerteilen, anzeige.aktuellePhase(), "Spiel hat nicht den Zustand ErstiesVerteilen");

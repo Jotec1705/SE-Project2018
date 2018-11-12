@@ -1,6 +1,7 @@
 package GUIServer;
 
 import Spieldaten.IAnzeigedaten;
+import Spiellogik.ISpielkontrolle;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,30 +11,29 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test der Callbackschnittstelle Schnittstelle")
 class GUIServerICallbackTest {
 
-    IGUIServerCallback callback = null;
     GUIServerTest gui = null;
-    IAnzeigedaten anzeige = null;
+    ISpielkontrolle spielkontrolle = null;
 
     @BeforeAll
     public void initVorAllenTests(){
-        System.out.println("[Start] Bereite einige Tests vor");
+
     }
 
 
     @BeforeEach
     public  void initVorEinemTest(){
-        System.out.println("[Init] Bereite einen konkreten Test vor");
+
 
     }
 
     @AfterEach
     public void testEnde(){
-        System.out.println("..Test erfolgreich beendet!!");
+
     }
 
     @AfterAll
     public void Aufraeumen(){
-        System.out.println("[End] Alle Tests beendet. Räume auf.");
+
 
     }
 
@@ -42,12 +42,10 @@ class GUIServerICallbackTest {
      */
     @Test
     public void aktualisierungTest(){
-        System.out.println("[Aktualisierung] läuft");
 
-        assertEquals(true, callback.aktualisierung(), "Aktualisierung nicht erfolgreich");
-        assertEquals(true, gui.spielerNamen == anzeige.spielerNamen(), "Spielernamen nicht korrekt aktualisiert");
-        assertEquals(true, gui.spielerBereit == anzeige.spielerBereit(), "Spieler bereit nicht korrekt aktualisiert");
-        assertEquals(true, gui.ipAdressen == anzeige.ipAdressen(), "Spieler IP-Adressen nicht korrekt aktualisiert");
+
+        assertEquals(true, spielkontrolle.spielLaden("../GUIServer/gespeichertesSpiel.save"), "Datei konnte nicht geladen werden");
+        assertEquals(true, gui.aktualisiert, "Aktualisierung nicht erfolgreich");
 
     }
 
