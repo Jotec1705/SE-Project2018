@@ -1,6 +1,6 @@
 /*Ich habe bewusst nur die Tests implementiert, die hier zu sehen sind. Die restlichen Methoden der Schnittstelle
 * entsprechen nur irgendwelchen Meldungen*/
-package KommunikationServer;
+package Spiellogik;
 
 import Spiellogik.ISpiellogik;
 import Spieldaten.ISpieldaten;
