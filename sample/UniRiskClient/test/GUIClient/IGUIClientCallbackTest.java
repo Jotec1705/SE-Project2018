@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
-class GUIClientCallbackTest {
+class IGUIClientCallbackTest {
     public IGUIClientCallback callback;
 
     @Test
