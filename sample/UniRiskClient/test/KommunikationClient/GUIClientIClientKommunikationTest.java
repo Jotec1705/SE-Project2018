@@ -1,5 +1,6 @@
-package GUIClient;
+package KommunikationClient;
 
+import GUIClient.ClientKommunikationDummy;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("IClientKommunikationTest")
 public class GUIClientIClientKommunikationTest {
     public ClientKommunikationDummy dummy;
+    //Kombidummy Spiellogik Spieldaten
 
     @Test
     public void testSpielerAnmelden(){
