@@ -41,7 +41,9 @@ public class GUIClientDummy{
     }
 
     boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer, Integer verloreneErsties, Integer gewonnen) {
-        return nameSpieler == "Horst" && ;
+        int[] wuerfelv = {4, 5};
+        int[] wuerfela = {3, 6};
+        return nameSpieler == "Horst" && wuerfelVerteidiger == wuerfelv && wuerfelAngreifer == wuerfela && verloreneErsties == 1 && gewonnen == 1;
     }
 
     boolean spielBeendet() {
