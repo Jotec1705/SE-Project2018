@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test IClientKommunikation")
 public class IClientKommunikationTest {
     public IClientKommunikation test;
+
     //Kombidummy Spiellogik Spieldaten
 
     @Test

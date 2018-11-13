@@ -1,5 +1,6 @@
 package GUIClient;
 
+import KommunikationClient.IClientKommunikation;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,15 +8,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IGUIClientCallbackTest {
     public IGUIClientCallback callback;
+    public GUIClientDummy dummy;
+    public IClientKommunikation kommunikation;
 
     @Test
-    public void testAktualisierenLobby(){
-        assertTrue(callback.aktualisierenLobby(), "Lobby aktualisieren funktioniert nicht");
+    public void testErstiesAnzahlErhoehen(){
+        assertTrue(kommunikation.erstiesAnzahlErhoehen(9, "Horst"), "Ersties wurden nicht erhöht");
+        assertTrue(dummy.aktualisierenLobby(), "Lobby aktualisieren funktioniert nicht"); //?
     }
 
     @Test
     public void testAktualisierenKarte(){
-        assertTrue(callback.aktualisierenKarte(), "Karte aktualisieren funktioniert nicht");
+        assertTrue(dummy.aktualisierenKarte(), "Karte aktualisieren funktioniert nicht");
     }
 
     @Test
