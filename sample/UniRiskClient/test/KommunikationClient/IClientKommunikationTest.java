@@ -8,92 +8,94 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test IClientKommunikation")
 public class IClientKommunikationTest {
     public IClientKommunikation test;
-
+    public SpiellogikSpieldatenDummy anzeigedatenDummy;
+    public SpiellogikSpieldatenDummy spiellogikDummy;
     //Kombidummy Spiellogik Spieldaten
 
     @Test
     public void testSpielerAnmelden(){
-        assertTrue(test.spielerAnmelden("Bob", "p@ssw0rt"), "Spieler anmelden war nicht erfolgreich");
+        assertTrue(spiellogikDummy.spielerAnmelden("Horst", "blutwurst"), "Spieler anmelden war nicht erfolgreich");
     }
 
     @Test
     public void testSpielerAusgestiegen(){
-        assertTrue(test.spielerAusgestiegen("Bob"));
+        assertTrue(spiellogikDummy.spielerAusgestiegen("Piet"));
     }
 
     @Test
     public void testSpielerBereitMelden(){
-        assertTrue(test.spielerBereitMelden("Bob"));
+        assertTrue(spiellogikDummy.spielerBereitMelden("Horst"));
     }
 
     @Test
     public void testAktuellePhase(){
-        assertEquals("Phase 1", test.aktuellePhase(), "Es wird nicht die richtige Phase angezeigt.");
+        assertEquals("PhaseII", anzeigedatenDummy.aktuellePhase(), "Es wird nicht die richtige Phase angezeigt.");
     }
 
     @Test
     public void testErstiesAnzahlErhoehen(){
-        assertTrue(test.erstiesAnzahlErhoehen(1, "Bob"), "Bob ist nicht der Besitzer oder er hat keine Ersties mehr");
+        assertTrue(spiellogikDummy.erstiesAnzahlErhoehen(9, "Horst"), "Bob ist nicht der Besitzer oder er hat keine Ersties mehr");
     }
 
     @Test
     public void testAnzahlBonuskarten(){
-        Integer[] bonuskarten = {0, 1, 0};
-        assertArrayEquals(bonuskarten, test.anzahlBonuskarten("Bob"), "Nicht die richtigen Anzahlen");
+        Integer[] bonuskarten = {0, 2, 0};
+        assertArrayEquals(bonuskarten, anzeigedatenDummy.anzahlBonuskarten("Horst"), "Nicht die richtigen Anzahlen");
     }
 
     @Test
     public void testAnzahlZuVerteilendeErsties(){
-        assertEquals(test.anzahlZuVerteilendeErsties("Bob"), "Nicht die richtige Anzahl");
+        Integer anzahl = 3;
+        assertEquals(anzahl, anzeigedatenDummy.anzahlZuVerteilendeErsties("M@rianne"), "Nicht die richtige Anzahl");
     }
 
     @Test
     public void testAnzahlErstiesAufGebaeude(){
-        Integer[] ersties = {5, 6, 1, 15};
-        assertArrayEquals(ersties, test.anzahlErstiesAufGebaeude(), "Nicht die richtigen Anzahlen");
+        Integer[] ersties = {5, 1, 1, 2, 3};
+        assertArrayEquals(ersties, anzeigedatenDummy.anzahlErstiesAufGebaeude(), "Nicht die richtigen Anzahlen");
     }
 
     @Test
     public void testAngriffVonNach(){
-        assertTrue(test.angriffVonNach(1, 5, 2, "Bob"), "Angriff ist nicht durchführbar");
+        assertTrue(spiellogikDummy.angriffVonNach(14, 5, 15, "P3t3r"), "Angriff ist nicht durchführbar");
     }
 
     @Test
     public void testEigeneGebaeude(){
-        Integer[] gebaeude = {1, 16, 21, 30};
-        assertArrayEquals(gebaeude, test.eigeneGebaeude("Bob"), "Die IDs stimmen nicht");
+        Integer[] gebaeude = {3, 8, 17, 21};
+        assertArrayEquals(gebaeude, test.eigeneGebaeude("Horst"), "Die IDs stimmen nicht");
     }
 
     @Test
     public void testAngreifbareNachbarGebaeude(){
-        Integer[] gebaeude = {2, 10, 13, 25};
-        assertArrayEquals(gebaeude, test.angreifbareNachbarGebaeude(1, "Bob"), "Nicht die richtigen Gebäude");
+        Integer[] gebaeude = {10, 18};
+        assertArrayEquals(gebaeude, anzeigedatenDummy.angreifbareNachbarGebaeude(17, "Horst"), "Nicht die richtigen Gebäude");
     }
 
     @Test
     public void testGewuerfelt(){
-        assertTrue(test.gewuerfelt("Bob"), "Würfeln funktionierte nicht");
+        assertTrue(spiellogikDummy.gewuerfelt("M@rianne"), "Würfeln funktionierte nicht");
     }
 
     @Test
     public void testVersetzenVonNach(){
-        assertTrue(test.versetzenVonNach(1, 2, 3, "Bob"), "Versetzen ging nicht");
+        assertTrue(spiellogikDummy.versetzenVonNach(15, 1, 14, "P3t3r"), "Versetzen ging nicht");
     }
 
     @Test
     public void testEigeneNachbarGebaeude(){
-        Integer[] gebaeude = {2, 8};
-        assertArrayEquals(gebaeude, test.eigeneNachbarGebaeude(1, "Bob"));
+        Integer[] gebaeude = {11, 13, 15};
+        assertArrayEquals(gebaeude, anzeigedatenDummy.eigeneNachbarGebaeude(12, "Bob"));
     }
 
     @Test
     public void testZugBeendet(){
-        assertTrue(test.zugBeendet("Bob"), "Zug lies sich nicht beenden");
+        assertTrue(spiellogikDummy.zugBeendet("Horst"), "Zug lies sich nicht beenden");
     }
 
     @Test
     public void testFarbeSpieler(){
-        Integer[] farben = {1, 5, 2, 4, 3};
-        assertArrayEquals(farben, test.farbeSpieler(), "nicht die richtigen Farben");
+        Integer[] farben = {3, 8, 10};
+        assertArrayEquals(farben, anzeigedatenDummy.farbeSpieler(), "nicht die richtigen Farben");
     }
 }
