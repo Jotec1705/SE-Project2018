@@ -16,61 +16,75 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class KommunikationsServerICallbackTest {
 
     public IKommunikationServerCallback callback = null;
-    public GUIClient client = null;
+    public GUIClientDummy dummy = null;
 
     @BeforeAll
     public void initVorAllenTests(){
-        System.out.println("[Start] Bereite einige Tests vor");
+
     }
 
 
     @BeforeEach
     public  void initVorEinemTest(){
-        System.out.println("[Init] Bereite einen konkreten Test vor");
+
 
     }
 
     @AfterEach
     public void testEnde(){
-        System.out.println("..Test erfolgreich beendet!!");
+
     }
 
     @AfterAll
     public void Aufraeumen(){
-        System.out.println("[End] Alle Tests beendet. Räume auf.");
+
 
     }
 
-    /**
-     * Dieser Test hat die funktion zu testen, ob bei GUIClient (Hier durch eine Dummy-Klasse repräsentiert)
-     * tatsächlich einem neuen Spieler der Zug zugeteilt wurde.
-     */
+    @Test
+    public void testLobbyAktualisieren(){
+        assertEquals(true, dummy.aktualisierenLobby(), "Die Anfrage zum" +
+                "Aktualisieren der Lobby wurde nicht korrekt verarbeitet");
+    }
+
+    @Test
+    public void testKarteAktualisieren(){
+        assertEquals(true, dummy.aktualisierenKarte(), "Die Anfrage zum" +
+                "Aktualisieren der Karte wurde nicht korrekt verarbeitet");
+    }
+
+
     @Test
     public void testZugZuteilung(){
-        System.out.println("[ZugZuteilung] Läuft..");
+        assertEquals(true, dummy.zugZuteilung("Horst"), "Die Zuteilung" +
+                "des Zuges an den Spieler wurde nicht korrekt durchgeführt");
 
-        callback.zugZuteilung("Horst");
-
-        assertEquals("Horst", client.aktuellerSpieler, "Der nächste Spieler wurde nicht korrekt" +
-                "ausgewählt.");
+        assertEquals(true, dummy.zugZuteilung("M@rianne"), "Die " +
+                "Zuteilung des Zuges an den Spieler wurde nicht korrekt durchgeführt");
 
     }
 
-    /**
-     * Dieser Test hat die funktion zu testen, ob bei GUIClient (Hier durch eine Dummy-Klasse repräsentiert)
-     * tatsächlich der Richtige Spieler für das richtige Gebäude zur Verteidigung ausgewählt wurde.
-     */
+
     @Test
-    public void testAbwehrAuswahl(){
-        System.out.println("[AbwehrAuswahl] Läuft..");
+    public void testAbwehr(){
+        assertEquals(true, dummy.angriffAbwehren("Horst", 17),
+                "Der Spieler ist nicht der Besitzer");
 
-        callback.angriffAbwehren("M@rianne", 8);
+        assertEquals(true, dummy.angriffAbwehren("P3t3r", 17),
+                "Der Spieler ist nicht der Besitzer");
 
-        assertEquals("M@rianne", client.nameVerteidiger, "Es wurde nicht der korrekte Spieler zur " +
-                "Verteidigung ausgewählt");
-        assertEquals(java.util.Optional.of(8), client.gebaeudeIdVerteidiger, "Es wurde nicht das korrekte Gebäude " +
-                "zur Verteidigung ausgewählt");
     }
+
+    @Test
+    public void testWuerfelErgebnis(){
+        int[] wuerfelv = {4, 5};
+        int[] wuerfela = {3, 6};
+        assertEquals(true, dummy.wuerfelErgebnis("Horst", wuerfelv,
+                wuerfela, 1, 1), "Das Würfelergebnis" +
+                "wurde nicht korrekt beim Client verarbeitet");
+    }
+
+
 
 
 

@@ -194,11 +194,12 @@ public class SpiellogikSpieldatenDummy {
     }
 
 
-    /*Valide Parameterwerte "Horst", "blutwurst1"*/
+    /*Valide Parameterwerte "Horst", "blutwurst1"
     boolean spielerAnmelden(String nameSpieler, String passwort){
         return (nameSpieler == "Horst") && (passwort == "blutwurst1");
     }
-
+    Bereits in ISpiellogik implementiert
+    */
 
     boolean[] spielerBereit(){
 
@@ -231,9 +232,10 @@ public class SpiellogikSpieldatenDummy {
 
     //##############################Ab hier die Methoden der ISpiellogik#################################################
 
-    /*Die Methode ist bereits durch den Spieldatenteil implementiert
-    boolean spielerAnmelden(String nameSpieler, String passwort);
-    */
+    /*Valide Parameterwerte "Horst", "blutwurst1"*/
+    boolean spielerAnmelden(String nameSpieler, String passwort){
+        return (nameSpieler == "Horst") && (passwort == "blutwurst1");
+    }
 
     /*Valide Parameterwerte "Piet"*/
     boolean spielerAusgestiegen(String nameSpieler){

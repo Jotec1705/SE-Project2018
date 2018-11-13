@@ -2,8 +2,6 @@
 * entsprechen nur irgendwelchen Meldungen*/
 package Spiellogik;
 
-import Spiellogik.ISpiellogik;
-import Spieldaten.ISpieldaten;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
@@ -14,43 +12,54 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Test der Spiellogik Schnittstelle")
 class KommunikationServerISpiellogikTest  {
-    public ISpiellogik logik = null;
-    public ISpieldaten daten = null;
+    public SpiellogikSpieldatenDummy dummy = null;
 
 
     @BeforeAll
     public void initVorAllenTests(){
-        System.out.println("[Start] Bereite einige Tests vor");
+
     }
 
 
     @BeforeEach
     public  void initVorEinemTest(){
-        System.out.println("[Init] Bereite einen konkreten Test vor");
 
     }
 
     @AfterEach
     public void testEnde(){
-        System.out.println("..Test erfolgreich beendet!!");
+
     }
 
     @AfterAll
     public void Aufraeumen(){
-        System.out.println("[End] Alle Tests beendet. Räume auf.");
 
     }
 
-    /**
-     * Dieser Test soll überprüfen, ob die Anzahl der Ersties korrekt erhöht wird, sobald von Oben die Anweisung
-     * durch klicken auf ein Gebäude dazu kommt. Das korrekte Hochzählen wird fünfmal geprüft. Zudem soll geprüft
-     * werden, dass es nicht möglich ist, die Anzahl auf Gebäuden zu erhöhen, die einem nicht gehören.
-     */
+    @Test
+    public void testSpielerAnmelden(){
+        assertEquals(true, dummy.spielerAnmelden("Horst", "blutwurst1"),
+                "Der Spieler (Name-Pw Paar) wurde nicht angelegt");
+    }
+
+    @Test
+    public void testSpielerAusgestiegen(){
+        assertEquals(true, dummy.spielerAusgestiegen("Piet"),
+                "Die Benachritigung, dass der Spieler ausgestiegen ist, wurde nicht" +
+                        "korrekt verarbeitet");
+    }
+
+    @Test
+    public void testSpielerBereitMelden(){
+        assertEquals(true, dummy.spielerBereitMelden("Horst"),
+                "Die Benachrichtigung, dass der Spieler Bereit ist, wurde nicht" +
+                        "korrekt verarbeitet");
+    }
+
+
     @Test
     public void testErstiesHochzaehlen(){
-        System.out.println("[ErstiesHochzaehlen] Läuft..");
-
-        Integer anzahl = 0;
+        /*Integer anzahl = 0;
         Integer compare = 0;
 
         for(int j = 0; j < 5; j++) {
@@ -59,20 +68,17 @@ class KommunikationServerISpiellogikTest  {
                                                             "nicht erlaubt, da Horst nicht der Besitzer von Gebäude 3");
             compare = anzahl + 1;
             assertEquals(compare, daten.anzahlErstiesGebaeude(3), "Anzahl der Ersties wurde nicht erhöht!");
-        }
+        }*/
 
-
+        assertEquals(true, dummy.erstiesAnzahlErhoehen(9, "Horst"),
+                "Die Anzahl der Ersties wurde nicht korrekt erhöht, oder der Spieler ist " +
+                        "nicht der Eigentümer des Gebäudes");
     }
 
-    /**
-     * Dieser Test überprüft zunächst, ob die Spiellogik korrekte Angriffsanfragen zulässt und prüft danach, ob
-     * inkorrekte Angriffsanfragen (auf unterschiedliche Weise inkorrekt) abgewiesen werden.
-     */
+
     @Test
     public void testAngreifen(){
-        System.out.println("[Angreifen] Läuft..");
-
-        assertEquals(true, logik.angriffVonNach(3, 5, 1,
+        /*assertEquals(true, logik.angriffVonNach(3, 5, 1,
                 "Horst"), "Es wurde nicht erkannt, dass der Angriff zulässig ist");
         assertEquals(true, logik.angriffVonNach(16, 2, 22,
                 "Horst"), "Es wurde nicht erkannt, dass der Angriff zulässig ist");
@@ -87,18 +93,19 @@ class KommunikationServerISpiellogikTest  {
                 "(Das Ursprungsgebäude gehört nicht dem Spieler");
         assertEquals(false, logik.angriffVonNach(17, 3, 18,
                 "Horst"), "Es wurde nicht erkannt, dass der Angriff nicht zulässig ist" +
-                "(Das Zielgebäude gehört bereits dem Spieler");
+                "(Das Zielgebäude gehört bereits dem Spieler");*/
+
+        assertEquals(true, dummy.angriffVonNach(14, 5,
+                15, "P3t3r"), "Urspungsgebäude gehört nicht" +
+                "dem Spieler || Zielgebäude gehört dem Spieler bereits || Nicht genung Einheiten" +
+                "auf dem Ursprungsgebäude");
     }
 
-    /**
-     * Dieser Test überprüft zunächst, ob die Spiellogik korrekte Versetzungsanfragen zulässt und prüft danach, ob
-     * inkorrekte Versetzungsanfragen (auf unterschiedliche Weise inkorrekt) abgewiesen werden.
-     */
+
     @Test
     public void testVersetzen(){
-        System.out.println("[Versetzen] Läuft..");
 
-        assertEquals(true, logik.versetzenVonNach(3, 5, 1,
+        /*assertEquals(true, logik.versetzenVonNach(3, 5, 1,
                 "Horst"), "Es wurde nicht erkannt, dass das Versetzen zulässig ist");
         assertEquals(true, logik.versetzenVonNach(16, 2, 22,
                 "Horst"), "Es wurde nicht erkannt, dass das Versetzen zulässig ist");
@@ -113,19 +120,30 @@ class KommunikationServerISpiellogikTest  {
                 "(Das Ursprungsgebäude gehört nicht dem Spieler");
         assertEquals(false, logik.versetzenVonNach(17, 3, 18,
                 "Horst"), "Es wurde nicht erkannt, dass das Versetzen nicht zulässig ist" +
-                "(Das Zielgebäude gehört nicht dem Spieler");
+                "(Das Zielgebäude gehört nicht dem Spieler");*/
+
+        assertEquals(true, dummy.versetzenVonNach(15, 1,
+                14, "P3t3r"), "Ursprungsgebäude gehört nicht dem " +
+                "Spieler || Zielgebäude gehört nicht dem Spieler || Nicht genug Einheiten auf dem " +
+                "Ursprungsgebäude");
+
     }
 
-    /**
-     * Dieser Test überprüft, ob nachdem Beenden seines Zuges, die Zugzuteilung auf den nächsten Spieler übergeht.
-     */
+
     @Test
     public void testZugWeiterschaltung(){
-        System.out.println("[ZugWeiterschaltung] Läuft..");
-
-        logik.zugBeendet("Horst");
+        /*logik.zugBeendet("Horst");
         assertEquals("P3t3r", daten.aktuellerSpieler(), "Der Zug ist entweder immer noch bei Horst," +
-                "oder der Zug wurde einem Spieler zugeteil, der nicht an der Reihe ist.");
+                "oder der Zug wurde einem Spieler zugeteil, der nicht an der Reihe ist.");*/
+
+        assertEquals(true, dummy.zugBeendet("Horst"), "Die Meldung," +
+                "dass der Spieler seinen Zug beendet hat, wurde nicht korrekt verarbeitet");
+    }
+
+    @Test
+    public void testGewürfelt(){
+        assertEquals(true, dummy.gewuerfelt("M@rianne"), "Die Meldung" +
+                "dass der Spieler gewürfelt hat, wurde nicht korrekt verarbeitet");
     }
 
 
