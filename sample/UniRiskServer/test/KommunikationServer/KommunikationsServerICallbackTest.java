@@ -13,11 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class KommunikationsServerICallbackTest {
 
     public ISpiellogik logik = null;
+    public IKommunikationServerCallback beobachter;
     public IKommunikationServerCallbackDummy dummy = null;
 
     @BeforeAll
     public void initVorAllenTests(){
         //Beobachter in der der Spiellogik hinzufügen
+        logik.beobachterHinzufuegen(beobachter);
 
     }
 
@@ -48,9 +50,9 @@ public class KommunikationsServerICallbackTest {
 
     @Test
     public void testKarteAktualisieren(){
-        //wie oben
-        assertEquals(true, dummy.aktualisierenKarte(), "Die Anfrage zum" +
-                "Aktualisieren der Karte wurde nicht korrekt verarbeitet");
+        dummy.aktualisiereKarteAufgerufen = false;
+        logik.erstiesAnzahlErhoehen(3, "Horst");
+        assertTrue(dummy.aktualisiereKarteAufgerufen);
     }
 
 

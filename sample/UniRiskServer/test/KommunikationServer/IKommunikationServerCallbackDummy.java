@@ -3,6 +3,7 @@ package KommunikationServer;
 public class IKommunikationServerCallbackDummy {
 
     public boolean aktualisiereLobbyAufgerufen = false;
+    public boolean aktualisiereKarteAufgerufen = false;
 
     boolean aktualisierenLobby() {
         aktualisiereLobbyAufgerufen = true;
@@ -10,7 +11,8 @@ public class IKommunikationServerCallbackDummy {
     }
 
     boolean aktualisierenKarte() {
-        return true;
+        aktualisiereKarteAufgerufen = true;
+        return aktualisiereKarteAufgerufen;
     }
 
     boolean zugZuteilung(String nameSpieler) {

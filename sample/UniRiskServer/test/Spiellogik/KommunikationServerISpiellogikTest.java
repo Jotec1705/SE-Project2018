@@ -2,23 +2,26 @@
 package Spiellogik;
 
 
+import Spieldaten.ISpieldaten;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
 @DisplayName("Test der Spiellogik Schnittstelle")
 class KommunikationServerISpiellogikTest  {
     public ISpiellogik logik = null;
+    public ISpielkontrolle kontrolle = null;
+    public ISpieldaten daten = null;
 
 
     @BeforeAll
     public void initVorAllenTests(){
         //Ein Spiel muss angelegt werden über Spielkontrolle mit einem Menschen und dem Rest bots.
-
-
+        //Folgende Spielerreihenfolge muss gegeben sein nach Anlegen ["Horst", "Piet", "P3t3r", "M@rianne"]
+        kontrolle.spielAnlegen(4);
     }
 
 
@@ -47,11 +50,11 @@ class KommunikationServerISpiellogikTest  {
     public void testSpielerAusgestiegen(){
         logik.spielerAnmelden("Piet", "blutwurst1");
         assertEquals(true, logik.spielerAusgestiegen("Piet"),
-                "Die Benachritigung, dass der Spieler ausgestiegen ist, wurde nicht" +
+                "Die Benachrichtigung, dass der Spieler ausgestiegen ist, wurde nicht" +
                         "korrekt verarbeitet");
 
         assertEquals(false, logik.spielerAusgestiegen("Horst"),
-                "Die Benachritigung, dass der Spieler ausgestiegen ist, wurde nicht" +
+                "Die Benachrichtigung, dass der Spieler ausgestiegen ist, wurde nicht" +
                         "korrekt verarbeitet");
     }
 
@@ -69,9 +72,8 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testErstiesHochzaehlen(){
-
+        kontrolle.spielStarten();
         //Hier muss das Spiel gestartet werden, dann das ->
-
         assertEquals(true, logik.erstiesAnzahlErhoehen(9, "Horst"),
                 "Die Anzahl der Ersties wurde nicht korrekt erhöht, oder der Spieler ist " +
                         "nicht der Eigentümer des Gebäudes");
@@ -80,6 +82,10 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testAngreifen(){
+        kontrolle.spielStarten();
+        assertTrue(logik.erstiesAnzahlErhoehen(3, "Horst"));
+        assertTrue(logik.erstiesAnzahlErhoehen(4, "Horst"));
+        assertTrue(daten.aktuellePhaseSetzen("PhaseII"));
         //Hier muss das Spiel gestartet werden, dann das ->
         //Phase I und ersties verteilen abgeschlossen
 
@@ -92,7 +98,10 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testVersetzen(){
-
+        kontrolle.spielStarten();
+        assertTrue(logik.erstiesAnzahlErhoehen(3, "Horst"));
+        assertTrue(logik.erstiesAnzahlErhoehen(4, "Horst"));
+        assertTrue(daten.aktuellePhaseSetzen("PhaseIII"));
         //Hier muss das Spiel gestartet werden, dann das ->
         //Phase I und ersties verteilen abgeschlossen
 
@@ -106,17 +115,20 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testZugWeiterschaltung(){
+        kontrolle.spielStarten();
+        assertTrue(logik.erstiesAnzahlErhoehen(3, "Horst"));
+        assertTrue(logik.erstiesAnzahlErhoehen(4, "Horst"));
         //Hier muss das Spiel gestartet werden, dann das ->
         //Phase I und ersties verteilen abgeschlossen
-
         assertEquals(true, logik.zugBeendet("Horst"), "Die Meldung," +
                 "dass der Spieler seinen Zug beendet hat, wurde nicht korrekt verarbeitet");
+        assertEquals("Piet", daten.aktuellerSpieler());
     }
 
     @Test
     public void testGewürfelt(){
         //keine Vorbedingungen
-
+        //Für den True fall muss sich nochmal was überlegt werden. Der ist nicht ganz ohne.
         assertEquals(false, logik.gewuerfelt("M@rianne"), "Die Meldung" +
                 "dass der Spieler gewürfelt hat, wurde nicht korrekt verarbeitet");
     }
