@@ -1,7 +1,7 @@
 package KommunikationServer;
 
 
-public interface IKommunikationServerCallback {
+public interface IKommunikationServerCallback{
 
     /**
      * Diese Methode soll ein Spielende durch den Host an die Clients weiterleiten. Wird sie von der Spiellogik

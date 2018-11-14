@@ -72,6 +72,8 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testErstiesHochzaehlen(){
+        logik.spielerAnmelden("Horst", "blutwurst1");
+        logik.spielerBereitMelden("Horst");
         kontrolle.spielStarten();
         //Hier muss das Spiel gestartet werden, dann das ->
         assertEquals(true, logik.erstiesAnzahlErhoehen(9, "Horst"),
@@ -82,6 +84,8 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testAngreifen(){
+        logik.spielerAnmelden("Horst", "blutwurst1");
+        logik.spielerBereitMelden("Horst");
         kontrolle.spielStarten();
         assertTrue(logik.erstiesAnzahlErhoehen(3, "Horst"));
         assertTrue(logik.erstiesAnzahlErhoehen(4, "Horst"));
@@ -98,6 +102,8 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testVersetzen(){
+        logik.spielerAnmelden("Horst", "blutwurst1");
+        logik.spielerBereitMelden("Horst");
         kontrolle.spielStarten();
         assertTrue(logik.erstiesAnzahlErhoehen(3, "Horst"));
         assertTrue(logik.erstiesAnzahlErhoehen(4, "Horst"));
@@ -115,6 +121,8 @@ class KommunikationServerISpiellogikTest  {
 
     @Test
     public void testZugWeiterschaltung(){
+        logik.spielerAnmelden("Horst", "blutwurst1");
+        logik.spielerBereitMelden("Horst");
         kontrolle.spielStarten();
         assertTrue(logik.erstiesAnzahlErhoehen(3, "Horst"));
         assertTrue(logik.erstiesAnzahlErhoehen(4, "Horst"));
