@@ -2,8 +2,7 @@ package Spieldaten;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
@@ -14,25 +13,22 @@ class SpieldatenISpieldatenTest {
 
     @BeforeAll
     public void initVorAllenTests(){
-        System.out.println("[Start] Bereite einige Tests vor");
 
     }
 
 
     @BeforeEach
     public  void initVorEinemTest(){
-        System.out.println("[Init] Bereite einen konkreten Test vor");
 
     }
 
     @AfterEach
     public void testEnde(){
-        System.out.println("..Test erfolgreich beendet!!");
+
     }
 
     @AfterAll
     public void Aufraeumen(){
-        System.out.println("[End] Alle Tests beendet. Räume auf.");
 
     }
 
@@ -40,17 +36,16 @@ class SpieldatenISpieldatenTest {
      *
      */
     @Test
-    void anzahlGebaeudeSpielerTest(String nameSpieler){
-        System.out.println("[AnzahlGebäudeSieler] läuft");
-        //assertEquals(5, spieldaten.anzahlGebaeudeSpieler("David"),"Ungleich");
+    void testAnzahlGebaeudeSpieler(String nameSpieler){
+        Integer gebaeudeSpieler = 5;
+        assertEquals(gebaeudeSpieler, spieldaten.anzahlGebaeudeSpieler("David"),"Ungleich");
     }
 
     /**
      *
      */
     @Test
-    void besitzerGebaeudeTest(Integer gebaeude){
-        System.out.println("[BesitzerGebäude] läuft");
+    void testBesitzerGebaeude(Integer gebaeude){
         assertEquals("David", spieldaten.besitzerGebaeude(1));
     }
 
@@ -58,8 +53,7 @@ class SpieldatenISpieldatenTest {
      *
      */
     @Test
-    void besitzerGebaeudeAnpassenTest(Integer gebaeude, String nameSpieler){
-        System.out.println("[BesitzerGebäudeAnpassen] läuft");
+    void testBesitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler){
         assertEquals(true, spieldaten.besitzerGebaeudeAnpassen(1, "David"));
     }
 
@@ -67,8 +61,7 @@ class SpieldatenISpieldatenTest {
      *
      */
     @Test
-    void nachbarGebaeudeTest(Integer gebaeude){
-        System.out.println("[NachbarGebäude] läuft");
+    void testNachbarGebaeude(Integer gebaeude){
         Integer [] nachabarGebaeude = {2,3,12,13};
         assertArrayEquals(nachabarGebaeude, spieldaten.nachbarGebaeude(1));
 
@@ -78,9 +71,9 @@ class SpieldatenISpieldatenTest {
      *
      */
     @Test
-    void anzahlErstiesGebaeude(Integer gebaeude){
-        System.out.println("[AnzahlErstiesGebäude] läuft");
-        //assertEquals(10, spieldaten.anzahlErstiesGebaeude(1));
+    void testanzahlErstiesGebaeude(Integer gebaeude){
+        Integer anzahlErsties = 10;
+        assertEquals(anzahlErsties, spieldaten.anzahlErstiesGebaeude(1));
 
     }
 
@@ -88,126 +81,117 @@ class SpieldatenISpieldatenTest {
      *
      */
     @Test
-    void anzahlErstiesAnpassenTest(Integer gebaeude, Integer anzahlErsties){
-        System.out.println("[AnzahlErstiesAnpassen] läuft");
-
+    void testAnzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties){
+        assertEquals(true, spieldaten.anzahlErstiesAnpassen(1,10));
     }
 
     /**
      *
      */
     @Test
-    void anzahlFachbereicheSpielerTest(String nameSpieler){
-        System.out.println("[AnzahlFachbereicheSpieler] läuft");
-
+    void testAnzahlFachbereicheSpieler(String nameSpieler){
+        Integer anzahlFachbereich = 1;
+        assertEquals(anzahlFachbereich, spieldaten.anzahlFachbereicheSpieler("Meyer"));
     }
 
     /**
      *
      */
     @Test
-    void besitzerFachbereichAnpassenTest(Integer fachbereich, String nameSpieler){
-        System.out.println("[BesitzerFachbereichAnpassen] läuft");
-
+    void testBesitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler){
+        assertEquals(true, spieldaten.besitzerFachbereichAnpassen(1,"Müller"));
     }
 
     /**
      *
      */
     @Test
-    void anzahlDerBonuskartenTest(String nameSpieler, Bonuskarte typBonuskarte){
-        System.out.println("[AnzahlDerBonusKarten] läuft");
-
+    void testAnzahlDerBonuskarten(String nameSpieler, Bonuskarte typBonuskarte){
+        Integer anzahlBonuskarten = 7;
+        assertEquals(anzahlBonuskarten, spieldaten.anzahlDerBonuskarten("Huber",Bonuskarte.Ersties));
     }
 
     /**
      *
      */
     @Test
-    void anzahlDerBonuskartenAnpassenTest(String nameSpieler, Bonuskarte typBonuskarte, Integer anzahlBonuskarten){
-        System.out.println("[AnzahlDerBonusKartenAnpassen] läuft");
-
+    void testAnzahlDerBonuskartenAnpassen(String nameSpieler, Bonuskarte typBonuskarte, Integer anzahlBonuskarten){
+        assertEquals(true, spieldaten.anzahlDerBonuskartenAnpassen("Hans", Bonuskarte.Studenten, 2));
     }
 
     /**
      *
      */
     @Test
-    void missionskarteSpielerTest(String nameSpieler){
-        System.out.println("[MissionskarteSpieler] läuft");
-
+    void testMissionskarteSpieler(String nameSpieler){
+        Missionskarte missionskarte = Missionskarte.BefreienVonStudiengang;
+        assertEquals(missionskarte, spieldaten.missionskarteSpieler("Willi"));
     }
 
     /**
      *
      */
     @Test
-    void aktuellePhaseSetzenTest(String phase){
-        System.out.println("[AktuellePhaseSetzen] läuft");
-
+    void testAktuellePhaseSetzen(String phase){
+        assertEquals(true, spieldaten.aktuellePhaseSetzen("Phase 1"));
     }
 
     /**
      *
      */
     @Test
-    void naechsterSpielerTest(){
-        System.out.println("[NächsterSpieler] läuft");
-
+    void testNaechsterSpieler(){
+        assertEquals(true, spieldaten.naechsterSpieler());
     }
 
     /**
      *
      */
     @Test
-    void spielAnlegenTest(int spielerAnzahl){
-        System.out.println("[SpielAnlegen] läuft");
-
+    void testSpielAnlegen(int spielerAnzahl){
+        assertEquals(true, spieldaten.spielAnlegen(5));
     }
 
     /**
      *
      */
     @Test
-    void spielerAnmeldenTest(String nameSpieler, String passwort){
-        System.out.println("[SpielerAnmelden] läuft");
-
+    void testSpielerAnmelden(String nameSpieler, String passwort){
+        assertEquals(true, spieldaten.spielerAnmelden("Test1","12345"));
     }
 
     /**
      *
      */
     @Test
-    void spielerBereitTest(){
-        System.out.println("[SpielerBereit] läuft");
-
+    void testSpielerBereit(){
+        boolean[] spielerBereit= {true};
+        assertEquals(spielerBereit, spieldaten.spielerBereit());
     }
 
     /**
      *
      */
     @Test
-    void aktuellerSpielerTest(){
-        System.out.println("[aktuellerSpieler] läuft");
-
+    void testAktuellerSpieler(){
+        assertEquals("Heinrich", spieldaten.aktuellerSpieler());
     }
 
     /**
      *
      */
     @Test
-    void spielZustandHolenTest(){
-        System.out.println("[SpielZustandholen] läuft");
-
+    void testSpielZustandHolen(){
+        Zustand spielZustand = Zustand.Aktiv;
+        assertEquals(spielZustand, spieldaten.spielZustandHolen());
     }
 
     /**
      *
      */
     @Test
-    void spielZustandSetzenTest(Zustand aktuellerZustand){
-        System.out.println("[SpielZustandSetzen] läuft");
-
+    void testSpielZustandSetzen(Zustand aktuellerZustand){
+        assertEquals(true, spieldaten.spielZustandSetzen(Zustand.Beendet));
     }
 
 }
