@@ -1,5 +1,7 @@
 package KommunikationClient;
 
+import Spieldaten.ISpieldaten;
+import Spiellogik.ISpielkontrolle;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,93 +9,112 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test IClientKommunikation")
 public class IClientKommunikationTest {
-    public IClientKommunikation test;
+    public IClientKommunikation kommunikation = null;
+    public ISpielkontrolle kontrolle = null;
+    public ISpieldaten daten = null;
+
+    @BeforeAll
+    public void initVorAllenTests(){
+        //spiel anlegen mit einem spieler, sonst Bots
+        kontrolle.spielAnlegen(3);
+    }
 
     @Test
     public void testSpielerAnmelden(){
-        assertTrue(test.spielerAnmelden("Horst", "blutwurst"), "Spieler anmelden war nicht erfolgreich");
+        assertTrue(kommunikation.spielerAnmelden("Horst", "blutwurst"));
     }
 
     @Test
     public void testSpielerAusgestiegen(){
-        test.spielerAnmelden("Piet", "abcd12");
-        assertTrue(test.spielerAusgestiegen("Piet"));
+        kommunikation.spielerAnmelden("Piet", "abcd12");
+        assertTrue(kommunikation.spielerAusgestiegen("Piet"));
     }
 
     @Test
     public void testSpielerBereitMelden(){
-        assertTrue(test.spielerBereitMelden("Horst"));
+        kommunikation.spielerAnmelden("Horst", "blutwurst");
+        assertTrue(kommunikation.spielerBereitMelden("Horst"));
     }
 
     @Test
     public void testAktuellePhase(){
-        assertEquals("PhaseII", test.aktuellePhase(), "Es wird nicht die richtige Phase angezeigt.");
+        kommunikation.spielerAnmelden("Bob", "p@ssw0rt");
+        kommunikation.spielerBereitMelden("Bob");
+        kontrolle.spielStarten();
+        daten.aktuellePhaseSetzen("PhaseI");
+        assertEquals("PhaseI", kommunikation.aktuellePhase());
     }
 
     @Test
     public void testErstiesAnzahlErhoehen(){
-        assertTrue(test.erstiesAnzahlErhoehen(9, "Horst"), "Bob ist nicht der Besitzer oder er hat keine Ersties mehr");
+        kommunikation.spielerAnmelden("Horst", "affe1");
+        kommunikation.spielerBereitMelden("Horst");
+        assertTrue(kommunikation.erstiesAnzahlErhoehen(9, "Horst"));
     }
 
     @Test
     public void testAnzahlBonuskarten(){
         Integer[] bonuskarten = {0, 2, 0};
-        assertArrayEquals(bonuskarten, test.anzahlBonuskarten("Horst"), "Nicht die richtigen Anzahlen");
+        kommunikation.spielerAnmelden("Bob", "p@ssw0rt");
+        kommunikation.spielerBereitMelden("Bob");
+        kontrolle.spielStarten();
+        daten.aktuellePhaseSetzen("PhaseII");
+        assertArrayEquals(bonuskarten, kommunikation.anzahlBonuskarten("Horst"));
     }
 
     @Test
     public void testAnzahlZuVerteilendeErsties(){
         Integer anzahl = 3;
-        assertEquals(anzahl, test.anzahlZuVerteilendeErsties("M@rianne"), "Nicht die richtige Anzahl");
+        assertEquals(anzahl, kommunikation.anzahlZuVerteilendeErsties("M@rianne"), "Nicht die richtige Anzahl");
     }
 
     @Test
     public void testAnzahlErstiesAufGebaeude(){
         Integer[] ersties = {5, 1, 1, 2, 3};
-        assertArrayEquals(ersties, test.anzahlErstiesAufGebaeude(), "Nicht die richtigen Anzahlen");
+        assertArrayEquals(ersties, kommunikation.anzahlErstiesAufGebaeude(), "Nicht die richtigen Anzahlen");
     }
 
     @Test
     public void testAngriffVonNach(){
-        assertTrue(test.angriffVonNach(14, 5, 15, "P3t3r"), "Angriff ist nicht durchführbar");
+        assertTrue(kommunikation.angriffVonNach(14, 5, 15, "P3t3r"), "Angriff ist nicht durchführbar");
     }
 
     @Test
     public void testEigeneGebaeude(){
         Integer[] gebaeude = {3, 8, 17, 21};
-        assertArrayEquals(gebaeude, test.eigeneGebaeude("Horst"), "Die IDs stimmen nicht");
+        assertArrayEquals(gebaeude, kommunikation.eigeneGebaeude("Horst"), "Die IDs stimmen nicht");
     }
 
     @Test
     public void testAngreifbareNachbarGebaeude(){
         Integer[] gebaeude = {10, 18};
-        assertArrayEquals(gebaeude, test.angreifbareNachbarGebaeude(17, "Horst"), "Nicht die richtigen Gebäude");
+        assertArrayEquals(gebaeude, kommunikation.angreifbareNachbarGebaeude(17, "Horst"), "Nicht die richtigen Gebäude");
     }
 
     @Test
     public void testGewuerfelt(){
-        assertTrue(test.gewuerfelt("M@rianne"), "Würfeln funktionierte nicht");
+        assertTrue(kommunikation.gewuerfelt("M@rianne"), "Würfeln funktionierte nicht");
     }
 
     @Test
     public void testVersetzenVonNach(){
-        assertTrue(test.versetzenVonNach(15, 1, 14, "P3t3r"), "Versetzen ging nicht");
+        assertTrue(kommunikation.versetzenVonNach(15, 1, 14, "P3t3r"), "Versetzen ging nicht");
     }
 
     @Test
     public void testEigeneNachbarGebaeude(){
         Integer[] gebaeude = {11, 13, 15};
-        assertArrayEquals(gebaeude, test.eigeneNachbarGebaeude(12, "Bob"));
+        assertArrayEquals(gebaeude, kommunikation.eigeneNachbarGebaeude(12, "Bob"));
     }
 
     @Test
     public void testZugBeendet(){
-        assertTrue(test.zugBeendet("Horst"), "Zug lies sich nicht beenden");
+        assertTrue(kommunikation.zugBeendet("Horst"), "Zug lies sich nicht beenden");
     }
 
     @Test
     public void testFarbeSpieler(){
         Integer[] farben = {3, 8, 10};
-        assertArrayEquals(farben, test.farbeSpieler(), "nicht die richtigen Farben");
+        assertArrayEquals(farben, kommunikation.farbeSpieler(), "nicht die richtigen Farben");
     }
 }
