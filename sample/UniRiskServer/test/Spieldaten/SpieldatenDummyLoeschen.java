@@ -1,6 +1,6 @@
 package Spieldaten;
 
-public class SpieldatenDummy implements IAnzeigedaten{
+public class SpieldatenDummyLoeschen implements IAnzeigedaten{
     public String Testwert = "Test12345";
 
     @Override

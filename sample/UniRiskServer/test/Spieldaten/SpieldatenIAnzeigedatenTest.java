@@ -12,7 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test der Anzeigedaten Schnittstelle")
 class SpieldatenIAnzeigedatenTest {
 
-    SpieldatenDummy dummy = new SpieldatenDummy();
+    IAnzeigedaten anzeige = null;
+    ISpieldaten daten = null;
+    //Triggern über ISpieldaten: Sag darüber ersties erhöhen und schau über IAnzeigedaten, ob das richtig eingetragen wurde
 
     /**
       *  Hier habe ich die  möglichen / nicht möglichen Parameter deklariert um Sie in den
@@ -59,7 +61,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testAngreifbareNachbarGebaeude() {
         System.out.println("[testAngreifbareNachbarGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, dummy.angreifbareNachbarGebaeude(1,"Horst"),"Fehler return angreifbareNachbarGebaeude");
+        assertArrayEquals(wertIntArr, anzeige.angreifbareNachbarGebaeude(1,"Horst"),"Fehler return angreifbareNachbarGebaeude");
 
     }
 
@@ -69,7 +71,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testEigeneNachbarGebaeude() {
         System.out.println("[testEigeneNachbarGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, dummy.eigeneNachbarGebaeude(1,"Horst"),"Fehler return eigeneNachbarGebaeude");
+        assertArrayEquals(wertIntArr, anzeige.eigeneNachbarGebaeude(1,"Horst"),"Fehler return eigeneNachbarGebaeude");
     }
 
     /**
@@ -78,7 +80,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testSpielerNamen() {
         System.out.println("[testSpielerNamen] Läuft..");
-        assertArrayEquals(wertStrArr, dummy.spielerNamen(),"Fehler return spielerNamen#");
+        assertArrayEquals(wertStrArr, anzeige.spielerNamen(),"Fehler return spielerNamen#");
     }
 
 
@@ -88,7 +90,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testSpielerBereit() {
         System.out.println("Hallo liebe Testumgebung");
-        assertArrayEquals(wertBool, dummy.spielerBereit(),"Fehlgeschlagen");
+        assertArrayEquals(wertBool, anzeige.spielerBereit(),"Fehlgeschlagen");
 
     }
 
@@ -98,7 +100,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testIpAdressen() {
         System.out.println("[testIpAdressen] Läuft..");
-        assertArrayEquals(wertStrArr, dummy.ipAdressen(),"Fehler return IpAdressen");
+        assertArrayEquals(wertStrArr, anzeige.ipAdressen(),"Fehler return IpAdressen");
     }
 
 
@@ -108,7 +110,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testAnzahlErstiesAufGebaeude() {
         System.out.println("[testAnzahlErstiesAufGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, dummy.anzahlErstiesAufGebaeude(),"Fehler return anzahlErstiesAufGebaeude");
+        assertArrayEquals(wertIntArr, anzeige.anzahlErstiesAufGebaeude(),"Fehler return anzahlErstiesAufGebaeude");
     }
 
 
@@ -118,7 +120,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testFarbeSpieler() {
         System.out.println("[testFarbeSpieler] Läuft..");
-        assertArrayEquals(wertIntArr, dummy.farbeSpieler(),"Fehler return farbeSpieler");
+        assertArrayEquals(wertIntArr, anzeige.farbeSpieler(),"Fehler return farbeSpieler");
     }
 
     /**
@@ -127,8 +129,8 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testAnzahlZuVerteilendeErsties() {
         System.out.println("[testAnzahlZuVerteilendeErsties] Läuft..");
-        assertEquals(wertIntOK, dummy.anzahlZuVerteilendeErsties("Horst"),"Fehler return anzahZuVerteilendeErsties");
-        assertNotEquals(wertIntBAD, dummy.anzahlZuVerteilendeErsties("Horst"),"Fehler return anzahZuVerteilendeErsties");
+        assertEquals(wertIntOK, anzeige.anzahlZuVerteilendeErsties("Horst"),"Fehler return anzahZuVerteilendeErsties");
+        assertNotEquals(wertIntBAD, anzeige.anzahlZuVerteilendeErsties("Horst"),"Fehler return anzahZuVerteilendeErsties");
     }
 
     /**
@@ -137,8 +139,8 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testMissionskarteInhalt() {
         System.out.println("[testAnzahlZuVerteilendeErsties] Läuft..");
-        assertEquals(wertStrOK, dummy.missionskarteInhalt("Horst"),"Fehler return anzahZuVerteilendeErsties");
-        assertNotEquals(wertStrBAD, dummy.missionskarteInhalt("Horst"),"Fehler return anzahZuVerteilendeErsties");
+        assertEquals(wertStrOK, anzeige.missionskarteInhalt("Horst"),"Fehler return anzahZuVerteilendeErsties");
+        assertNotEquals(wertStrBAD, anzeige.missionskarteInhalt("Horst"),"Fehler return anzahZuVerteilendeErsties");
     }
 
 
@@ -148,8 +150,8 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testAktuellePhase() {
         System.out.println("[testAktuellePhase] Läuft..");
-        assertEquals(wertStrOK, dummy.aktuellePhase(),"Fehler return aktuellePhase");
-        assertNotEquals(wertStrBAD, dummy.aktuellePhase(),"Fehler return aktuellePhase");
+        assertEquals(wertStrOK, anzeige.aktuellePhase(),"Fehler return aktuellePhase");
+        assertNotEquals(wertStrBAD, anzeige.aktuellePhase(),"Fehler return aktuellePhase");
     }
 
 
@@ -159,7 +161,7 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testEigeneGebaeude() {
         System.out.println("[testEigeneGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, dummy.eigeneGebaeude("Horst"),"Fehler return eigeneGebaeude");
+        assertArrayEquals(wertIntArr, anzeige.eigeneGebaeude("Horst"),"Fehler return eigeneGebaeude");
     }
 
 }

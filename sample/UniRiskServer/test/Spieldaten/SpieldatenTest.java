@@ -69,8 +69,8 @@ class SpieldatenTest {
     @Test
     void nachbarGebaeudeTest(Integer gebaeude){
         System.out.println("[NachbarGebäude] läuft");
-        int [] nachabarGebaeude = {2,3,12,13};
-        //assertArrayEquals(nachabarGebaeude, spieldaten.nachbarGebaeude(1));
+        Integer [] nachabarGebaeude = {2,3,12,13};
+        assertArrayEquals(nachabarGebaeude, spieldaten.nachbarGebaeude(1));
 
     }
 

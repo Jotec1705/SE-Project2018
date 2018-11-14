@@ -43,7 +43,7 @@ class GUIServerICallbackTest {
     @Test
     public void aktualisierungTest(){
 
-
+        gui.aktualisiert = false;
         assertEquals(true, spielkontrolle.spielLaden("../GUIServer/gespeichertesSpiel.save"), "Datei konnte nicht geladen werden");
         assertEquals(true, gui.aktualisiert, "Aktualisierung nicht erfolgreich");
 

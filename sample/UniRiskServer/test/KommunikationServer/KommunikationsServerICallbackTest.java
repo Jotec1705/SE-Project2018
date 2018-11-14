@@ -1,13 +1,10 @@
-/*Ehrlich gesagt wüsste ich nicht was bei den Methoden dieser Schnittstelle testen könnte. Alle Methoden
-* geben nur Information weiter. Ich kann natürlich einen Test für erfolgreich, nicht erfoglreich schreiben, aber ich
-* glaube dass sollten wir ja nicht machen. Könnte mir höchstens vorstellen, dass ich den GUIClient als Dummy baue
-* um Daten zu überprüfen. Also habe ich das exemplarisch mal für zwei der Methoden gemacht. Weiß aber nicht ob
-* das so sinnvoll ist.*/
+
 
 package KommunikationServer;
 
+import Spiellogik.ISpiellogik;
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
@@ -15,11 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Test der Callback Schnittstelle")
 public class KommunikationsServerICallbackTest {
 
-    public IKommunikationServerCallback callback = null;
-    public GUIClientDummy dummy = null;
+    public ISpiellogik logik = null;
+    public IKommunikationServerCallbackDummy dummy = null;
 
     @BeforeAll
     public void initVorAllenTests(){
+        //Beobachter in der der Spiellogik hinzufügen
 
     }
 
@@ -43,12 +41,14 @@ public class KommunikationsServerICallbackTest {
 
     @Test
     public void testLobbyAktualisieren(){
-        assertEquals(true, dummy.aktualisierenLobby(), "Die Anfrage zum" +
-                "Aktualisieren der Lobby wurde nicht korrekt verarbeitet");
+        dummy.aktualisiereLobbyAufgerufen = false;
+        logik.spielerAnmelden("Horst", "blutwurst1");
+        assertTrue(dummy.aktualisiereLobbyAufgerufen);
     }
 
     @Test
     public void testKarteAktualisieren(){
+        //wie oben
         assertEquals(true, dummy.aktualisierenKarte(), "Die Anfrage zum" +
                 "Aktualisieren der Karte wurde nicht korrekt verarbeitet");
     }
@@ -56,6 +56,7 @@ public class KommunikationsServerICallbackTest {
 
     @Test
     public void testZugZuteilung(){
+        //Ein Spielvorgang und dann Zugzuteilung. Erst später testen
         assertEquals(true, dummy.zugZuteilung("Horst"), "Die Zuteilung" +
                 "des Zuges an den Spieler wurde nicht korrekt durchgeführt");
 
@@ -67,6 +68,7 @@ public class KommunikationsServerICallbackTest {
 
     @Test
     public void testAbwehr(){
+        //Hier auch ähnlich zu oben. Erst später testen!!
         assertEquals(true, dummy.angriffAbwehren("Horst", 17),
                 "Der Spieler ist nicht der Besitzer");
 
@@ -77,6 +79,7 @@ public class KommunikationsServerICallbackTest {
 
     @Test
     public void testWuerfelErgebnis(){
+        //Hier auch ähnlich zu oben. Erst später testen
         int[] wuerfelv = {4, 5};
         int[] wuerfela = {3, 6};
         assertEquals(true, dummy.wuerfelErgebnis("Horst", wuerfelv,

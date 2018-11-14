@@ -1,9 +1,12 @@
 package KommunikationServer;
 
-public class GUIClientDummy {
+public class IKommunikationServerCallbackDummy {
+
+    public boolean aktualisiereLobbyAufgerufen = false;
 
     boolean aktualisierenLobby() {
-        return true;
+        aktualisiereLobbyAufgerufen = true;
+        return aktualisiereLobbyAufgerufen;
     }
 
     boolean aktualisierenKarte() {
