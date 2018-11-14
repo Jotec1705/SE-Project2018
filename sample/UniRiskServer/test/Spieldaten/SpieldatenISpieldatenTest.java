@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 
 @DisplayName("Test der ISpieldaten Schnittstelle")
-class SpieldatenTest {
+class SpieldatenISpieldatenTest {
 
     ISpieldaten spieldaten = null;
 
