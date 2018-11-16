@@ -12,16 +12,20 @@ class IGUIClientCallbackTest {
     public IClientKommunikation kommunikation;
 
     @Test
-    public void testErstiesAnzahlErhoehen(){
-        assertTrue(kommunikation.erstiesAnzahlErhoehen(9, "Horst"), "Ersties wurden nicht erhöht");
-        assertTrue(dummy.aktualisierenLobby(), "Lobby aktualisieren funktioniert nicht"); //?
+    public void testAktualisierenLobby(){
+        dummy.aktualisiereLobbyAufgerufen = false;
+        kommunikation.spielerAnmelden("Bob", "p@ssw0rt");
+        assertTrue(dummy.aktualisiereLobbyAufgerufen);
     }
 
     @Test
     public void testAktualisierenKarte(){
-        assertTrue(dummy.aktualisierenKarte(), "Karte aktualisieren funktioniert nicht");
+        dummy.aktualisiereKarteAufgerufen = false;
+        kommunikation.erstiesAnzahlErhoehen(15, "Bob");
+        assertTrue(dummy.aktualisiereKarteAufgerufen);
     }
 
+    /*
     @Test
     public void testZugZuteilung(){
         assertNotEquals("Bob", callback.zugZuteilung("Bob"), "Zuteilung funktioniert nicht richtig");
@@ -43,4 +47,5 @@ class IGUIClientCallbackTest {
     public void testSpielBeendet(){
         assertTrue(callback.spielBeendet(), "Spiel geht nicht beenden");
     }
+    */
 }

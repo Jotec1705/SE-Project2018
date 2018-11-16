@@ -4,14 +4,20 @@ import KommunikationClient.IClientKommunikation;
 
 public class GUIClientDummy{
 
+    public boolean aktualisiereLobbyAufgerufen = false;
+    public boolean aktualisiereKarteAufgerufen = false;
+
     boolean aktualisierenLobby() {
-        return true;
+        aktualisiereLobbyAufgerufen = true;
+        return aktualisiereLobbyAufgerufen;
     }
 
     boolean aktualisierenKarte() {
-        return true;
+        aktualisiereKarteAufgerufen = true;
+        return aktualisiereKarteAufgerufen;
     }
 
+    /*
     boolean zugZuteilung(String nameSpieler) {
         switch (nameSpieler){
             case "Horst":
@@ -49,4 +55,5 @@ public class GUIClientDummy{
     boolean spielBeendet() {
         return true;
     }
+    */
 }
