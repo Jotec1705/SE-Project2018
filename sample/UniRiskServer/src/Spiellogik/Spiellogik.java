@@ -6,13 +6,20 @@ public class Spiellogik implements ISpieldaten{
 
     Spieldaten daten = new Spieldaten();
 
+    Integer anzahlGebaeudeSpieler;
+    Integer [] nachbarGebaeude;
+    String besitzerGebaeude;
+    boolean [] spielerBereit;
+
 
     boolean istSpielGeladen(){
         return true;
     }
 
     boolean alleSpielerBereit(){
-        return true;
+       spielerBereit = spielerBereit();
+       for(boolean b : spielerBereit) if(!b) return false;
+            return true;
     }
 
     boolean vergleicheNameSpieler(){
@@ -26,20 +33,21 @@ public class Spiellogik implements ISpieldaten{
     boolean mindEinErstieGebaeude(){
         return true;
     }
-    
+
     boolean vergleicheMissionskarte(){
         return true;
     }
 
+
     //####################### ISpieldaten ##################
     @Override
     public Integer anzahlGebaeudeSpieler(String nameSpieler) {
-        return null;
+        return anzahlGebaeudeSpieler;
     }
 
     @Override
     public String besitzerGebaeude(Integer gebaeude) {
-        return null;
+        return besitzerGebaeude;
     }
 
     @Override
@@ -49,7 +57,7 @@ public class Spiellogik implements ISpieldaten{
 
     @Override
     public Integer[] nachbarGebaeude(Integer gebaeude) {
-        return new Integer[0];
+        return nachbarGebaeude;
     }
 
     @Override
@@ -109,7 +117,7 @@ public class Spiellogik implements ISpieldaten{
 
     @Override
     public boolean[] spielerBereit() {
-        return new boolean[0];
+        return new boolean[4];
     }
 
     @Override
