@@ -1,17 +1,56 @@
 package KommunikationServer;
 import Spieldaten.IAnzeigedaten;
 import Spiellogik.ISpiellogik;
-import Spiellogik.Spiellogik;
 
-import java.rmi.Remote;
+
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class KommunikationServer implements ISpiellogik, IAnzeigedaten, IKommunikationServerCallback, Remote {
+public class KommunikationServer implements ISpiellogik, IAnzeigedaten, IKommunikationServerCallback{
 
-    Spiellogik logik = new Spiellogik();
+    //Konstruktor. Hat kein Argument. Ruft den Konstrukter der Superklasse (Object) auf
+    public KommunikationServer(){
+        super();
+    }
+
+    public static void main(String[] args) {
+
+        //Der Manager schützt davor dass heruntergeladener Code Zugriff auf System Ressourcen bekommt.
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+
+        try {
+            //RMI registry einbinden (Registry Port ist per default 1099)
+            Registry registry = LocateRegistry.getRegistry();
+
+
+            //Erstellen des ersten Remote Objekt
+            String name1 = "Spiellogik";
+            ISpiellogik logik = new KommunikationServer();
+            //Objekt exportieren
+            ISpiellogik stubLogik = (ISpiellogik) UnicastRemoteObject.exportObject(logik, 0);
+            //Objekt mit Namen und zugehörigen "Stumpf" in die RMI registry einfügen
+            registry.rebind(name1, stubLogik);
+            System.out.println("Spiellogik gebunden.");
+
+            //Erstellen des zweiten Remote Objekt
+            String name2 = "Anzeigedaten";
+            IAnzeigedaten anzeige = new KommunikationServer();
+            //Objekt exportieren
+            IAnzeigedaten stubAnzeige = (IAnzeigedaten) UnicastRemoteObject.exportObject(anzeige, 0);
+            //Objekt mit Namen und zugehörigen "Stumpf" in die RMI registry einfügen
+            registry.rebind(name2, stubAnzeige);
+            System.out.println("Spiellogik gebunden.");
+
+        }catch(Exception e){
+            System.err.println("KommunikationServer exception:");
+            e.printStackTrace();
+        }
+
+    }
 
     //###############################IANZEIGEDATEN######################################################################
     @Override
