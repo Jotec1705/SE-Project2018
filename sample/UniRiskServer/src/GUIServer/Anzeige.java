@@ -1,23 +1,31 @@
 package GUIServer;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class Anzeige {
 
     private Scene sceneStart, sceneSpielAnlegen, sceneSpielLaden, sceneLobby;
+    private Text uniRisk;
+    private Text spielerAnzahl;
 
     //Elemente in Start Scene
-    private Label labelUniRisk;
-    private Label ipAdresse;
+    private GridPane gridStart;
+    private Label ipAdresseServer;
     private Button neuesSpielAnlegen;
     private Button spielLaden;
 
     //Elemente in SpielAnlegen Scene
-    private Label spielerAnzahl;
     private TextField spielerAnzahlEingabe;
     private Button spielAnlegen;
 
@@ -48,6 +56,31 @@ public class Anzeige {
 
     private Button spielStarten;
 
+    public Anzeige(){
+        //Layout Start Scene
+        gridStart = new GridPane();
+        gridStart.setAlignment(Pos.TOP_CENTER);
+        gridStart.setHgap(10);
+        gridStart.setVgap(10);
+        gridStart.setPadding(new Insets(10, 10, 10, 10));
+
+        uniRisk = new Text("UniRisk");
+        uniRisk.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        gridStart.add(uniRisk,0,0, 1, 1);
+
+        neuesSpielAnlegen = new Button("Neues Spiel anlegen");
+        spielLaden = new Button("Spiel laden");
+        gridStart.add(neuesSpielAnlegen, 0, 1, 2, 2);
+        gridStart.add(spielLaden, 1, 1, 3,  2);
+
+        sceneStart = new Scene(gridStart, 500, 500);
+        //Layout Spiel anlegen Scene
+
+        //Layout Spiel laden Scene
+
+        //Layout Lobby
+
+    }
 
 
     public void showStart(Stage primaryStage) {
@@ -55,7 +88,7 @@ public class Anzeige {
         primaryStage.setScene(sceneStart);
         primaryStage.show();
     }
-    public void showSpielStarten(Stage primaryStage) {
+    public void showSpielAnlegen(Stage primaryStage) {
         primaryStage.setTitle("Neues Spiel anlegen");
         primaryStage.setScene(sceneSpielAnlegen);
         primaryStage.show();

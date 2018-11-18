@@ -13,8 +13,8 @@ public class Controller {
         anzeige.showStart(daten.getPrimaryStage());
     }
 
-    public void showSpielStarten() {
-        anzeige.showSpielStarten(daten.getPrimaryStage());
+    public void showSpielAnlegen() {
+        anzeige.showSpielAnlegen(daten.getPrimaryStage());
     }
 
     public void showSpielLaden() {

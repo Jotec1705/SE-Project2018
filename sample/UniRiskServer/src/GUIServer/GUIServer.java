@@ -21,5 +21,6 @@ public class GUIServer extends Application implements IGUIServerCallback {
         DatenModell daten = new DatenModell(primaryStage);
 
         Controller controller = new Controller(daten);
+        controller.showStart();
     }
 }
