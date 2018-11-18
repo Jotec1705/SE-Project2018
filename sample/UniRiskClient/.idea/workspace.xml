@@ -2,8 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55bed94e-13e8-46f7-9483-957c86d8aedc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/05_Architekturdokumente/GUIClient_Komponentenbeschreibung.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/GUIServer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/GUIServer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/IGUIServerCallback.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/IGUIServerCallback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/GUIServer/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/IKommunikationServerCallback.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/IKommunikationServerCallback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/KommunikationServer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/KommunikationServer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/KommunikationsServerICallbackTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/KommunikationsServerICallbackTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/KommunikationServer/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Bonuskarte.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Bonuskarte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/IAnzeigedaten.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/IAnzeigedaten.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/ISpieldaten.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/ISpieldaten.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Missionskarte.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Missionskarte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Spieldaten.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Spieldaten.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Zustand.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/Zustand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spieldaten/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/ISpielkontrolle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/ISpielkontrolle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/ISpiellogik.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/ISpiellogik.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/Spiellogik.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/Spiellogik.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/Spiellogik/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/overview-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/package-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/type-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../../javadoc/javadocUniRiskServer/type-search-index.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/GUIServer/GUIServerISpielkontrolleTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,21 +72,22 @@
     <session id="-1209080528">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="4" />
+          <entry key="java" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -64,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIClient/GUIClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="30">
               <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
@@ -73,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIClient/IGUIClientCallback.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -82,17 +139,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="30">
               <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            <state relative-caret-position="45">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/KommunikationClient/IClientKommunikationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -116,7 +182,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="561" />
     <option name="y" value="130" />
     <option name="width" value="1280" />
@@ -130,6 +196,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,18 +204,28 @@
               <item name="UniRiskClient" type="b2602c69:ProjectViewProjectNode" />
               <item name="UniRiskClient" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="UniRiskClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniRiskClient" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniRiskClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniRiskClient" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="KommunikationClient" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540844895760" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542566878571" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -178,6 +255,7 @@
       <updated>1540844629484</updated>
       <workItem from="1540844633350" duration="291000" />
       <workItem from="1540886890023" duration="790000" />
+      <workItem from="1542566424586" duration="453000" />
     </task>
     <task id="LOCAL-00001" summary="So, Jetzt nochmal die richtige Version. Auch wenn das falsche eben keiner mitbekommen hat">
       <created>1540844872929</created>
@@ -190,12 +268,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1081000" />
+    <option name="totallyTimeSpent" value="1534000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16471216" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16720517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -205,7 +283,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -241,29 +319,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIClient/GUIClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="30">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIClient/IGUIClientCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="30">
           <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        <state relative-caret-position="45">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/KommunikationClient/IClientKommunikationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
