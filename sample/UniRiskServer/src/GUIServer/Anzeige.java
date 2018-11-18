@@ -1,11 +1,15 @@
 package GUIServer;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
@@ -21,6 +25,7 @@ public class Anzeige {
     private Scene sceneStart, sceneSpielAnlegen, sceneSpielLaden, sceneLobby;
     private Text uniRisk;
     private Text spielerAnzahl;
+    private Text benoetigteMitspielerText;
 
     //Elemente in Start Scene
     private GridPane gridStart;
@@ -34,10 +39,12 @@ public class Anzeige {
     private Button spielAnlegen;
 
     //Elemente in SpielLaden Scene
+    GridPane gridSpielLaden;
     private Label ausgewaehlteDatei;
-    private Label benoetigteMitspieler;
     private Button laden;
     private Button dateiAuswaehlen;
+    private ListView<String> benoetigteMitspieler;
+    private ObservableList<String> items;
 
     //Elemente in Lobby Scene
     private Label nameSpieler1;
@@ -84,9 +91,53 @@ public class Anzeige {
 
         sceneStart = new Scene(gridStart, 400, 150);
         //Layout Spiel anlegen Scene
+        gridSpielAnlegen = new GridPane();
+        gridSpielAnlegen.setAlignment(Pos.TOP_CENTER);
+        gridSpielAnlegen.setHgap(10);
+        gridSpielAnlegen.setVgap(10);
+        gridSpielAnlegen.setPadding(new Insets(10, 10, 10, 10));
 
+        gridSpielAnlegen.add(uniRisk,0, 0, 3, 1);
+
+        spielerAnzahl = new Text("Spieler Anzahl : ");
+        gridSpielAnlegen.add(spielerAnzahl,0, 1, 1,1);
+
+        spielerAnzahlEingabe = new TextField();
+        spielerAnzahlEingabe.setMinWidth(15);
+        spielerAnzahlEingabe.setMaxWidth(30);
+        gridSpielAnlegen.add(spielerAnzahlEingabe, 1,1,1,1);
+
+        spielAnlegen = new Button("Spiel anlegen");
+        gridSpielAnlegen.add(spielAnlegen,2, 1, 1, 1);
+
+        sceneSpielAnlegen = new Scene(gridSpielAnlegen, 400, 150);
         //Layout Spiel laden Scene
+        gridSpielLaden = new GridPane();
+        gridSpielLaden.setAlignment(Pos.TOP_CENTER);
+        gridSpielLaden.setHgap(10);
+        gridSpielLaden.setVgap(10);
+        gridSpielLaden.setPadding(new Insets(10, 10, 10, 10));
 
+        gridSpielLaden.add(uniRisk,0, 0, 3, 1);
+
+        dateiAuswaehlen = new Button("Datei auswählen");
+        gridSpielLaden.add(dateiAuswaehlen,0, 1, 1, 1);
+
+        laden = new Button("Spiel laden");
+        gridSpielLaden.add(laden,1, 1, 1, 1);
+
+        ausgewaehlteDatei = new Label("Ausgewählte Datei : ");
+        ausgewaehlteDatei.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        GridPane.setValignment(ausgewaehlteDatei, VPos.TOP );
+        gridSpielLaden.add(ausgewaehlteDatei,0, 2, 1, 1);
+
+        benoetigteMitspielerText = new Text("Benötigte Mitspieler");
+        benoetigteMitspieler = new ListView<>();
+        items = FXCollections.observableArrayList(benoetigteMitspielerText.getText(),"","","","","");
+        benoetigteMitspieler.setItems(items);
+        gridSpielLaden.add(benoetigteMitspieler,1,2,1,1);
+
+        sceneSpielLaden = new Scene(gridSpielLaden, 500, 250);
         //Layout Lobby
 
     }
@@ -115,5 +166,30 @@ public class Anzeige {
 
     public void setIpAdresseServer(String ipAdresseServer) {
         this.ipAdresseServer.setText(ipAdresseServer);
+    }
+
+    public String getspielerAnzahlEingabe(){
+        return spielerAnzahlEingabe.getText();
+    }
+
+    public Button getLaden() {
+        return laden;
+    }
+
+    public Button getDateiAuswaehlen() {
+        return dateiAuswaehlen;
+    }
+
+    public Button getSpielStarten() {
+        return spielStarten;
+    }
+
+    public void setAusgewaehlteDatei(String ausgewaehlteDatei) {
+        this.ausgewaehlteDatei.setText(ausgewaehlteDatei);
+    }
+
+    public void setBenoetigteMitspieler(String[] spielerNamen){
+        items = FXCollections.observableArrayList(spielerNamen);
+        benoetigteMitspieler.setItems(items);
     }
 }
