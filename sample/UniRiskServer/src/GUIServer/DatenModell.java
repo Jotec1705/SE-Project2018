@@ -2,6 +2,7 @@ package GUIServer;
 
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -11,6 +12,8 @@ public class DatenModell {
     private String[] spielerIP = null;
     private boolean[] spielerBereit = null;
     private InetAddress host = null;
+    private String[] benoetigteMitspieler;
+    private File ausgewaehlteDateiZumLaden;
 
     public DatenModell(Stage primaryStage){
         this.primaryStage = primaryStage;
@@ -52,5 +55,17 @@ public class DatenModell {
 
     public Stage getPrimaryStage() {
         return this.primaryStage;
+    }
+
+    public void setBenoetigteMitspieler(String[] benoetigteMitspieler) {
+        this.benoetigteMitspieler = benoetigteMitspieler;
+    }
+
+    public File getAusgewaehlteDateiZumLaden() {
+        return ausgewaehlteDateiZumLaden;
+    }
+
+    public void setAusgewaehlteDateiZumLaden(File ausgewaehlteDateiZumLaden) {
+        this.ausgewaehlteDateiZumLaden = ausgewaehlteDateiZumLaden;
     }
 }

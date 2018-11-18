@@ -25,4 +25,9 @@ public class Controller {
     public void showLobby() {
         anzeige.showLobby(daten.getPrimaryStage());
     }
+
+    public boolean datenModellAktualisieren(){
+
+        return true;
+    }
 }
