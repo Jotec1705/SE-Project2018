@@ -27,7 +27,7 @@ class SpieldatenIAnzeigedatenTest {
     Integer[] wertIntArr = {1,2};
     Integer wertIntOK = 1;
     Integer wertIntBAD = 2;
-
+    //testkommi
 
 
     @BeforeAll
