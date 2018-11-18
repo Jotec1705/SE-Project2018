@@ -1,8 +1,10 @@
 package Spiellogik;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import KommunikationServer.IKommunikationServerCallback;
 
-public interface ISpiellogik {
+public interface ISpiellogik extends Remote{
 
 
     /**
@@ -16,7 +18,7 @@ public interface ISpiellogik {
     /**
      * Gibt an die Spiellogik weiter, dass ein Spieler auf den Button Aussteigen am GUIClient gedrückt hat
      * und somit aus dem Spiel ausgestiegen ist.
-     * @param nameSpieler
+     * @param nameSpieler ist der name des Spielers.
      * @return ob Aktion erfolgreich
      */
     boolean spielerAusgestiegen(String nameSpieler);
@@ -46,7 +48,7 @@ public interface ISpiellogik {
      * @param nameSpieler name des ausführenden Spielers
      * @return ob Aktion erfolgreich war
      */
-    boolean angriffVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
+    boolean angriffVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
 
     /**
@@ -58,7 +60,7 @@ public interface ISpiellogik {
      * @param nameSpieler name des ausführenden Spielers
      * @return ob Aktion erfolgreich war
             */
-    boolean versetzenVonNach (String gebaeudeUrsprung, Integer anzahlUrsprung, String gebaeudeZiel, String nameSpieler);
+    boolean versetzenVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler);
 
 
     /**
@@ -83,8 +85,11 @@ public interface ISpiellogik {
      * Die Rückmeldungen die dann über diesen "Beobachter Kanal" kommen werden in der Schnittstelle
      * IKommunikationServerCallback spezifiziert.
      * @param beobachter Ist der Observer, der hinzugefügt  wird.
+     * @return gibt zurück ob erfolgreich.
      */
     boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter);
+
+
 
 
 

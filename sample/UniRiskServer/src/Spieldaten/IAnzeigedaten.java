@@ -1,6 +1,9 @@
 package Spieldaten;
 
-public interface IAnzeigedaten {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface IAnzeigedaten extends Remote{
     /**
      * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
      * @param gebaeude ID des Gebäudes
@@ -37,20 +40,20 @@ public interface IAnzeigedaten {
 
     /**
      * Diese Methode soll die Anzahl der Ersties auf einem Gebäude zurückgeben
-     * @return
+     * @return Int-Array mit Anzahl der Ersties pro Gebäude ( Index entspricht Gebäude ID)
      */
     Integer[] anzahlErstiesAufGebaeude();
 
     /**
      * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben
      * @param nameSpieler Name des Spielers als String
-     * @return
+     * @return Int-Array mit Anzahl der Bonuskarten
      */
     Integer[] anzahlBonuskarten(String nameSpieler);
 
     /**
      * Diese Methode soll die Farben aller Spieler als Int-Wert zurückgeben
-     * @return Array mit Farben der Spieler als Int-Wert
+     * @return Array mit Farben der Spieler als Int-Wert. Array Index entspricht der Gebäude ID
      */
     Integer[] farbeSpieler();
 
@@ -70,9 +73,18 @@ public interface IAnzeigedaten {
 
     /**
      * Diese Methode soll die aktuelle Phase zurückgeben
-     * @return
+     * @return Aktuelle Phase als String
      */
     String aktuellePhase();
+
+    /**
+     * Diese Methode gibt ein Array zurück mit den IDs der Gebäude, welche dem übergebenene Spieler gehören
+     * @param nameSpieler Name des Spielers als String
+     * @return Int-Array
+     */
+    Integer[] eigeneGebaeude(String nameSpieler);
+
+
 
 
 
