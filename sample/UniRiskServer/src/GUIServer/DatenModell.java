@@ -46,7 +46,7 @@ public class DatenModell {
         return this.spielerBereit;
     }
 
-    public String getHostIP() {
+    public String getServerIP() {
         return this.host.getHostAddress();
     }
 

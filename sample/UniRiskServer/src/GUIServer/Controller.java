@@ -7,6 +7,7 @@ public class Controller {
     public Controller(DatenModell daten){
         this.daten = daten;
         this.anzeige = new Anzeige();
+        this.anzeige.setIpAdresseServer("Server IP : " + daten.getServerIP());
     }
 
     public void showStart(){

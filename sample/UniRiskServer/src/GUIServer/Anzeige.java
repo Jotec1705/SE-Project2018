@@ -1,11 +1,14 @@
 package GUIServer;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -26,6 +29,7 @@ public class Anzeige {
     private Button spielLaden;
 
     //Elemente in SpielAnlegen Scene
+    GridPane gridSpielAnlegen;
     private TextField spielerAnzahlEingabe;
     private Button spielAnlegen;
 
@@ -66,14 +70,19 @@ public class Anzeige {
 
         uniRisk = new Text("UniRisk");
         uniRisk.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        gridStart.add(uniRisk,0,0, 1, 1);
+        GridPane.setHalignment(uniRisk, HPos.CENTER);
+        gridStart.add(uniRisk,0,0, 2, 1);
 
         neuesSpielAnlegen = new Button("Neues Spiel anlegen");
         spielLaden = new Button("Spiel laden");
-        gridStart.add(neuesSpielAnlegen, 0, 1, 2, 2);
-        gridStart.add(spielLaden, 1, 1, 3,  2);
+        gridStart.add(neuesSpielAnlegen, 0, 2, 1, 1);
+        gridStart.add(spielLaden, 1, 2, 1,  1);
 
-        sceneStart = new Scene(gridStart, 500, 500);
+        ipAdresseServer = new Label("Server IP : ");
+        ipAdresseServer.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        gridStart.add(ipAdresseServer, 0, 3, 2, 1);
+
+        sceneStart = new Scene(gridStart, 400, 150);
         //Layout Spiel anlegen Scene
 
         //Layout Spiel laden Scene
@@ -102,5 +111,9 @@ public class Anzeige {
         primaryStage.setTitle("Lobby(Host)");
         primaryStage.setScene(sceneLobby);
         primaryStage.show();
+    }
+
+    public void setIpAdresseServer(String ipAdresseServer) {
+        this.ipAdresseServer.setText(ipAdresseServer);
     }
 }
