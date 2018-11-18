@@ -1,6 +1,7 @@
 package GUIClient;
 
-public interface IGUIClientCallback {
+
+public interface IGUIClientCallback{
 
     /**
      * Diese Methode wird aufgerufen, wenn die Lobby verändert wurde.

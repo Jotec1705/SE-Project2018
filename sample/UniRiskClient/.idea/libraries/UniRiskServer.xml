@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="UniRiskServer">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../UniRiskServer" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../UniRiskServer/src" />
+      <root url="file://$PROJECT_DIR$/../UniRiskServer/test" />
+    </SOURCES>
+  </library>
+</component>

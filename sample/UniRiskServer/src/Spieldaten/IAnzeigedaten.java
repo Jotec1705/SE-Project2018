@@ -1,6 +1,9 @@
 package Spieldaten;
 
-public interface IAnzeigedaten {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface IAnzeigedaten extends Remote{
     /**
      * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
      * @param gebaeude ID des Gebäudes

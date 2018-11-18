@@ -1,8 +1,10 @@
 package Spiellogik;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import KommunikationServer.IKommunikationServerCallback;
 
-public interface ISpiellogik {
+public interface ISpiellogik extends Remote{
 
 
     /**

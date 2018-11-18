@@ -1,13 +1,10 @@
-/*Ehrlich gesagt wüsste ich nicht was bei den Methoden dieser Schnittstelle testen könnte. Alle Methoden
-* geben nur Information weiter. Ich kann natürlich einen Test für erfolgreich, nicht erfoglreich schreiben, aber ich
-* glaube dass sollten wir ja nicht machen. Könnte mir höchstens vorstellen, dass ich den GUIClient als Dummy baue
-* um Daten zu überprüfen. Also habe ich das exemplarisch mal für zwei der Methoden gemacht. Weiß aber nicht ob
-* das so sinnvoll ist.*/
+
 
 package KommunikationServer;
 
+import Spiellogik.ISpiellogik;
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
@@ -15,62 +12,84 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Test der Callback Schnittstelle")
 public class KommunikationsServerICallbackTest {
 
-    public IKommunikationServerCallback callback = null;
-    public GUIClient client = null;
+    public ISpiellogik logik = null;
+    public IKommunikationServerCallback beobachter;
+    public IKommunikationServerCallbackDummy dummy = null;
 
     @BeforeAll
     public void initVorAllenTests(){
-        System.out.println("[Start] Bereite einige Tests vor");
+        //Beobachter in der der Spiellogik hinzufügen
+        logik.beobachterHinzufuegen(beobachter);
+
     }
 
 
     @BeforeEach
     public  void initVorEinemTest(){
-        System.out.println("[Init] Bereite einen konkreten Test vor");
+
 
     }
 
     @AfterEach
     public void testEnde(){
-        System.out.println("..Test erfolgreich beendet!!");
+
     }
 
     @AfterAll
     public void Aufraeumen(){
-        System.out.println("[End] Alle Tests beendet. Räume auf.");
+
 
     }
 
-    /**
-     * Dieser Test hat die funktion zu testen, ob bei GUIClient (Hier durch eine Dummy-Klasse repräsentiert)
-     * tatsächlich einem neuen Spieler der Zug zugeteilt wurde.
-     */
+    @Test
+    public void testLobbyAktualisieren(){
+        dummy.aktualisiereLobbyAufgerufen = false;
+        logik.spielerAnmelden("Horst", "blutwurst1");
+        assertTrue(dummy.aktualisiereLobbyAufgerufen);
+    }
+
+    @Test
+    public void testKarteAktualisieren(){
+        dummy.aktualisiereKarteAufgerufen = false;
+        logik.erstiesAnzahlErhoehen(3, "Horst");
+        assertTrue(dummy.aktualisiereKarteAufgerufen);
+    }
+
+
     @Test
     public void testZugZuteilung(){
-        System.out.println("[ZugZuteilung] Läuft..");
+        //Ein Spielvorgang und dann Zugzuteilung. Erst später testen
+        assertEquals(true, dummy.zugZuteilung("Horst"), "Die Zuteilung" +
+                "des Zuges an den Spieler wurde nicht korrekt durchgeführt");
 
-        callback.zugZuteilung("Horst");
-
-        assertEquals("Horst", client.aktuellerSpieler, "Der nächste Spieler wurde nicht korrekt" +
-                "ausgewählt.");
+        assertEquals(true, dummy.zugZuteilung("M@rianne"), "Die " +
+                "Zuteilung des Zuges an den Spieler wurde nicht korrekt durchgeführt");
 
     }
 
-    /**
-     * Dieser Test hat die funktion zu testen, ob bei GUIClient (Hier durch eine Dummy-Klasse repräsentiert)
-     * tatsächlich der Richtige Spieler für das richtige Gebäude zur Verteidigung ausgewählt wurde.
-     */
+
     @Test
-    public void testAbwehrAuswahl(){
-        System.out.println("[AbwehrAuswahl] Läuft..");
+    public void testAbwehr(){
+        //Hier auch ähnlich zu oben. Erst später testen!!
+        assertEquals(true, dummy.angriffAbwehren("Horst", 17),
+                "Der Spieler ist nicht der Besitzer");
 
-        callback.angriffAbwehren("M@rianne", 8);
+        assertEquals(true, dummy.angriffAbwehren("P3t3r", 17),
+                "Der Spieler ist nicht der Besitzer");
 
-        assertEquals("M@rianne", client.nameVerteidiger, "Es wurde nicht der korrekte Spieler zur " +
-                "Verteidigung ausgewählt");
-        assertEquals(java.util.Optional.of(8), client.gebaeudeIdVerteidiger, "Es wurde nicht das korrekte Gebäude " +
-                "zur Verteidigung ausgewählt");
     }
+
+    @Test
+    public void testWuerfelErgebnis(){
+        //Hier auch ähnlich zu oben. Erst später testen
+        int[] wuerfelv = {4, 5};
+        int[] wuerfela = {3, 6};
+        assertEquals(true, dummy.wuerfelErgebnis("Horst", wuerfelv,
+                wuerfela, 1, 1), "Das Würfelergebnis" +
+                "wurde nicht korrekt beim Client verarbeitet");
+    }
+
+
 
 
 
