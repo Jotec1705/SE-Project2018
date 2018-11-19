@@ -20,6 +20,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="TEST" name="UniRiskServer" level="project" />
+    <orderEntry type="library" name="UniRiskServer" level="project" />
+    <orderEntry type="module" module-name="UniRiskServer" />
   </component>
 </module>
