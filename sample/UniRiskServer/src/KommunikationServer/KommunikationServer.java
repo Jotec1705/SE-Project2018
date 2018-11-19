@@ -8,6 +8,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+//zwei sperate klassen Ispiellogik/Ianzeigedaten und Callback die RMI unterstützen schreiben, die zwischen server und client sind
+
 public class KommunikationServer implements ISpiellogik, IAnzeigedaten, IKommunikationServerCallback{
 
     //Konstruktor. Hat kein Argument. Ruft den Konstrukter der Superklasse (Object) auf
@@ -29,7 +31,7 @@ public class KommunikationServer implements ISpiellogik, IAnzeigedaten, IKommuni
 
             //Erstellen des ersten Remote Objekt
             String name1 = "Spiellogik";
-            ISpiellogik logik = new KommunikationServer();
+            ISpiellogik logik = new KommunikationServer();//Hier dann das objekt der neuen klasse
             //Objekt exportieren
             ISpiellogik stubLogik = (ISpiellogik) UnicastRemoteObject.exportObject(logik, 0);
             //Objekt mit Namen und zugehörigen "Stumpf" in die RMI registry einfügen
