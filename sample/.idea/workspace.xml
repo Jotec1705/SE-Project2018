@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc02c09e-a8fe-4a14-b9dd-103de4d1ec5c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/CallbackRMI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/ICallbackRMI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/ISpiellogikAnzeigedatenRMI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dokumente/02_Arbeitsbereich/06_Tests/Testspezifikation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Dokumente/02_Arbeitsbereich/06_Tests/Testspezifikation.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniRiskClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskClient/UniRiskClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/UniRiskClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskClient/out/production/UniRiskClient/GUIClient/GUIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/out/production/UniRiskClient/GUIClient/GUIClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/KommunikationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/KommunikationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Gebaeude.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Gebaeude.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRiskServer/src/Spiellogik/Spiellogik.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskServer/src/Spiellogik/Spiellogik.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,7 +132,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542640104989" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542640856332" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -198,7 +199,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542639981674</updated>
-      <workItem from="1542639986034" duration="417000" />
+      <workItem from="1542639986034" duration="726000" />
     </task>
     <servers />
   </component>
@@ -208,7 +209,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="417000" />
+    <option name="totallyTimeSpent" value="726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
