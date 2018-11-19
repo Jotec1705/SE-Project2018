@@ -4,7 +4,13 @@ import Spieldaten.*;
 
 public class Spiellogik implements ISpieldaten{
 
-    Spieldaten daten = new Spieldaten();
+    //setSpieldaten()
+
+    ISpieldaten daten = null;//hier = null;
+
+    public void setSpieldaten(ISpieldaten daten){
+        this.daten = daten;
+    }
 
     Integer anzahlGebaeudeSpieler;
     Integer [] nachbarGebaeude;
