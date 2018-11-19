@@ -7,10 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.GridPane;
@@ -19,11 +16,14 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class Anzeige {
 
     private Scene sceneStart, sceneSpielAnlegen, sceneSpielLaden, sceneLobby;
-    private Text uniRisk;
+    private Text uniRisk1;
+    private Text uniRisk2;
+    private Text uniRisk3;
     private Text spielerAnzahl;
     private Text benoetigteMitspielerText;
 
@@ -34,12 +34,12 @@ public class Anzeige {
     private Button spielLaden;
 
     //Elemente in SpielAnlegen Scene
-    GridPane gridSpielAnlegen;
+    private GridPane gridSpielAnlegen;
     private TextField spielerAnzahlEingabe;
     private Button spielAnlegen;
 
     //Elemente in SpielLaden Scene
-    GridPane gridSpielLaden;
+    private GridPane gridSpielLaden;
     private Label ausgewaehlteDatei;
     private Button laden;
     private Button dateiAuswaehlen;
@@ -47,23 +47,11 @@ public class Anzeige {
     private ObservableList<String> items;
 
     //Elemente in Lobby Scene
-    private Label nameSpieler1;
-    private Label nameSpieler2;
-    private Label nameSpieler3;
-    private Label nameSpieler4;
-    private Label nameSpieler5;
-
-    private Label ipSpieler1;
-    private Label ipSpieler2;
-    private Label ipSpieler3;
-    private Label ipSpieler4;
-    private Label ipSpieler5;
-
-    private Label bereitSpieler1;
-    private Label bereitSpieler2;
-    private Label bereitSpieler3;
-    private Label bereitSpieler4;
-    private Label bereitSpieler5;
+    private GridPane gridLobby;
+    private TableView tabelle;
+    private TableColumn ipAdresse;
+    private TableColumn spielerName;
+    private TableColumn status;
 
     private Button spielStarten;
 
@@ -75,10 +63,10 @@ public class Anzeige {
         gridStart.setVgap(10);
         gridStart.setPadding(new Insets(10, 10, 10, 10));
 
-        uniRisk = new Text("UniRisk");
-        uniRisk.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        GridPane.setHalignment(uniRisk, HPos.CENTER);
-        gridStart.add(uniRisk,0,0, 2, 1);
+        uniRisk1 = new Text("UniRisk");
+        uniRisk1.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        GridPane.setHalignment(uniRisk1, HPos.CENTER);
+        gridStart.add(uniRisk1,0,0, 3, 1);
 
         neuesSpielAnlegen = new Button("Neues Spiel anlegen");
         spielLaden = new Button("Spiel laden");
@@ -95,9 +83,13 @@ public class Anzeige {
         gridSpielAnlegen.setAlignment(Pos.TOP_CENTER);
         gridSpielAnlegen.setHgap(10);
         gridSpielAnlegen.setVgap(10);
+
         gridSpielAnlegen.setPadding(new Insets(10, 10, 10, 10));
 
-        gridSpielAnlegen.add(uniRisk,0, 0, 3, 1);
+        uniRisk2 = new Text("UniRisk");
+        uniRisk2.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        GridPane.setHalignment(uniRisk2, HPos.CENTER);
+        gridSpielAnlegen.add(uniRisk2,0, 0, 3, 1);
 
         spielerAnzahl = new Text("Spieler Anzahl : ");
         gridSpielAnlegen.add(spielerAnzahl,0, 1, 1,1);
@@ -116,9 +108,12 @@ public class Anzeige {
         gridSpielLaden.setAlignment(Pos.TOP_CENTER);
         gridSpielLaden.setHgap(10);
         gridSpielLaden.setVgap(10);
-        gridSpielLaden.setPadding(new Insets(10, 10, 10, 10));
+        gridSpielLaden.setPadding(new Insets(5, 5, 5, 5));
 
-        gridSpielLaden.add(uniRisk,0, 0, 3, 1);
+        uniRisk3 = new Text("UniRisk");
+        uniRisk3.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        GridPane.setHalignment(uniRisk3, HPos.CENTER);
+        gridSpielLaden.add(uniRisk3,0, 0, 3, 1);
 
         dateiAuswaehlen = new Button("Datei auswählen");
         gridSpielLaden.add(dateiAuswaehlen,0, 1, 1, 1);
@@ -126,40 +121,82 @@ public class Anzeige {
         laden = new Button("Spiel laden");
         gridSpielLaden.add(laden,1, 1, 1, 1);
 
-        ausgewaehlteDatei = new Label("Ausgewählte Datei : ");
+        ausgewaehlteDatei = new Label("Ausgewählte Datei : \n");
         ausgewaehlteDatei.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         GridPane.setValignment(ausgewaehlteDatei, VPos.TOP );
-        gridSpielLaden.add(ausgewaehlteDatei,0, 2, 1, 1);
+        gridSpielLaden.add(ausgewaehlteDatei,0, 3, 1, 1);
 
         benoetigteMitspielerText = new Text("Benötigte Mitspieler");
+        benoetigteMitspielerText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
+        GridPane.setHalignment(benoetigteMitspielerText, HPos.CENTER);
+        gridSpielLaden.add(benoetigteMitspielerText, 1, 2, 2, 1);
+
         benoetigteMitspieler = new ListView<>();
-        items = FXCollections.observableArrayList(benoetigteMitspielerText.getText(),"","","","","");
+        benoetigteMitspieler.setMaxHeight(120);
+        benoetigteMitspieler.setMaxWidth(250);
+        benoetigteMitspieler.setMinWidth(200);
+        items = FXCollections.observableArrayList("","","","","");
         benoetigteMitspieler.setItems(items);
-        gridSpielLaden.add(benoetigteMitspieler,1,2,1,1);
+        gridSpielLaden.add(benoetigteMitspieler,1,3,1,1);
 
-        sceneSpielLaden = new Scene(gridSpielLaden, 500, 250);
+        sceneSpielLaden = new Scene(gridSpielLaden, 400, 250);
         //Layout Lobby
+        gridLobby = new GridPane();
+        gridLobby.setAlignment(Pos.TOP_CENTER);
+        gridLobby.setHgap(10);
+        gridLobby.setVgap(10);
+        gridLobby.setPadding(new Insets(5, 5, 5, 5));
 
+        tabelle = new TableView();
+        tabelle.setEditable(true);
+
+        ipAdresse = new TableColumn("IP-Adresse");
+        spielerName = new TableColumn("Name");
+        status = new TableColumn("Status");
+        tabelle.getColumns().addAll(ipAdresse, spielerName, status);
+        gridLobby.add(tabelle,0, 0, 1, 1);
+
+        spielStarten = new Button("Spiel starten");
+        GridPane.setHalignment(spielStarten, HPos.CENTER);
+        gridLobby.add(spielStarten, 0, 1 ,1 ,1);
+
+        sceneLobby = new Scene(gridLobby, 400, 250);
     }
 
 
     public void showStart(Stage primaryStage) {
         primaryStage.setTitle("Server Anwendung");
+        primaryStage.setMinWidth(420);
+        primaryStage.setMaxWidth(420);
+        primaryStage.setMaxHeight(285);
+        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneStart);
         primaryStage.show();
     }
     public void showSpielAnlegen(Stage primaryStage) {
         primaryStage.setTitle("Neues Spiel anlegen");
+        primaryStage.setMinWidth(420);
+        primaryStage.setMaxWidth(420);
+        primaryStage.setMaxHeight(285);
+        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneSpielAnlegen);
         primaryStage.show();
     }
     public void showSpielLaden(Stage primaryStage) {
         primaryStage.setTitle("Spiel laden");
+        primaryStage.setMinWidth(420);
+        primaryStage.setMaxWidth(420);
+        primaryStage.setMaxHeight(285);
+        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneSpielLaden);
         primaryStage.show();
     }
     public void showLobby(Stage primaryStage) {
         primaryStage.setTitle("Lobby(Host)");
+        primaryStage.setMinWidth(420);
+        primaryStage.setMaxWidth(420);
+        primaryStage.setMaxHeight(285);
+        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneLobby);
         primaryStage.show();
     }

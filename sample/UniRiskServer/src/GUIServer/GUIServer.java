@@ -19,7 +19,7 @@ public class GUIServer extends Application implements IGUIServerCallback {
         DatenModell daten = new DatenModell(primaryStage);
 
         controller = new Controller(daten);
-        controller.showSpielLaden();
+        controller.showLobby();
     }
 
     @Override

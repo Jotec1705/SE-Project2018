@@ -12,8 +12,8 @@ public class DatenModell {
     private String[] spielerIP = null;
     private boolean[] spielerBereit = null;
     private InetAddress host = null;
-    private String[] benoetigteMitspieler;
-    private File ausgewaehlteDateiZumLaden;
+    private String[] benoetigteMitspieler = null;
+    private File ausgewaehlteDateiZumLaden = null;
 
     public DatenModell(Stage primaryStage){
         this.primaryStage = primaryStage;
