@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55bed94e-13e8-46f7-9483-957c86d8aedc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/CallbackRMI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/ICallbackRMI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/ISpiellogikAnzeigedatenRMI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/06_Tests/Testspezifikation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/06_Tests/Testspezifikation.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/KommunikationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/KommunikationServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Gebaeude.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Gebaeude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spiellogik/Spiellogik.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spiellogik/Spiellogik.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -203,7 +195,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542640856271" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542640967948" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -274,7 +266,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48392284" visible="true" weight="0.16311301" />
       <window_info id="Structure" order="1" sideWeight="0.51607716" side_tool="true" visible="true" weight="0.16311301" />
