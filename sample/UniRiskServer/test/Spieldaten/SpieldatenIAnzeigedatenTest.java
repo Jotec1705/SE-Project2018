@@ -136,8 +136,8 @@ class SpieldatenIAnzeigedatenTest {
     public void testAnzahlErstiesAufGebaeude() {
         System.out.println("[testAnzahlErstiesAufGebaeude] Läuft..");
         Integer[] anzahlErsties1Arr = new Integer[0];
-        for(int i =1 ; i<=33;i++){
-            anzahlErsties1Arr[i-1] = 1;
+        for(int i =1 ; i<=32;i++){
+            anzahlErsties1Arr[i] = 1;
             daten.anzahlErstiesAnpassen(i,1);
         }
 
