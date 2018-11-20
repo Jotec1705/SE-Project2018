@@ -1,5 +1,6 @@
 package GUIServer;
 
+import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -24,6 +25,16 @@ public class DatenModell {
             System.out.println("Der Localhost ist nicht ermittelbar");
         }
     }
+
+
+
+
+
+    public String[] getBenoetigteMitspieler() {
+        return benoetigteMitspieler;
+    }
+
+
 
     public void setSpielerNamen(String[] spielerNamen){
         this.spielerNamen = spielerNamen;

@@ -1,6 +1,7 @@
 package GUIServer;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -17,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import GUIServer.Controller.Slots;
 
 public class Anzeige {
 
@@ -49,6 +51,7 @@ public class Anzeige {
     //Elemente in Lobby Scene
     private GridPane gridLobby;
     private TableView tabelle;
+    private ObservableList<Slots> slots;
     private TableColumn ipAdresse;
     private TableColumn spielerName;
     private TableColumn status;
@@ -164,6 +167,7 @@ public class Anzeige {
     }
 
 
+
     public void showStart(Stage primaryStage) {
         primaryStage.setTitle("Server Anwendung");
         primaryStage.setMinWidth(420);
@@ -225,8 +229,13 @@ public class Anzeige {
         this.ausgewaehlteDatei.setText(ausgewaehlteDatei);
     }
 
-    public void setBenoetigteMitspieler(String[] spielerNamen){
-        items = FXCollections.observableArrayList(spielerNamen);
-        benoetigteMitspieler.setItems(items);
+    public void setBenoetigteMitspieler(ObservableList<String> namen){
+        this.items = namen;
+        benoetigteMitspieler.setItems(this.items);
+    }
+
+    public void setSlots(ObservableList<Slots> slots) {
+        this.slots = slots;
+        tabelle.setItems(this.slots);
     }
 }

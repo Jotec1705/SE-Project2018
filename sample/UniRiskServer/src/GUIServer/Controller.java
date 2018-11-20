@@ -1,5 +1,9 @@
 package GUIServer;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 public class Controller {
     private DatenModell daten;
     private Anzeige anzeige;
@@ -24,6 +28,79 @@ public class Controller {
 
     public void showLobby() {
         anzeige.showLobby(daten.getPrimaryStage());
+    }
+
+    class Slots {
+        private String ipAdresse;
+        private String name;
+        private boolean status;
+
+        public Slots(String ipAdresse, String name, boolean status){
+            this.ipAdresse = ipAdresse;
+            this.name = name;
+            this.status = status;
+        }
+
+        public String getIpAdresse() {
+            return ipAdresse;
+        }
+
+        public void setIpAdresse(String ipAdresse) {
+            this.ipAdresse = ipAdresse;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public boolean isStatus() {
+            return status;
+        }
+
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+    }
+
+    private void benoetigteMitspielerCreateAndView(){
+        ObservableList<String> benoetigteMitspieler = null;
+        benoetigteMitspieler = FXCollections.observableArrayList(daten.getBenoetigteMitspieler());
+        anzeige.setBenoetigteMitspieler(benoetigteMitspieler);
+    }
+
+    private void slotsCreateAndView(){
+        ObservableList<Slots> slotsList = null;
+        Slots[] slots = new Slots[daten.getSpielerNamen().length];
+
+        for(int i = 0; i < daten.getSpielerNamen().length;i++){
+            slots[i] = new Slots(daten.getSpielerIP()[i], daten.getSpielerNamen()[i], daten.getSpielerBereit()[i]);
+        }
+
+        slotsList = FXCollections.observableArrayList(slots);
+        anzeige.setSlots(slotsList);
+
+    }
+
+
+
+    private void setSpielerNamenInDatenModell(){
+
+    }
+
+    private void setSpielerIPInDatenModell(){
+
+    }
+
+    private void setSpielerBereitInDatenModell(){
+
+    }
+
+    private void setbenoetigteMitspielerInDatenModell(){
+
     }
 
     public boolean datenModellAktualisieren(){
