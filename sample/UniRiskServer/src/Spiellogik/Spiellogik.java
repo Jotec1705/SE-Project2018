@@ -1,12 +1,13 @@
 package Spiellogik;
 
+import GUIServer.IGUIServerCallback;
+import KommunikationServer.IKommunikationServerCallback;
 import Spieldaten.*;
 
-public class Spiellogik implements ISpieldaten{
+public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
-    //setSpieldaten()
 
-    ISpieldaten daten = null;//hier = null;
+    ISpieldaten daten = null;
 
     public void setSpieldaten(ISpieldaten daten){
         this.daten = daten;
@@ -23,7 +24,7 @@ public class Spiellogik implements ISpieldaten{
     }
 
     boolean alleSpielerBereit(){
-       spielerBereit = spielerBereit();
+       spielerBereit = daten.spielerBereit();
        for(boolean b : spielerBereit) if(!b) return false;
             return true;
     }
@@ -36,8 +37,10 @@ public class Spiellogik implements ISpieldaten{
         return true;
     }
 
-    boolean mindEinErstieGebaeude(){
+    boolean mindEinErstieGebaeude(Integer gebaeude){
+        if(daten.anzahlErstiesGebaeude(gebaeude) >= 1)
         return true;
+        return false;
     }
 
     boolean vergleicheMissionskarte(){
@@ -45,74 +48,33 @@ public class Spiellogik implements ISpieldaten{
     }
 
 
-    //####################### ISpieldaten ##################
-    @Override
-    public Integer anzahlGebaeudeSpieler(String nameSpieler) {
-        return anzahlGebaeudeSpieler;
-    }
-
-    @Override
-    public String besitzerGebaeude(Integer gebaeude) {
-        return besitzerGebaeude;
-    }
-
-    @Override
-    public boolean besitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler) {
-        return false;
-    }
-
-    @Override
-    public Integer[] nachbarGebaeude(Integer gebaeude) {
-        return nachbarGebaeude;
-    }
-
-    @Override
-    public Integer anzahlErstiesGebaeude(Integer gebaeude) {
-        return null;
-    }
-
-    @Override
-    public boolean anzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties) {
-        return false;
-    }
-
-    @Override
-    public Integer anzahlFachbereicheSpieler(String nameSpieler) {
-        return null;
-    }
-
-    @Override
-    public boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler) {
-        return false;
-    }
-
-    @Override
-    public Integer anzahlDerBonuskarten(String nameSpieler, Bonuskarte typBonuskarte) {
-        return null;
-    }
-
-    @Override
-    public boolean anzahlDerBonuskartenAnpassen(String nameSpieler, Bonuskarte typBonuskarte, Integer anzahlBonuskarten) {
-        return false;
-    }
-
-    @Override
-    public Missionskarte missionskarteSpieler(String nameSpieler) {
-        return null;
-    }
-
-    @Override
-    public boolean aktuellePhaseSetzen(String phase) {
-        return false;
-    }
-
-    @Override
-    public boolean naechsterSpieler() {
-        return false;
-    }
-
     @Override
     public boolean spielAnlegen(int spielerAnzahl) {
+        return daten.spielAnlegen(spielerAnzahl);
+    }
+
+    @Override
+    public boolean spielLaden(String dateipfad) {
+        return false;
+    }
+
+    @Override
+    public boolean spielStarten() {
+        return false;
+    }
+
+    @Override
+    public boolean spielBeenden() {
+        return false;
+    }
+
+    @Override
+    public boolean spielSpeichern(String dateipfad) {
+        return false;
+    }
+
+    @Override
+    public boolean beobachterHinzufuegen(IGUIServerCallback beobachter) {
         return false;
     }
 
@@ -122,22 +84,42 @@ public class Spiellogik implements ISpieldaten{
     }
 
     @Override
-    public boolean[] spielerBereit() {
-        return new boolean[4];
+    public boolean spielerAusgestiegen(String nameSpieler) {
+        return false;
     }
 
     @Override
-    public String aktuellerSpieler() {
-        return null;
+    public boolean spielerBereitMelden(String nameSpieler) {
+        return false;
     }
 
     @Override
-    public Zustand spielZustandHolen() {
-        return null;
+    public boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler) {
+        return false;
     }
 
     @Override
-    public boolean spielZustandSetzen(Zustand aktuellerZustand) {
+    public boolean angriffVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler) {
+        return false;
+    }
+
+    @Override
+    public boolean versetzenVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler) {
+        return false;
+    }
+
+    @Override
+    public boolean zugBeendet(String nameSpieler) {
+        return false;
+    }
+
+    @Override
+    public boolean gewuerfelt(String nameSpieler) {
+        return false;
+    }
+
+    @Override
+    public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) {
         return false;
     }
 }
