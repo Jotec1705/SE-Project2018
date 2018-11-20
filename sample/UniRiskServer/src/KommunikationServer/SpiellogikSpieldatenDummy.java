@@ -1,4 +1,4 @@
-package Spiellogik;
+package KommunikationServer;
 
 import Spieldaten.Bonuskarte;
 import Spieldaten.Missionskarte;
@@ -382,7 +382,7 @@ public class SpiellogikSpieldatenDummy {
     }
 
     String[] spielerNamen(){
-        String[] namen = {"Horst", "M@rianne", "Bartholomäus", "P3t3r", "Piet"};
+        String[] namen = {"Horst", "P3t3r", "M@rianne", "Piet"};
         return namen;
     }
 
@@ -394,5 +394,7 @@ public class SpiellogikSpieldatenDummy {
         String[] adressen = {"192.168.0.100", "192.168.0.101", "192.168.0.102", "192.168.0.103", "192.168.0.104"};
         return adressen;
     }
+
+
 
 }
