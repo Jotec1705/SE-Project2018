@@ -95,7 +95,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     boolean vergleicheMissionskarte(Missionskarte missionskarte, String nameSpieler){
 
         switch (missionskarte){
-            case BefreienVonStudiengang:
+            case BefreienVonStudiengangSPO:
 
 
             case ZweiFachbereicheEinnehmen:
@@ -163,10 +163,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler) {
-        Integer anzahlErsties;
         if(daten.besitzerGebaeude(gebaeude).equals(nameSpieler)) {
-            anzahlErsties = daten.anzahlErstiesGebaeude(gebaeude);
-            return daten.anzahlErstiesAnpassen(gebaeude, anzahlErsties + 1);
+            return daten.anzahlErstiesAnpassen(gebaeude, 1);
         }
         return false;
     }

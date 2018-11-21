@@ -83,10 +83,4 @@ public interface IAnzeigedaten extends Remote{
      * @return Int-Array
      */
     Integer[] eigeneGebaeude(String nameSpieler);
-
-
-
-
-
-
 }

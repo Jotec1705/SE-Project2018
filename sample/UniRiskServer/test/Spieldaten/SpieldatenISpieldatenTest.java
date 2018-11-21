@@ -124,7 +124,7 @@ class SpieldatenISpieldatenTest {
      */
     @Test
     void testMissionskarteSpieler(String nameSpieler){
-        Missionskarte missionskarte = Missionskarte.BefreienVonStudiengang;
+        Missionskarte missionskarte = Missionskarte.BefreienVonStudiengangSPO;
         assertEquals(missionskarte, spieldaten.missionskarteSpieler("Willi"));
     }
 

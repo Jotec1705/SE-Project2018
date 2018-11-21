@@ -81,7 +81,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielAnlegen(int spielerAnzahl) {
-
+        //Missionskarten verteilen an die Spieler (per Zufall)(Spieler sind die Studiengänge)
         //Anlegen nur zulässig wenn mindestens 3 und höchstens 5 Spieler angemeldet sind
 
         if(spielerAnzahl >5 || spielerAnzahl <3){
@@ -97,8 +97,8 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         gebaeudeArr[0] = null;
         // Nun werden alle Gebäude angelegt
         //Hier könnte schon die Zuteilung der Gebäude an die Spieler statt finden
-
-        gebaeudeArr[1] = new Gebaeude("Hotel Alpenblick",1,1,null ,new Integer[] {2, 3, 12, 13});
+/*
+        gebaeudeArr[1] = new Gebaeude("Hotel Alpenblick",1,1,null, Fachbereiche.A ,new Integer[] {2, 3, 12, 13});
         gebaeudeArr[2] = new Gebaeude("Parkplatz Ost",2,1,null,new Integer[] {1,3,16,22,27,33});
         gebaeudeArr[3] = new Gebaeude("Freizeit-Area",3,1,null,new Integer[] {1,2,4,6,7,13});
         gebaeudeArr[4] = new Gebaeude("Sternbau",4,1,null,new Integer[] {3,5,6});
@@ -131,8 +131,14 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         gebaeudeArr[31] = new Gebaeude("Fliegerpuff",31,1,null,new Integer[] {32,33});
         gebaeudeArr[32] = new Gebaeude("Hirschkäfer",32,1,null,new Integer[] {31,33});
         gebaeudeArr[33] = new Gebaeude("Wache",33,1,null,new Integer[] {2,16,22,27,31,32});
+        */
         return true;
         }
+        return false;
+    }
+
+    @Override
+    public boolean spielLaden(String dateipfad) {
         return false;
     }
 
@@ -159,6 +165,11 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
             }
         }
         return angreifbareNachbarArr;
+    }
+
+    @Override
+    public boolean spielStarten() {
+        return false;
     }
 
     @Override
@@ -216,6 +227,11 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public Integer anzahlZuVerteilendeErsties(String nameSpieler) {
         return null;
+    }
+
+    @Override
+    public boolean anzahlZuVerteilendeErstiesAnpassen(String nameSpieler, Integer anzahlErsties) {
+        return false;
     }
 
     @Override

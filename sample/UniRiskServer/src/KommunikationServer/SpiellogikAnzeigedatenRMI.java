@@ -114,6 +114,7 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     @Override
     public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) throws RemoteException {
+        //Remote Interface vom Client hierüber übergeben
         return false;
     }
 }

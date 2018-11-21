@@ -6,6 +6,7 @@ public class Spieler {
     public boolean bereit;
     public boolean isBot;
     public boolean hatErstiesVerteilt;
+    public Integer zuVerteilendeErsties;
 
     public Spieler(String Name, String passwort,boolean bereit, boolean isBot, boolean hatErstiesVerteilt){
         this.Name = Name;

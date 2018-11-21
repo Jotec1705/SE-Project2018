@@ -51,7 +51,7 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte 8, "Horst"*/
     boolean besitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler){
-
+        //Ruft aktualisiereKarte auf
         return (gebaeude == 8) && (nameSpieler == "Horst"); //Wenn als Gebäude 8 und als Name Horst getestet wird, true.
     }
 

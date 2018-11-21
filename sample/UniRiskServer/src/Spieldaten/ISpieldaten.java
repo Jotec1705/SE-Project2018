@@ -119,6 +119,15 @@ public interface ISpieldaten {
      */
     boolean spielAnlegen(int spielerAnzahl);
 
+    /**
+     * Diese Methode wird der Komponente "GUIServer" angeboten.
+     * Über den Aufruf dieser Methode wird über die Komponente "Spiellogik" die Komponente "Spieldaten"
+     * zum Laden eines Spieles aus einer Datei aufgefordert.
+     * Es wird der Methode der Pfad der zuladenen Datei übergeben.
+     * @param dateipfad
+     * @return Gibt True zurück wenn Spiel von "Spieldaten" erfolgreich geladen. Sonnst False.
+     */
+    boolean spielLaden(String dateipfad);
 
     /**
      * Diese Methode meldet einen Spieler an.
@@ -157,4 +166,42 @@ public interface ISpieldaten {
      */
     boolean spielZustandSetzen(Zustand aktuellerZustand);
 
+    //******************************************************************ab hier neue:
+    /**
+     * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der angreifbaren Nachbargebäude zurück
+     */
+    Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler);
+
+    /**
+     * Gebäude den Spielern zuweisen, Initial Ersties berechnen.
+     * Diese Methode wird der Komponente "GUIServer" angeboten.
+     * Über den Aufruf dieser Methode wird das angelegte oder geladene Spiel gestartet.
+     */
+    boolean spielStarten();
+
+    /**
+     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben
+     * @param nameSpieler Name des Spielers als String
+     * @return Anzahl der zu verteilenden Ersties als Int
+     */
+    Integer anzahlZuVerteilendeErsties(String nameSpieler);
+
+    /**
+     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers anpassen
+     * @param nameSpieler Name des Spielers als String
+     * @param anzahlErsties Anzahl der Ersties die noch zu verteilen sind
+     * @return ob die Methode erfolgreich war
+     */
+    boolean anzahlZuVerteilendeErstiesAnpassen(String nameSpieler, Integer anzahlErsties);
+
+    /**
+     * Diese Methode soll die ID´s eigenen Nachbargebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der Nachbargebäude zurück welche dem nameSpieler gehören
+     */
+    Integer[] eigeneNachbarGebaeude(Integer gebaeude, String nameSpieler);
 }
