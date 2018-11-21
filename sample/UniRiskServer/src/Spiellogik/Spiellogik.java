@@ -18,7 +18,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         return true;
     }
 
-    boolean alleSpielerBereit(){ boolean [] spielerBereit;
+    boolean alleSpielerBereit(){
+       boolean [] spielerBereit;
        spielerBereit = daten.spielerBereit();
        for(boolean b : spielerBereit) if(!b) return false;
             return true;
@@ -30,6 +31,38 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 //        }
 //        return daten.spielZustandSetzen(Zustand.ErstiesVerteilen);
 //    }
+
+    boolean Spiel(){
+
+        if(daten.spielZustandHolen() == Zustand.Initial){
+            //Spiel anlegen
+            //Spieler anmelden
+            //Spieler bereit
+            //Spieler ausgestiegen
+            //Spiel starten
+        }
+
+        if(daten.spielZustandHolen() == Zustand.ErstiesVerteilen){
+            //Initiales Ersties verteilen
+        }
+
+        if(daten.spielZustandHolen() == Zustand.Aktiv){
+
+            //Phase1
+
+            //Phase2
+
+            //Phase3
+
+        }
+
+        if(daten.spielZustandHolen() == Zustand.Beendet){
+            //Speichern
+            //Schließen
+        }
+
+        return false;
+    }
 
     boolean phase1Verstaerken(String nameSpieler){
         Integer neueErsties = 0;
@@ -59,24 +92,33 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         return false;
     }
 
-    boolean phase3Verschieben(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler){
+    boolean phase3Verschieben(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler, Missionskarte missionskarte){
 
         //if Verschieben
+        versetzenVonNach(gebaeudeUrsprung, anzahlUrsprung, gebaeudeZiel, nameSpieler);
 
-        if(versetzenVonNach(gebaeudeUrsprung, anzahlUrsprung, gebaeudeZiel, nameSpieler)){
 
-            //Missionskarte erfüllt
-            // Sieg
+        if(vergleicheMissionskarte(missionskarte, nameSpieler)){ //Missionskarte erfüllt
+            //Sieg
         }
 
         //Phase 3 beendet
-        //Nächster Spieler
 
-        return false;
+        return daten.naechsterSpieler();
     }
 
     boolean vergleicheNameSpieler(Integer gebaeudeUrsprung, Integer gebaeudeZiel, String nameSpieler){
         return (daten.besitzerGebaeude(gebaeudeUrsprung).equals(nameSpieler) && daten.besitzerGebaeude(gebaeudeZiel).equals(nameSpieler));
+    }
+
+
+    //Prüft ob Zielgebäude im möglichen Ziel-Array enthalten ist
+    boolean verschiebenAngreifenVonNach(Integer [] gebaeudeNach, Integer gebaeudeZiel){
+        for(int i = 0; i < gebaeudeNach.length; i++){
+            if(gebaeudeNach[i].equals(gebaeudeZiel))
+                return true;
+        }
+        return false;
     }
 
     boolean istNachbargebaeude(Integer gebaeudeUrsprung, Integer gebaeudeZiel){
@@ -95,8 +137,15 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     boolean vergleicheMissionskarte(Missionskarte missionskarte, String nameSpieler){
 
         switch (missionskarte){
+            case BefreienVonStudiengangETTI:
+
             case BefreienVonStudiengangSPO:
 
+            case BefreienVonStudiengangWOW:
+
+            case BefreienVonStudiengangBAU:
+
+            case BefreienVonStudiengangAero:
 
             case ZweiFachbereicheEinnehmen:
                 return (daten.anzahlFachbereicheSpieler(nameSpieler) >= 2);
@@ -105,6 +154,19 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
                 return (daten.anzahlGebaeudeSpieler(nameSpieler) >= 15);
 
             case ZehnGebaeudeEinnehmenUndZweiEinheitenJeweils:
+                Integer [] eigGebaeude;
+                Integer einheitenGebaeude = 0;
+                Integer zaehler = 0;
+                if(daten.anzahlGebaeudeSpieler(nameSpieler) >= 10){
+                    eigGebaeude = daten.eigeneGebaeude(nameSpieler);
+                    for(int i = 0; i < eigGebaeude.length; i++){
+                        einheitenGebaeude = daten.anzahlErstiesGebaeude(eigGebaeude[i]);
+                        if(einheitenGebaeude >= 2)
+                            zaehler++;
+                    }
+                    return (zaehler == eigGebaeude.length);
+                }
+                return false;
 
              default:
                  return false;
@@ -113,12 +175,29 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
 
     @Override
+    public boolean spielerAnmelden(String nameSpieler, String passwort) {
+        return daten.spielerAnmelden(nameSpieler, passwort);
+    }
+
+    @Override
     public boolean spielAnlegen(int spielerAnzahl) {
-        return daten.spielAnlegen(spielerAnzahl);
+        if(spielerAnzahl>=3 && spielerAnzahl<=5)
+            return daten.spielAnlegen(spielerAnzahl);
+        return false;
     }
 
     @Override
     public boolean spielLaden(String dateipfad) {
+        return daten.spielLaden(dateipfad);
+    }
+
+    @Override
+    public boolean spielerAusgestiegen(String nameSpieler) {
+        return false;
+    }
+
+    @Override
+    public boolean spielerBereitMelden(String nameSpieler) {
         return false;
     }
 
@@ -141,25 +220,6 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         return false;
     }
 
-    @Override
-    public boolean beobachterHinzufuegen(IGUIServerCallback beobachter) {
-        return false;
-    }
-
-    @Override
-    public boolean spielerAnmelden(String nameSpieler, String passwort) {
-        return daten.spielerAnmelden(nameSpieler, passwort);
-    }
-
-    @Override
-    public boolean spielerAusgestiegen(String nameSpieler) {
-        return false;
-    }
-
-    @Override
-    public boolean spielerBereitMelden(String nameSpieler) {
-        return false;
-    }
 
     @Override
     public boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler) {
@@ -171,7 +231,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean angriffVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler) {
-        if(!vergleicheNameSpieler(gebaeudeUrsprung, gebaeudeZiel, nameSpieler) && istNachbargebaeude(gebaeudeUrsprung, gebaeudeZiel)){
+        Integer [] angreibareNachbarGebaeude = daten.angreifbareNachbarGebaeude(gebaeudeUrsprung, nameSpieler);
+        if(verschiebenAngreifenVonNach(angreibareNachbarGebaeude, gebaeudeZiel)){
             //Angreifen
             return true;
         }
@@ -180,7 +241,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean versetzenVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler) {
-        if(vergleicheNameSpieler(gebaeudeUrsprung, gebaeudeZiel, nameSpieler) && istNachbargebaeude(gebaeudeUrsprung, gebaeudeZiel)){
+        Integer [] eigeneNachbarGebaeude = daten.eigeneNachbarGebaeude(gebaeudeUrsprung, nameSpieler);
+        if(verschiebenAngreifenVonNach(eigeneNachbarGebaeude, gebaeudeZiel)){
             if(mindEinErstieGebaeude(gebaeudeUrsprung, anzahlUrsprung)){
                 daten.anzahlErstiesAnpassen(gebaeudeUrsprung, daten.anzahlErstiesGebaeude(gebaeudeUrsprung) - anzahlUrsprung);
                 daten.anzahlErstiesAnpassen(gebaeudeZiel, daten.anzahlErstiesGebaeude(gebaeudeZiel) + anzahlUrsprung);
@@ -190,12 +252,12 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     }
 
     @Override
-    public boolean zugBeendet(String nameSpieler) {
+    public boolean gewuerfelt(String nameSpieler) {
         return false;
     }
 
     @Override
-    public boolean gewuerfelt(String nameSpieler) {
+    public boolean zugBeendet(String nameSpieler) {
         return false;
     }
 
@@ -203,4 +265,11 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) {
         return false;
     }
+
+    @Override
+    public boolean beobachterHinzufuegen(IGUIServerCallback beobachter) {
+        return false;
+    }
+
+
 }
