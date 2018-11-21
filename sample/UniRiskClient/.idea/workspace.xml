@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55bed94e-13e8-46f7-9483-957c86d8aedc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GUIClient/Test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Fachbereiche.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/Anzeige.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/Anzeige.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/DatenModell.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/DatenModell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/GUIServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/GUIServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/CallbackRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/CallbackRMI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/ICallbackRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/ICallbackRMI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/ISpiellogikAnzeigedatenRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/ISpiellogikAnzeigedatenRMI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/SpiellogikAnzeigedatenRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/SpiellogikAnzeigedatenRMI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/Gebaeude.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/Gebaeude.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/ISpieldaten.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/ISpieldaten.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/Missionskarte.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/Missionskarte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/Spieldaten.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/Spieldaten.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/Spiellogik.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/Spiellogik.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/Spieldaten/SpieldatenIAnzeigedatenTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/Spieldaten/SpieldatenIAnzeigedatenTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/Spieldaten/SpieldatenISpieldatenTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/Spieldaten/SpieldatenISpieldatenTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/Spiellogik/SpiellogikSpieldatenDummy.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/test/UniRiskServer/Spiellogik/SpiellogikSpieldatenDummy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/GUIServer/GUIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/GUIServer/GUIServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikSpieldatenDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikSpieldatenDummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Gebaeude.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Gebaeude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/IAnzeigedaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/IAnzeigedaten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/ISpieldaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/ISpieldaten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Missionskarte.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Missionskarte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Spieldaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Spieldaten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Spieler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Spieler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/Spiellogik/Spiellogik.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/Spiellogik/Spiellogik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UniRiskServer/test/Spieldaten/SpieldatenISpieldatenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/test/Spieldaten/SpieldatenISpieldatenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,31 +48,34 @@
     <session id="-1266696756">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="1" />
-          <entry key="java" value="2" />
+          <entry key="java" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="3" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="java" value="304" />
           <entry key="txt" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JAVA" value="304" />
           <entry key="PLAIN_TEXT" value="39" />
         </counts>
       </usages-collector>
@@ -109,15 +83,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUIClient/GUIClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1319">
+            <state relative-caret-position="-850">
               <caret line="231" column="43" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#13392#13393#0" expanded="true" />
-                <element signature="e#13420#13421#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="59" column="73" lean-forward="true" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,6 +125,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/GUIClient/Test.fxml" />
+        <option value="$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java" />
       </list>
     </option>
   </component>
@@ -150,7 +135,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -161,7 +146,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,12 +175,13 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542804230140" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542804350870" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../UniRiskServer" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -204,138 +189,6 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/06_Tests/Testspezifikation.docx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/06_Tests/Testspezifikation.pdf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/GUIServer/GUIServer.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/GUIServer/Anzeige.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/GUIServer/Controller.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/GUIServer/DatenModell.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/GUIServer/GUIServer.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/CallbackRMI.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/ICallbackRMI.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/ISpiellogikAnzeigedatenRMI.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/KommunikationServer.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Gebaeude.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Spieldaten.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/Spiellogik/Spiellogik.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/test/Spieldaten/SpieldatenIAnzeigedatenTest.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/test/Spiellogik/SpiellogikSpieldatenDummy.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/03_Protokolle/Besprechungsprotokoll_13(19.11.2018).docx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../../Dokumente/02_Arbeitsbereich/03_Protokolle/Besprechungsprotokoll_13(19.11.2018).pdf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikSpieldatenDummy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../UniRiskServer/src/Spieldaten/Spieler.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -383,6 +236,7 @@
       <workItem from="1540886890023" duration="790000" />
       <workItem from="1542566424586" duration="453000" />
       <workItem from="1542636937252" duration="3519000" />
+      <workItem from="1542816358706" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="So, Jetzt nochmal die richtige Version. Auch wenn das falsche eben keiner mitbekommen hat">
       <created>1540844872929</created>
@@ -395,14 +249,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7303000" />
+    <option name="totallyTimeSpent" value="8816000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48214287" visible="true" weight="0.16630197" />
-      <window_info id="Structure" order="1" sideWeight="0.51785713" side_tool="true" visible="true" weight="0.16630197" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4815618" visible="true" weight="0.0826226" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.51843816" side_tool="true" visible="true" weight="0.0826226" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -412,7 +266,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32968238" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3253012" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3253012" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -447,20 +301,10 @@
     <entry file="file://$PROJECT_DIR$/UniRiskClient.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -482,21 +326,29 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIClient/Test.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="41" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="41" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIClient/GUIClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1319">
+        <state relative-caret-position="-850">
           <caret line="231" column="43" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13392#13393#0" expanded="true" />
-            <element signature="e#13420#13421#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="59" column="73" lean-forward="true" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

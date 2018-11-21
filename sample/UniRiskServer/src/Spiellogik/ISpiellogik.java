@@ -40,6 +40,14 @@ public interface ISpiellogik extends Remote{
     boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler);
 
     /**
+     * Diese Methoden gibt die ausgewählten Bonuskarten zum Tauschen weiter.
+     * @param nameSpieler aktueller Spieler
+     * @param bonuskarten ausgewählte Bonuskarten zum Tauschen
+     * @return ob die Methode erfolgreich war
+     */
+    boolean tauschBonuskarten(String nameSpieler, Integer[] bonuskarten);
+
+    /**
      * Aus dieser Methode, kann ausgelesen werden von wo und mit wie vielen Einheiten, auf welches Gebäude angegriffen
      * wird. Deckt also Phase II ab.
      * @param gebaeudeUrsprung Von wo.

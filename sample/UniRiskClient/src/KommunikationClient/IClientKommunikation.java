@@ -52,6 +52,14 @@ public interface IClientKommunikation {
     Integer[] anzahlBonuskarten(String nameSpieler);
 
     /**
+     * Diese Methoden gibt die ausgewählten Bonuskarten zum Tauschen weiter.
+     * @param nameSpieler aktueller Spieler
+     * @param bonuskarten ausgewählte Bonuskarten zum Tauschen
+     * @return ob die Methode erfolgreich war
+     */
+    boolean tauschBonuskarten(String nameSpieler, Integer[] bonuskarten);
+
+    /**
      * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben.
      * @param nameSpieler Name des Spielers als String.
      * @return Anzahl der zu verteilenden Ersties als Int.
