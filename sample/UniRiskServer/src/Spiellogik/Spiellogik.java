@@ -230,6 +230,11 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     }
 
     @Override
+    public boolean tauschBonuskarten(String nameSpieler, Integer[] bonuskarten) {
+        return false;
+    }
+
+    @Override
     public boolean angriffVonNach(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler) {
         Integer [] angreibareNachbarGebaeude = daten.angreifbareNachbarGebaeude(gebaeudeUrsprung, nameSpieler);
         if(verschiebenAngreifenVonNach(angreibareNachbarGebaeude, gebaeudeZiel)){
