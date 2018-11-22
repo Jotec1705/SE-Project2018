@@ -66,51 +66,64 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     boolean phase1Verstaerken(String nameSpieler){
         Integer neueErsties = 0;
+        daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, neueErsties);
 
-        neueErsties /= 3;
-        if(neueErsties < 3) {
+        neueErsties = daten.anzahlGebaeudeSpieler(nameSpieler) / 3;
+        if(neueErsties < 3){
             neueErsties = 3;
         }
+        daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, neueErsties);
 
         if(daten.anzahlFachbereicheSpieler(nameSpieler) > 0){
-            // switch case welche SFB und dann auf neueErsties addieren
+            //switch case welche SFB und dann auf neueErsties addieren
+            //Wie bekomme ich die Fachbereiche die er besitzt?
         }
 
-        // if Karteneintauschen
+        //if Karteneintauschen
 
+        neueErsties = daten.anzahlZuVerteilendeErsties(nameSpieler);
         // setzenErsties
 
-        //Missionskarte erfüllt
-            // Sieg
-            // Phase 2
-
+        Missionskarte missionskarte = daten.missionskarteSpieler(nameSpieler);
+        if(vergleicheMissionskarte(missionskarte, nameSpieler)){
+            //Sieg
+        }
         return false;
     }
 
-    boolean phase2Angriff(){
+    boolean phase2Angriff(String nameSpieler){
 
+        Missionskarte missionskarte = daten.missionskarteSpieler(nameSpieler);
+        if(vergleicheMissionskarte(missionskarte, nameSpieler)){
+            //Sieg
+        }
         return false;
     }
 
-    boolean phase3Verschieben(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler, Missionskarte missionskarte){
+    boolean phase3Verschieben(Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler){
 
         //if Verschieben
         versetzenVonNach(gebaeudeUrsprung, anzahlUrsprung, gebaeudeZiel, nameSpieler);
 
 
-        if(vergleicheMissionskarte(missionskarte, nameSpieler)){ //Missionskarte erfüllt
+
+        Missionskarte missionskarte = daten.missionskarteSpieler(nameSpieler);
+        if(vergleicheMissionskarte(missionskarte, nameSpieler)){
             //Sieg
         }
 
         //Phase 3 beendet
-
-        return daten.naechsterSpieler();
+        return false; //daten.naechsterSpieler();
     }
 
     boolean vergleicheNameSpieler(Integer gebaeudeUrsprung, Integer gebaeudeZiel, String nameSpieler){
         return (daten.besitzerGebaeude(gebaeudeUrsprung).equals(nameSpieler) && daten.besitzerGebaeude(gebaeudeZiel).equals(nameSpieler));
     }
 
+    Integer erstiesFuerBonuskarten(Integer vorErsties, Integer zusatzErsties, String nameSpieler){
+
+        return 0;
+    }
 
     //Prüft ob Zielgebäude im möglichen Ziel-Array enthalten ist
     boolean verschiebenAngreifenVonNach(Integer [] gebaeudeNach, Integer gebaeudeZiel){
@@ -138,6 +151,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
         switch (missionskarte){
             case BefreienVonStudiengangETTI:
+                //Wie bekomme ich den Studiengang auf einem Gebäude
 
             case BefreienVonStudiengangSPO:
 
@@ -194,11 +208,13 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     @Override
     public boolean spielerAusgestiegen(String nameSpieler) {
         return false;
+        //return daten.spielerAusgestiegen(nameSpieler);
     }
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) {
         return false;
+        //return daten.spielerBereitMelden(nameSpieler);
     }
 
     @Override
@@ -213,11 +229,13 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     @Override
     public boolean spielBeenden() {
         return false;
+        //return daten.spielBeenden();
     }
 
     @Override
     public boolean spielSpeichern(String dateipfad) {
         return false;
+        //return daten.spielStarten(dateipfad);
     }
 
 
@@ -231,6 +249,21 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean tauschBonuskarten(String nameSpieler, Integer[] bonuskarten) {
+        Integer zusetzendeErsties = daten.anzahlZuVerteilendeErsties(nameSpieler);
+        if(bonuskarten.length > 3)
+            return false;
+        if(bonuskarten[0] == 3){
+            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 4);
+        }
+        if(bonuskarten[1] == 3){
+            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 6);
+        }
+        if(bonuskarten[2] == 3){
+            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 8);
+        }
+        if(bonuskarten[0] == 1 && bonuskarten[1] == 1 && bonuskarten[2] == 1){
+            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 10);
+        }
         return false;
     }
 
@@ -263,7 +296,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean zugBeendet(String nameSpieler) {
-        return false;
+        return daten.naechsterSpieler();
     }
 
     @Override
