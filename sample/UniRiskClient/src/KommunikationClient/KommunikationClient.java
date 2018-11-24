@@ -11,6 +11,7 @@ import java.rmi.server.*;
 
 
 public class KommunikationClient {
+
     //Konstruktor. Hat kein Argument. Ruft den Konstrukter der Superklasse (Object) auf
     public KommunikationClient(){
         super();

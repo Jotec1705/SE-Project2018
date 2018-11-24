@@ -5,7 +5,6 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbackRMI {
 
-
     public CallbackRMIAufLokal() throws RemoteException {
     }
 
@@ -40,4 +39,5 @@ public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbac
     public boolean spielBeendet() throws RemoteException {
         return false;
     }
+
 }
