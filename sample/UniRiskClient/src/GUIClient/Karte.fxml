@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIClient.Test">
+   <children>
+      <ImageView fitHeight="735.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../Karte.PNG" />
+         </image>
+      </ImageView>
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="179.0" layoutY="331.0" text="Hotel Alpenblick" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="53.0" layoutY="417.0" text="Parkplatz Ost" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="156.0" layoutY="473.0" text="Freizeit-Area" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="337.0" layoutY="297.0" text="Teststrecke" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="489.0" layoutY="198.0" text="Ackerbau" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="681.0" layoutY="181.0" text="Driving Range" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="845.0" layoutY="96.0" text="Radar-Halle" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="818.0" layoutY="244.0" text="Sportplatz" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="461.0" layoutY="323.0" text="Athene Racing" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="585.0" layoutY="315.0" text="Schicki-Micki-Neubau" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="596.0" layoutY="400.0" text="Flight" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="298.0" layoutY="348.0" text="BND" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="290.0" layoutY="366.0" text="Baracke" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="323.0" layoutY="417.0" text="Fuhrpark" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="790.0" layoutY="366.0" text="Casino" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="435.0" layoutY="435.0" text="Prüfungsamt" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="278.0" layoutY="453.0" text="Rocket" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="294.0" layoutY="509.0" text="OPZ" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="300.0" layoutY="555.0" text="Mensa" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="435.0" layoutY="500.0" text="Tempel des Wissens" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="182.0" layoutY="670.0" text="Eifriger" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="280.0" layoutY="635.0" text="Code" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="110.0" layoutY="644.0" text="ET-Bistro" />
+      <Label accessibleRole="BUTTON" alignment="CENTER" layoutX="243.0" layoutY="565.0" text="Stab" />
+   </children>
+</AnchorPane>

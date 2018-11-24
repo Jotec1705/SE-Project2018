@@ -3,8 +3,10 @@ package GUIClient;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
@@ -29,6 +31,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class GUIClient extends Application implements IGUIClientCallback {
     //private ListView<String> mitspieler;
@@ -71,12 +74,12 @@ public class GUIClient extends Application implements IGUIClientCallback {
 
     //kleiner Test:
     @Override
-    public void start(Stage stage) throws FileNotFoundException {
+    public void start(Stage stage) throws IOException {
         //BorderPane --> übergeordnete Unterteilung des Fensters:
         BorderPane borderPane = new BorderPane();
 
         //Bild einfügen:
-        Image image = new Image(new FileInputStream("C:\\Users\\Alicia Siefert\\Documents\\SE-Project2018\\Karte.png"));
+        /*Image image = new Image(new FileInputStream("C:\\Users\\Alicia Siefert\\Documents\\SE-Project2018\\Karte.png"));
         ImageView imageView = new ImageView(image);
         imageView.setX(0);
         imageView.setY(0);
@@ -84,6 +87,8 @@ public class GUIClient extends Application implements IGUIClientCallback {
         imageView.setFitWidth(1000);
         imageView.setPreserveRatio(true);
         Group root = new Group(imageView);
+*/
+        Parent karte = FXMLLoader.load(getClass().getResource("Karte.fxml"));
 
         //V-Box für die Labels mit Spieler und Farbgebung:
         Text spieler = new Text("Spieler:");
@@ -319,7 +324,7 @@ public class GUIClient extends Application implements IGUIClientCallback {
         gridPane.setStyle("-fx-background-color: #aaaaaa");
 
         //Setzen der 3 Felder der BorderPane:
-        borderPane.setLeft(root);
+        borderPane.setLeft(karte);
         borderPane.setRight(vBox);
         borderPane.setBottom(gridPane);
         Scene scene = new Scene(borderPane);
