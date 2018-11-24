@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55bed94e-13e8-46f7-9483-957c86d8aedc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/KommunikationClient/CallbackRMIAufLokal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/KommunikationClient/ClientKommunikationNachServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/KommunikationClient/GUIClientDummy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/KommunikationClient/ICallbackRMI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/CallbackRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/CallbackRMI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/SpiellogikAnzeigedatenRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/SpiellogikAnzeigedatenRMI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/SpiellogikSpieldatenDummy.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/KommunikationServer/SpiellogikSpieldatenDummy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/ISpieldaten.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spieldaten/ISpieldaten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/ISpiellogik.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/ISpiellogik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/Spiellogik$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/Spiellogik$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/Spiellogik.class" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/out/production/UniRiskServer/Spiellogik/Spiellogik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/CallbackRMI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/CallbackRMI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/KommunikationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/KommunikationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikSpieldatenDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UniRiskServer/src/KommunikationServer/SpiellogikSpieldatenDummy.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,31 +33,37 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="fxml" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="5" />
+          <entry key="java" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="18" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="1" />
+          <entry key="java" value="1050" />
           <entry key="txt" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="94" />
+          <entry key="JAVA" value="1050" />
+          <entry key="PLAIN_TEXT" value="95" />
         </counts>
       </usages-collector>
     </session>
@@ -84,10 +106,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUIClient/GUIClient.java">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-850">
-              <caret line="231" column="43" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
+            <state relative-caret-position="700">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#359#360#0" expanded="true" />
+                <element signature="e#382#383#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="932">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/CallbackRMIAufLokal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,13 +144,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/ClientKommunikationNachServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="59" column="73" lean-forward="true" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+            <state relative-caret-position="3090">
+              <caret line="208" column="40" selection-start-line="208" selection-start-column="40" selection-end-line="208" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/ICallbackRMI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="855">
+              <caret line="57" column="49" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KommunikationClient/GUIClientDummy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -112,9 +181,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -126,6 +195,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/GUIClient/Test.fxml" />
         <option value="$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java" />
+        <option value="$PROJECT_DIR$/src/KommunikationClient/ICallbackRMI.java" />
+        <option value="$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java" />
+        <option value="$PROJECT_DIR$/src/KommunikationClient/ClientKommunikationNachServer.java" />
+        <option value="$PROJECT_DIR$/src/KommunikationClient/GUIClientDummy.java" />
+        <option value="$PROJECT_DIR$/src/KommunikationClient/CallbackRMIAufLokal.java" />
       </list>
     </option>
   </component>
@@ -135,17 +209,21 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="29" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,18 +248,28 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="KommunikationClient" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="UniRiskClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniRiskClient" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UniRiskClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UniRiskClient" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="GUIClient" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542804350870" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543072320678" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../UniRiskServer" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -189,6 +277,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/KommunikationClient" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -237,6 +330,7 @@
       <workItem from="1542566424586" duration="453000" />
       <workItem from="1542636937252" duration="3519000" />
       <workItem from="1542816358706" duration="1513000" />
+      <workItem from="1543061602277" duration="6798000" />
     </task>
     <task id="LOCAL-00001" summary="So, Jetzt nochmal die richtige Version. Auch wenn das falsche eben keiner mitbekommen hat">
       <created>1540844872929</created>
@@ -249,14 +343,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8816000" />
+    <option name="totallyTimeSpent" value="15614000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4815618" visible="true" weight="0.0826226" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.51843816" side_tool="true" visible="true" weight="0.0826226" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48024315" visible="true" weight="0.18157615" />
+      <window_info id="Structure" order="1" sideWeight="0.51975685" side_tool="true" visible="true" weight="0.18157615" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -301,20 +394,6 @@
     <entry file="file://$PROJECT_DIR$/UniRiskClient.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUIClient/IGUIClientCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/KommunikationClient/IClientKommunikationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -325,28 +404,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUIClient/Test.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUIClient/GUIClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="231" column="43" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
+        <state relative-caret-position="60">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUIClient/IGUIClientCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="27" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="55" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUIClient/Test.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/GUIClient/IGUIClientCallbackTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/GUIClient/GUIClientDummy.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/CallbackRMIAufLokal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/GUIClientDummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/ICallbackRMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" column="49" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/KommunikationClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/KommunikationClient/IClientKommunikation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="59" column="73" lean-forward="true" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+        <state relative-caret-position="932">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KommunikationClient/ClientKommunikationNachServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3090">
+          <caret line="208" column="40" selection-start-line="208" selection-start-column="40" selection-end-line="208" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

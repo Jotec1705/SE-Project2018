@@ -23,7 +23,7 @@ public class KommunikationServer{
         //RMI registry einbinden (Registry Port ist per default 1099)
         try {
             LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
-            System.out.println("Registry ready");
+            System.out.println("Registry Bereit");
         } catch (Exception e) {
             System.out.println("Registry exception: " + e.getMessage());
         }
@@ -58,6 +58,9 @@ public class KommunikationServer{
             System.err.println("KommunikationServer Objekt2 exception:");
             e.printStackTrace();
         }
+
+
+
 
     }
 

@@ -12,6 +12,8 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     SpiellogikSpieldatenDummy dummy = new SpiellogikSpieldatenDummy();
 
+    IKommunikationServerCallback aufrufBeimClient;
+
     @Override
     public boolean spielerAnmelden(String nameSpieler, String passwort) throws RemoteException {
         return dummy.spielerAnmelden(nameSpieler, passwort);
@@ -115,6 +117,7 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
     @Override
     public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) throws RemoteException {
         //Remote Interface vom Client hierüber übergeben
-        return false;
+        aufrufBeimClient = beobachter;
+        return true;
     }
 }

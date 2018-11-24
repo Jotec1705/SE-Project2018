@@ -5,36 +5,46 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class CallbackRMI extends UnicastRemoteObject implements ICallbackRMI {
 
-    public CallbackRMI() throws RemoteException {
+    SpiellogikAnzeigedatenRMI zumClient;
+
+    public CallbackRMI() throws RemoteException{
+
+        try{
+            this.zumClient = new SpiellogikAnzeigedatenRMI();
+        }
+        catch(Exception e){
+            System.err.println("Dummy exception beim Anglegen:");
+            e.printStackTrace();
+        }
     }
 
     @Override
     public boolean spielBeendet() throws RemoteException {
-        return false;
+        return zumClient.aufrufBeimClient.spielBeendet();
     }
 
     @Override
     public boolean zugZuteilung(String nameSpieler) throws RemoteException {
-        return false;
+        return zumClient.aufrufBeimClient.zugZuteilung(nameSpieler);
     }
 
     @Override
     public boolean angriffAbwehren(String nameSpieler, Integer verteidigerGeb) throws RemoteException {
-        return false;
+        return zumClient.aufrufBeimClient.angriffAbwehren(nameSpieler, verteidigerGeb);
     }
 
     @Override
     public boolean aktualisierenKarte() throws RemoteException {
-        return false;
+        return zumClient.aufrufBeimClient.aktualisierenKarte();
     }
 
     @Override
     public boolean aktualisierenLobby() throws RemoteException {
-        return false;
+        return zumClient.aufrufBeimClient.aktualisierenLobby();
     }
 
     @Override
     public boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer, Integer verloreneErsties, Integer gewonnen) throws RemoteException {
-        return false;
+        return zumClient.aufrufBeimClient.wuerfelErgebnis(nameSpieler, wuerfelVerteidiger, wuerfelAngreifer, verloreneErsties, gewonnen);
     }
 }
