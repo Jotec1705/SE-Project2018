@@ -133,7 +133,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         }
         return false;
     }
-
+/*
     boolean istNachbargebaeude(Integer gebaeudeUrsprung, Integer gebaeudeZiel){
         Integer [] nachbarUrsprung = daten.nachbarGebaeude(gebaeudeUrsprung);
         for(int i = 0; i < nachbarUrsprung.length; i++){
@@ -142,7 +142,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         }
         return false;
     }
-
+*/
     boolean mindEinErstieGebaeude(Integer gebaeude, Integer anzahlErsties){
         return (daten.anzahlErstiesGebaeude(gebaeude) - anzahlErsties) >= 1;
     }
