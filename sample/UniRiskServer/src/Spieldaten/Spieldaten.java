@@ -3,13 +3,20 @@ package Spieldaten;
 public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
 
-    Gebaeude[] gebaeudeArr = new Gebaeude[33];
+    Gebaeude[] gebaeudeArr = new Gebaeude[34];
 
 
     @Override
     public Integer anzahlGebaeudeSpieler(String nameSpieler) {
+        Integer anzahlGebaeudeSpieler = 0;
 
-        return null;
+        for(int i = 1; i > gebaeudeArr.length;i++) {
+            if (gebaeudeArr[i].Besitzer == nameSpieler) {
+                anzahlGebaeudeSpieler++;
+            }
+        }
+
+        return anzahlGebaeudeSpieler;
     }
 
     @Override
@@ -22,7 +29,6 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean besitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler) {
-        //abruchbedingung
 
         gebaeudeArr[gebaeude].setBesitzer(nameSpieler);
         return true;
@@ -30,7 +36,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public Integer[] nachbarGebaeude(Integer gebaeude) {
-        //Abbruchkriterien
+
         Integer[] nachbarGebaeude = gebaeudeArr[gebaeude].hatNachbargebaeude;
 
         return nachbarGebaeude;
@@ -46,7 +52,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean anzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties) {
-       //Abbruchbedingung
+
 
         Integer neueAnzahlErsties;
         neueAnzahlErsties = (gebaeudeArr[gebaeude].anzahlErsties + anzahlErsties);
@@ -56,7 +62,28 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public Integer anzahlFachbereicheSpieler(String nameSpieler) {
-        return null;
+        Integer anzahlA = 0;
+        Integer anzahlB = 0;
+        Integer anzahlC = 0;
+        Integer anzahlD = 0;
+        Integer anzahlAERO = 0;
+        Integer anzahlFachbereicheSpieler = 0;
+
+        for(int i = 1; i > gebaeudeArr.length;i++){
+            if(gebaeudeArr[i].Besitzer == nameSpieler && gebaeudeArr[i].Fachbereiche == Fachbereiche.A){anzahlA++;}
+            if(gebaeudeArr[i].Besitzer == nameSpieler && gebaeudeArr[i].Fachbereiche == Fachbereiche.B){anzahlB++;}
+            if(gebaeudeArr[i].Besitzer == nameSpieler && gebaeudeArr[i].Fachbereiche == Fachbereiche.C){anzahlC++;}
+            if(gebaeudeArr[i].Besitzer == nameSpieler && gebaeudeArr[i].Fachbereiche == Fachbereiche.D){anzahlD++;}
+            if(gebaeudeArr[i].Besitzer == nameSpieler && gebaeudeArr[i].Fachbereiche == Fachbereiche.AERO){anzahlAERO++;}
+        }
+        if(anzahlA==7){anzahlFachbereicheSpieler++;}// / weil es 7 A-Gebaeude in Fachbereiche.A gibt
+        if(anzahlB==9){anzahlFachbereicheSpieler++;}// / weil es 9 B-Gebaeude in Fachbereiche.B gibt
+        if(anzahlC==8){anzahlFachbereicheSpieler++;}// / weil es 8 C-Gebaeude in Fachbereiche.C gibt
+        if(anzahlD==6){anzahlFachbereicheSpieler++;}// / weil es 7 D-Gebaeude in Fachbereiche.D gibt
+        if(anzahlAERO ==3){anzahlFachbereicheSpieler++;}// / weil es 3 AERO-Gebaeude in Fachbereiche.AERO gibt
+
+
+        return anzahlFachbereicheSpieler;
     }
 
     @Override
@@ -86,10 +113,8 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
         if(spielerAnzahl >5 || spielerAnzahl <3){
             return false;  //hier vieleicht noch nacch NaN testen?
-
-
-
         }
+
         if(spielerAnzahl>=3 && spielerAnzahl<=5) {
 
             Integer[] zufallsArray3 = { 1,1,1,1,1,1,1,1,1,1,1,
@@ -107,16 +132,16 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
                                         4,4,4,4,4,4,
                                         5,5,5,5,5,5 };
 
-            Integer[] zufallsArray= new Integer[33];
+            Integer[] zufallsArray;
 
-
-
-            for(int i = 0;i < 33 ;i++){
-
-
+            switch(spielerAnzahl) {
+                case 3: zufallsArray = arrayMischen(zufallsArray3);
+                    break;
+                case 4: zufallsArray = arrayMischen(zufallsArray4);
+                    break;
+                case 5: zufallsArray = arrayMischen(zufallsArray5);
+                    break;
             }
-        // Array vom Typ Gebaude wird angelegt
-
 
 
         // Gebäude vom Index 0 existiert nicht!
@@ -310,10 +335,31 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         return null;
     }
 
+
+
+
     /**
      * Dies Methode dient dazu ein Array(Interger) zu mischen um die Karten später an die Spieler zu verteilen
+     * @param zufallsArray ist ein von der Methode spielAnlegen übergebenes Array in dem die Zahlen die Spieler repräsentieren
+     * @return ist das Array durchgemischt
      */
     public Integer[] arrayMischen(Integer[] zufallsArray ){
-        return new Integer[2];
+        Integer[] zufallsArrayZurueck = zufallsArray;
+        int i = 0;
+        int merke;
+        int position1;
+        int position2;
+        while(i < 1000){
+            position1= (int) ((Math.random()*((33-0)+0))+0);  // Aus Formel :: (Math.random()*((Max-min)+1))+min
+
+            position2= (int) ((Math.random()*((33-0)+0))+0);  // Aus Formel :: (Math.random()*((Max-min)+1))+min
+
+            merke = zufallsArrayZurueck[position1];
+            zufallsArrayZurueck[position1] = zufallsArrayZurueck[position2];
+            zufallsArrayZurueck[position2] = merke;
+
+            i++;
+        }
+        return zufallsArrayZurueck;
     }
 }
