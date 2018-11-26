@@ -3,6 +3,9 @@ package KommunikationServer;
 
 
 
+import Spieldaten.IAnzeigedaten;
+import Spiellogik.ISpiellogik;
+
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.Naming;
@@ -13,6 +16,22 @@ public class KommunikationServer{
     //Konstruktor. Hat kein Argument. Ruft den Konstrukter der Superklasse (Object) auf
     public KommunikationServer() {
         super();
+    }
+
+    //Objekte anlegen
+    private static ISpiellogik logik;
+    private static IAnzeigedaten anzeige;
+
+    //setter methoden dafür, siehe SpiellogikAnzeigedatenRMI
+    public void setSpiellogik(ISpiellogik logik){
+
+        this.logik = logik;
+
+    }
+
+    public void setAnzeige(IAnzeigedaten anzeige){
+
+        this.anzeige = anzeige;
     }
 
     public static void main(String[] args) {
@@ -32,6 +51,9 @@ public class KommunikationServer{
             //Erstellen des ersten Remote Objekt
             String name1 = "SpiellogikUndAnzeige";
             ISpiellogikAnzeigedatenRMI logikUndAnzeige = new SpiellogikAnzeigedatenRMI();
+            //rufe die beiden Settermethoden auf. mit Parameter von Bosin.
+            ((SpiellogikAnzeigedatenRMI) logikUndAnzeige).setSpiellogik(logik);
+            ((SpiellogikAnzeigedatenRMI) logikUndAnzeige).setAnzeige(anzeige);
 
             //Objekt exportieren (Wird dadurch erreicht dass die Klasse des Objekts direkt von UnicastRemoteObject erbt)
 
