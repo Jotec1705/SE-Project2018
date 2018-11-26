@@ -8,6 +8,7 @@ public class Spieler {
     public boolean hatErstiesVerteilt;
     public Integer zuVerteilendeErsties;
 
+
     public Spieler(String Name, String passwort,boolean bereit, boolean isBot, boolean hatErstiesVerteilt){
         this.Name = Name;
         this.Passwort = passwort;
@@ -16,4 +17,7 @@ public class Spieler {
         this.hatErstiesVerteilt = hatErstiesVerteilt;
     }
 
+    public void setSpielerBereit() {
+        bereit = true;
+    }
 }

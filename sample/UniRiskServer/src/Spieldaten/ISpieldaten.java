@@ -250,4 +250,11 @@ public interface ISpieldaten {
      */
     boolean spielZustandSetzen(Zustand aktuellerZustand);
 
+    /**
+     * Diese Methode meldet der Spiellogik, dass sich ein Spieler bereit gemeldet hat.
+     * @param nameSpieler ist der name des Spielers
+     * @return gibt True zurück.
+     */
+    boolean spielerBereitMelden(String nameSpieler);
+
 }
