@@ -1,5 +1,7 @@
 package GUIServer;
 
+import Spieldaten.Spieldaten;
+import Spiellogik.Spiellogik;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -7,11 +9,15 @@ import javafx.collections.ObservableList;
 public class Controller {
     private DatenModell daten;
     private Anzeige anzeige;
+    public Spieldaten spieldaten;
+    public Spiellogik logik;
 
-    public Controller(DatenModell daten){
+    public Controller(DatenModell daten, Spieldaten spieldaten, Spiellogik logik){
+        this.spieldaten = spieldaten;
+        this.logik = logik;
         this.daten = daten;
         this.anzeige = new Anzeige();
-        this.anzeige.setIpAdresseServer("Server IP : " + daten.getServerIP());
+        this.anzeige.setIpAdresseServer("Server IP : " + this.daten.getServerIP());
     }
 
     public void showStart(){
@@ -41,29 +47,6 @@ public class Controller {
             this.status = status;
         }
 
-        public String getIpAdresse() {
-            return ipAdresse;
-        }
-
-        public void setIpAdresse(String ipAdresse) {
-            this.ipAdresse = ipAdresse;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public boolean isStatus() {
-            return status;
-        }
-
-        public void setStatus(boolean status) {
-            this.status = status;
-        }
     }
 
     private void benoetigteMitspielerCreateAndView(){
@@ -74,6 +57,7 @@ public class Controller {
 
     private void slotsCreateAndView(){
         ObservableList<Slots> slotsList = null;
+
         Slots[] slots = new Slots[daten.getSpielerNamen().length];
 
         for(int i = 0; i < daten.getSpielerNamen().length;i++){
@@ -88,7 +72,7 @@ public class Controller {
 
 
     private void setSpielerNamenInDatenModell(){
-
+        daten.setSpielerNamen(spieldaten.spielerNamen());
     }
 
     private void setSpielerIPInDatenModell(){
