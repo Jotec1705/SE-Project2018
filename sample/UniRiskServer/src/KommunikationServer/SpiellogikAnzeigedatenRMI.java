@@ -1,5 +1,8 @@
 package KommunikationServer;
 
+import Spieldaten.IAnzeigedaten;
+import Spiellogik.ISpiellogik;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -11,6 +14,20 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
     }
 
     SpiellogikSpieldatenDummy dummy = new SpiellogikSpieldatenDummy();
+
+    ISpiellogik logik;
+    IAnzeigedaten anzeige;
+
+    public void setSpiellogik(ISpiellogik logik){
+
+        this.logik = logik;
+
+    }
+
+    public void setAnzeige(IAnzeigedaten anzeige){
+
+        this.anzeige = anzeige;
+    }
 
 
     @Override
