@@ -9,9 +9,10 @@ public interface IClientKommunikation {
      * Mit dieser Methode kann man sich anmelden. Man gibt einen Namen und ein Passwort ein.
      * @param nameSpieler ist der Name des Spielers.
      * @param passwort ist das Passwort dieses Spielers.
+     * @param ipAdresse hier wird die Adresse des Servers eingetragen.
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
-    boolean spielerAnmelden(String nameSpieler, String passwort);
+    boolean spielerAnmelden(String nameSpieler, String passwort, String ipAdresse);
 
     /**
      * Mit dieser Methode kann ein Spieler aus dem Spiel aussteigen.

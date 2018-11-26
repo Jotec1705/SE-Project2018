@@ -3,7 +3,10 @@ package KommunikationServer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public class CallbackRMI extends UnicastRemoteObject implements ICallbackRMI {
+//DAS MUSS HIER SPÄTER SO GESCHRIEBEN WERDEN WIE BEIM DUMMY. DAS BEDEUTET DASS AUCH ICALLBACKRMI ALS SCHNITTSTELLE FÜR
+//KOMM NACH OBEN!
+
+/*public class CallbackRMI extends UnicastRemoteObject implements ICallbackRMI {
 
     SpiellogikAnzeigedatenRMI zumClient;
 
@@ -47,4 +50,4 @@ public class CallbackRMI extends UnicastRemoteObject implements ICallbackRMI {
     public boolean wuerfelErgebnis(String nameSpieler, int[] wuerfelVerteidiger, int[] wuerfelAngreifer, Integer verloreneErsties, Integer gewonnen) throws RemoteException {
         return zumClient.aufrufBeimClient.wuerfelErgebnis(nameSpieler, wuerfelVerteidiger, wuerfelAngreifer, verloreneErsties, gewonnen);
     }
-}
+}*/

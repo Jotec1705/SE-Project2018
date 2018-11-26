@@ -1,18 +1,47 @@
 package KommunikationClient;
 
 import GUIClient.IGUIClientCallback;
+import KommunikationServer.IKommunikationServerCallback;
 import KommunikationServer.ISpiellogikAnzeigedatenRMI;
+
+import java.rmi.Naming;
 
 public class ClientKommunikationNachServer implements IClientKommunikation{
 
     ISpiellogikAnzeigedatenRMI server;
 
-    public ClientKommunikationNachServer(ISpiellogikAnzeigedatenRMI logikUndAnzeige){
+    public void setRMIObjekt(ISpiellogikAnzeigedatenRMI logikUndAnzeige){
+
         this.server = logikUndAnzeige;
     }
 
     @Override
-    public boolean spielerAnmelden(String nameSpieler, String passwort) {
+    public boolean spielerAnmelden(String nameSpieler, String passwort, String ipAdresse) {
+
+        //Server Location sieht so aus: "127.0.0.1:1099"
+        String serverLokation = ipAdresse;
+
+        try {
+
+            //Remote Objekt holen
+            String name1 = "SpiellogikUndAnzeige";
+            //RMI Registry vom Host holen (Registry Port ist per default 1099)
+            ISpiellogikAnzeigedatenRMI logikUndAnzeige = (ISpiellogikAnzeigedatenRMI) Naming.lookup("//" + serverLokation + "/" + name1);
+            System.out.println("Das Objekt SpiellogikUndAnzeige vom Host geholt.");
+
+            //Remote Interface an den Server übergeben, um die Callback Funktionalität zu ermöglichen.
+            ICallbackRMI beobachter = new CallbackRMIAufLokal();
+            logikUndAnzeige.beobachterHinzufuegen((IKommunikationServerCallback) beobachter);
+
+            //Die Klasse ClientKommunikationNachServer mit dem entfernten Objekt "versorgen"
+            ClientKommunikationNachServer zumServer = new ClientKommunikationNachServer();
+            zumServer.setRMIObjekt(logikUndAnzeige);
+
+
+        } catch (Exception e) {
+            System.err.println("Verbindungs exception");
+            e.printStackTrace();
+        }
 
         try {
             return server.spielerAnmelden(nameSpieler, passwort);
@@ -193,13 +222,13 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
 
     @Override
     public boolean beobachterHinzufuegen(IGUIClientCallback beobachter) {
-       //Wird nur einmal in der Main von KommunikationClient aufgerufen, und dann nicht mehr
-        /* try {
-            return server.beobachterHinzufuegen(beobachter);
+
+        try {
+            return server.beobachterHinzufuegen((IKommunikationServerCallback) beobachter);
         }catch (Exception e){
             System.err.println("Methodenaufruf beim Server exception:");
             e.printStackTrace();
-        }*/
+        }
         return false;
     }
 
