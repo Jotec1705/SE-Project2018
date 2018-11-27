@@ -212,14 +212,13 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler) {
         Integer[] nachbargebaeudeArr = gebaeudeArr[gebaeude].hatNachbargebaeude;
-        Integer[] angreifbareNachbarArr = new Integer[6];//-------------------------------------Kann ich das so machen?????
-        int j = 0;
-        for(int i = 0; i <= nachbargebaeudeArr.length;i++){
-            int k = nachbargebaeudeArr[i];
-            if(gebaeudeArr[k].Besitzer != nameSpieler){
-                angreifbareNachbarArr[j] = k;
-                k++;
-            }
+        int k = 0;
+        for(int i = 0 ; i<= nachbargebaeudeArr.length;i++){
+            if(gebaeudeArr[nachbargebaeudeArr[i]].Besitzer != nameSpieler){k++;}
+        }
+        Integer[] angreifbareNachbarArr = new Integer[k];
+        for(int i = 0 ; i<= nachbargebaeudeArr.length;i++){
+            if(gebaeudeArr[nachbargebaeudeArr[i]].Besitzer != nameSpieler){angreifbareNachbarArr[i] = nachbargebaeudeArr[i];}
         }
         return angreifbareNachbarArr;
     }
@@ -231,23 +230,29 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         for(int i = 1; i<gebaeudeArr.length;i++){
             gebaeudeArr[i].Besitzer = spielerArr[gebaeudeArr[i].spielerArrPos].Name;
         }
+
         return false;
     }
 
     @Override
     public Integer[] eigeneNachbarGebaeude(Integer gebaeude, String nameSpieler) {
-        Integer[] nachbargebaeudeArr = new Integer[6];//--------------------------------------Gleiches Problem ich muss eine Zahl angeben beim erstellen
-        nachbargebaeudeArr = gebaeudeArr[gebaeude].hatNachbargebaeude;
-        Integer[] angreifbareNachbarArr = new Integer[6];//--------------------------------Hier auch
+        Integer[] nachbargebaeudeArr = gebaeudeArr[gebaeude].hatNachbargebaeude;//
         int j = 0;
+        int k = 0;
         for(int i = 0; i >= nachbargebaeudeArr.length;i++){
-            int k = nachbargebaeudeArr[i];
-            if(gebaeudeArr[k].Besitzer == nameSpieler){
-                angreifbareNachbarArr[j] = k;
+            if(gebaeudeArr[i].Besitzer == nameSpieler){
                 k++;
             }
         }
-        return angreifbareNachbarArr;   //?????????kann das sein????
+        Integer[] eigeneNachbarArr = new Integer[k];
+
+        for(int i = 0; i >= nachbargebaeudeArr.length;i++){
+            if(gebaeudeArr[i].Besitzer == nameSpieler){
+               eigeneNachbarArr[i] = gebaeudeArr[i].ID;
+            }
+        }
+
+        return eigeneNachbarArr;
     }
 
     @Override
@@ -312,14 +317,15 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public Integer[] eigeneGebaeude(String nameSpieler) {
-
-        Integer[] eigeneGebaudeArr = new Integer[32];//--------------------------------------Auch hier
         int j = 0;
-
+        for(int i = 1;i <=gebaeudeArr.length;i++) {
+            if (gebaeudeArr[i].Besitzer == nameSpieler) { j++;}
+        }
+        Integer[] eigeneGebaudeArr = new Integer[j];
         for(int i = 1;i <=gebaeudeArr.length;i++) {
             if (gebaeudeArr[i].Besitzer == nameSpieler) {
-                eigeneGebaudeArr[j] = gebaeudeArr[i].ID;
-                j++;
+                eigeneGebaudeArr[i] = gebaeudeArr[i].ID;
+
             }
         }
         return eigeneGebaudeArr;
