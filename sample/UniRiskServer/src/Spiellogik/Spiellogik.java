@@ -16,8 +16,13 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     //Hält die aktuelle Phase - 1,2,3
     Integer aktivePhase = 0;
 
-    Missionskarte missionskarte = null;
-    Integer zuVerteilendeErsties = 0;
+    private Integer[] A = {10,11,12,13,14,15,16};
+    private Integer[] B = {1,2,3,4,5,6,7,8,9};
+    private Integer[] C = {23,24,25,26,27,28,29,30};
+    private Integer[] D = {17,18,19,20,21,22};
+    private Integer[] AERO = {31,32,33};
+    private Missionskarte missionskarte = null;
+    private Integer zuVerteilendeErsties = 0;
     boolean hatGetauscht = false;
 
 
@@ -35,14 +40,14 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     boolean phase1Verstaerken(String nameSpieler){
         zuVerteilendeErsties = 0;
+        hatGetauscht = false;
 
         zuVerteilendeErsties = daten.anzahlGebaeudeSpieler(nameSpieler) / 3;
         if(zuVerteilendeErsties < 3){
             zuVerteilendeErsties = 3;
         }
-        daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zuVerteilendeErsties);
 
-        //if fachbereichePruefen
+        zuVerteilendeErsties += fachbereichPruefen(nameSpieler);
 
         daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zuVerteilendeErsties);
 
@@ -55,20 +60,21 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     boolean fachbereichArrayPruefen(Integer[] fachbereiche, Integer[]gebaeudeSpieler){
         for(int i = 0; i < fachbereiche.length; i++){
+            boolean istgefunden = false;
             for(int j = 0; j < gebaeudeSpieler.length; j++){
-                if(fachbereiche[i].equals(gebaeudeSpieler[j]))
-                    return true;
+
+                if(fachbereiche[i].equals(gebaeudeSpieler[j])){
+                    istgefunden = true;
+                    break;
+                }
             }
+            if(istgefunden == false)
+                return false;
         }
-        return false;
+        return true;
     }
 
     Integer fachbereichPruefen(String nameSpieler){
-        Integer[] A = {10,11,12,13,14,15,16};
-        Integer[] B = {1,2,3,4,5,6,7,8,9};
-        Integer[] C = {23,24,25,26,27,28,29,30};
-        Integer[] D = {17,18,19,20,21,22};
-        Integer[] AERO = {31,32,33};
 
         Integer[]gebaeudeSpieler = daten.eigeneGebaeude(nameSpieler);
         Integer anzahlErsties = 0;
@@ -227,19 +233,28 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     @Override
     public boolean tauschBonuskarten(String nameSpieler, Integer[] bonuskarten) {
         Integer zusetzendeErsties = daten.anzahlZuVerteilendeErsties(nameSpieler);
-        if(bonuskarten.length > 3)
-            return false;
-        if(bonuskarten[0] == 3){
-            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 4);
-        }
-        if(bonuskarten[1] == 3){
-            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 6);
-        }
-        if(bonuskarten[2] == 3){
-            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 8);
-        }
-        if(bonuskarten[0] == 1 && bonuskarten[1] == 1 && bonuskarten[2] == 1){
-            daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 10);
+
+        //daten.anzahlDerBonuskarten(nameSpieler,Bonuskarte.Ersties)
+        if(!hatGetauscht) {
+            if (bonuskarten.length > 3)
+                return false;
+
+            if (bonuskarten[0] == 3) {
+                daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 4);
+                hatGetauscht = true;
+            }
+            if (bonuskarten[1] == 3) {
+                daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 6);
+                hatGetauscht = true;
+            }
+            if (bonuskarten[2] == 3) {
+                daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 8);
+                hatGetauscht = true;
+            }
+            if (bonuskarten[0] == 1 && bonuskarten[1] == 1 && bonuskarten[2] == 1) {
+                daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 10);
+                hatGetauscht = true;
+            }
         }
         return false;
     }
