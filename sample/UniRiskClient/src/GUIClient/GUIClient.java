@@ -1,15 +1,23 @@
 package GUIClient;
 
+import KommunikationClient.ClientKommunikationNachServer;
+
+import KommunikationClient.IClientKommunikation;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -34,13 +42,26 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class GUIClient extends Application implements IGUIClientCallback {
+    public IClientKommunikation kommunikation;
+    //Erstellt das Objekt Hannes oder ich?
+    public void setClientKommunikation(IClientKommunikation kommunikation){
+        this.kommunikation = kommunikation;
+    }
     //private ListView<String> mitspieler;
+
+    private Scene sceneKarte;
+    private Scene sceneAnmelden;
+    private Scene scenePopupWuerfelnAngreifer;
 
     private String nameSpieler1 = "Alicia";
     private String nameSpieler2;
     private String nameSpieler3;
     private String nameSpieler4;
     private String nameSpieler5;
+
+    public static void main (String[] args){
+        launch(args);
+    }
 
     @Override
     public boolean aktualisierenLobby() {
@@ -75,20 +96,67 @@ public class GUIClient extends Application implements IGUIClientCallback {
     //kleiner Test:
     @Override
     public void start(Stage stage) throws IOException {
+        anmelden();
+        showAnmelden(stage);
+        /*
+        karte();
+        showKarte(stage);
+        */
+    }
+
+    public void popupWuerfelnAngreifer(){
+
+    }
+
+    public void showPopupWuerfelnAngreifer(Stage stage){
+        stage.setTitle("Würfel Angreifer");
+        stage.setScene(scenePopupWuerfelnAngreifer);
+        stage.show();
+    }
+
+    public void anmelden(){
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.TOP_CENTER);
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(10, 10, 10, 10));
+
+        Text uniRisk = new Text("UniRisk");
+        uniRisk.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        GridPane.setHalignment(uniRisk, HPos.CENTER);
+        gridPane.add(uniRisk,0,0, 3, 1);
+
+        Text name = new Text("Benutzername:");
+        TextField nameEingabe = new TextField();
+        Text pwd = new Text("Passwort:");
+        PasswordField pwdEingabe = new PasswordField();
+        Text ip = new Text("Server IP:");
+        TextField ipEingabe = new TextField();
+        gridPane.add(name, 0, 2, 1, 1);
+        gridPane.add(nameEingabe,1, 2, 1, 1);
+        gridPane.add(pwd, 0, 3, 1,  1);
+        gridPane.add(pwdEingabe,1, 3, 1, 1);
+        gridPane.add(ip, 2, 2, 1,  1);
+        gridPane.add(ipEingabe,3, 2, 1, 1);
+
+        Button anmelden = new Button("Am Server anmelden");
+        gridPane.add(anmelden, 3, 4, 2, 1);
+
+        sceneAnmelden = new Scene(gridPane, 450, 200);
+    }
+
+    public void showAnmelden(Stage stage){
+        stage.setTitle("Client Anwendung");
+        stage.setScene(sceneAnmelden);
+        stage.show();
+    }
+
+    //---------------------------------------Layout der Karte:--------------------------------------------------------------
+    public void karte() throws IOException{
         //BorderPane --> übergeordnete Unterteilung des Fensters:
         BorderPane borderPane = new BorderPane();
 
-        //Bild einfügen:
-        /*Image image = new Image(new FileInputStream("C:\\Users\\Alicia Siefert\\Documents\\SE-Project2018\\Karte.png"));
-        ImageView imageView = new ImageView(image);
-        imageView.setX(0);
-        imageView.setY(0);
-        imageView.setFitHeight(1000);
-        imageView.setFitWidth(1000);
-        imageView.setPreserveRatio(true);
-        Group root = new Group(imageView);
-*/
-        Parent karte = FXMLLoader.load(getClass().getResource("Karte.fxml"));
+        Parent karte = FXMLLoader.load(getClass().getResource("/GUIClient/Karte.fxml"));
 
         //V-Box für die Labels mit Spieler und Farbgebung:
         Text spieler = new Text("Spieler:");
@@ -96,7 +164,7 @@ public class GUIClient extends Application implements IGUIClientCallback {
         Text farbgebung = new Text("Farbgebung:");
         farbgebung.setUnderline(true);
 
-            //HBoxen:
+            //HBoxen
             Text spieler1 = new Text(nameSpieler1);
             Circle circle1 = new Circle();
             circle1.setRadius(10.0f);
@@ -166,7 +234,34 @@ public class GUIClient extends Application implements IGUIClientCallback {
             listhBoxSpieler5.addAll(circle5, spieler5);
             hBoxSpieler5.setAlignment(Pos.CENTER);
             hBoxSpieler5.setStyle("-fx-background-color: #aaaaaa");
+/*
+            GridPane gridPane1 = new GridPane();
+            gridPane1.setPadding(new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(spieler1, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(spieler2, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(spieler3, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(spieler4, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(spieler5, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(circle1, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(circle2, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(circle3, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(circle4, new Insets(10, 10, 10, 10));
+            gridPane1.setMargin(circle5, new Insets(10, 10, 10, 10));
+            //gridPane1.setVgap(5);
+            //gridPane1.setHgap(5);
+            gridPane1.setAlignment(Pos.TOP_LEFT);
 
+            gridPane1.add(circle1, 0,0);
+            gridPane1.add(spieler1, 1, 0);
+            gridPane1.add(circle2, 0, 1);
+            gridPane1.add(spieler2, 1, 1);
+            gridPane1.add(circle3, 0, 2);
+            gridPane1.add(spieler3, 1, 2);
+            gridPane1.add(circle4, 0, 3);
+            gridPane1.add(spieler4, 1, 3);
+            gridPane1.add(circle5, 0, 4);
+            gridPane1.add(spieler5, 1, 4);
+*/
             Text etti = new Text("ETTI");
             etti.setFill(Color.DARKGREEN);
             etti.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
@@ -251,7 +346,7 @@ public class GUIClient extends Application implements IGUIClientCallback {
         VBox vBox = new VBox();
         vBox.setMinSize(200,400);
         vBox.setPadding(new Insets(10,10,10,10));
-        vBox.setMargin(spieler, new Insets(0,10,10,10));
+        vBox.setMargin(spieler, new Insets(0,10,0,10));
         vBox.setMargin(hBoxSpieler1, new Insets(5,0,0,0));
       /*  vBox.setMargin(hBoxSpieler2, new Insets(5,5,5,5));
         vBox.setMargin(hBoxSpieler3, new Insets(5,5,5,5));
@@ -327,15 +422,178 @@ public class GUIClient extends Application implements IGUIClientCallback {
         borderPane.setLeft(karte);
         borderPane.setRight(vBox);
         borderPane.setBottom(gridPane);
-        Scene scene = new Scene(borderPane);
+        sceneKarte = new Scene(borderPane);
+    }
 
+    public void showKarte(Stage stage){
         stage.setTitle("UniRisk");
-
-        stage.setScene(scene);
-
+        stage.setScene(sceneKarte);
         stage.show();
     }
-    public static void main (String[] args){
-        launch(args);
+
+    //--------------------------------Gebäude Buttons Handler Methoden:-----------------------------------------------------
+    public void onclicked1(MouseEvent mouseEvent) {
+        Integer ID = 1;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked2(MouseEvent mouseEvent) {
+        Integer ID = 2;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked3(MouseEvent mouseEvent) {
+        Integer ID = 3;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked4(MouseEvent mouseEvent) {
+        Integer ID = 4;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked5(MouseEvent mouseEvent) {
+        Integer ID = 5;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked6(MouseEvent mouseEvent) {
+        Integer ID = 6;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked7(MouseEvent mouseEvent) {
+        Integer ID = 7;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked8(MouseEvent mouseEvent) {
+        Integer ID = 8;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked9(MouseEvent mouseEvent) {
+        Integer ID = 9;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked10(MouseEvent mouseEvent) {
+        Integer ID = 10;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked11(MouseEvent mouseEvent) {
+        Integer ID = 11;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked12(MouseEvent mouseEvent) {
+        Integer ID = 12;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked13(MouseEvent mouseEvent) {
+        Integer ID = 13;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked14(MouseEvent mouseEvent) {
+        Integer ID = 14;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked15(MouseEvent mouseEvent) {
+        Integer ID = 15;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked16(MouseEvent mouseEvent) {
+        Integer ID = 16;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked17(MouseEvent mouseEvent) {
+        Integer ID = 17;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked18(MouseEvent mouseEvent) {
+        Integer ID = 18;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked19(MouseEvent mouseEvent) {
+        Integer ID = 19;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked20(MouseEvent mouseEvent) {
+        Integer ID = 20;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked21(MouseEvent mouseEvent) {
+        Integer ID = 21;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked22(MouseEvent mouseEvent) {
+        Integer ID = 22;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked23(MouseEvent mouseEvent) {
+        Integer ID = 23;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked24(MouseEvent mouseEvent) {
+        Integer ID = 24;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked25(MouseEvent mouseEvent) {
+        Integer ID = 25;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked26(MouseEvent mouseEvent) {
+        Integer ID = 26;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked27(MouseEvent mouseEvent) {
+        Integer ID = 27;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked28(MouseEvent mouseEvent) {
+        Integer ID = 28;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked29(MouseEvent mouseEvent) {
+        Integer ID = 29;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked30(MouseEvent mouseEvent) {
+        Integer ID = 30;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked31(MouseEvent mouseEvent) {
+        Integer ID = 31;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked32(MouseEvent mouseEvent) {
+        Integer ID = 32;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
+    }
+
+    public void onclicked33(MouseEvent mouseEvent) {
+        Integer ID = 33;
+        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler1);
     }
 }

@@ -5,7 +5,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     Gebaeude[] gebaeudeArr = new Gebaeude[34];
     Spieler[] spielerArr = new Spieler[6];
-
+    //Zustand zustand = new Zustand();
 
     @Override
     public Integer anzahlGebaeudeSpieler(String nameSpieler) {
@@ -53,8 +53,6 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean anzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties) {
-
-
         Integer neueAnzahlErsties;
         neueAnzahlErsties = (gebaeudeArr[gebaeude].anzahlErsties + anzahlErsties);
         gebaeudeArr[gebaeude].setAnzahlErsties(neueAnzahlErsties);
@@ -89,21 +87,25 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler) {
+        //TODO Löschen in Absprache
         return false;
     }
 
     @Override
     public Missionskarte missionskarteSpieler(String nameSpieler) {
+        //TODO Klären was hier passieren soll
         return null;
     }
 
     @Override
     public boolean aktuellePhaseSetzen(String phase) {
+        //TODO Prof fragen -> Brauchen wir das in den Daten
         return false;
     }
 
     @Override
     public boolean naechsterSpieler() {
+        //TODO Prof fragen -> Brauchen wir das in den Daten
         return false;
     }
 
@@ -115,41 +117,43 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         if(spielerAnzahl >5 || spielerAnzahl <3){
             return false;  //hier vieleicht noch nacch NaN testen?
         }
-        spielerArr[0] = null;
-        spielerArr[1] = new Spieler(null,null,false,false,false);
-        spielerArr[2] = new Spieler(null,null,false,false,false);
-        spielerArr[3] = new Spieler(null,null,false,false,false);
-        spielerArr[4] = new Spieler(null,null,false,false,false);
-        spielerArr[5] = new Spieler(null,null,false,false,false);
-
-
-
-
             Integer[] zufallsArray3 = { 1,1,1,1,1,1,1,1,1,1,1,
                                         2,2,2,2,2,2,2,2,2,2,2,
                                         3,3,3,3,3,3,3,3,3,3,3 };
 
             Integer[] zufallsArray4 = { 1,1,1,1,1,1,1,1,1,
-                                        2,2,2,2,2,2,2,2,
-                                        3,3,3,3,3,3,3,3,
-                                        4,4,4,4,4,4,4,4 };
-
-            Integer[] zufallsArray5 = { 1,1,1,1,1,1,1,1,1,
                                         2,2,2,2,2,2,2,2,2,
                                         3,3,3,3,3,3,3,3,3,
+                                        4,4,4,4,4,4,4,4 };
+
+            Integer[] zufallsArray5 = { 1,1,1,1,1,1,1,
+                                        2,2,2,2,2,2,2,
+                                        3,3,3,3,3,3,3,
                                         4,4,4,4,4,4,
                                         5,5,5,5,5,5 };
 
             Integer[] zufallsArray = new Integer[33];
 
+            //Anzahl Ersties bei SpielerAnzahl 3:26 ;4:23 ; 5:19
+           Integer zuVerteilendeErstiesDifferenz = 0;
             switch(spielerAnzahl) {
                 case 3: zufallsArray = arrayMischen(zufallsArray3);
+                        zuVerteilendeErstiesDifferenz =15;//15 ist die Differenz zwischen 26(AnzahlErstiesInitial) und 11 Gebäude
                     break;
                 case 4: zufallsArray = arrayMischen(zufallsArray4);
+                        zuVerteilendeErstiesDifferenz = 14;
                     break;
                 case 5: zufallsArray = arrayMischen(zufallsArray5);
+                    zuVerteilendeErstiesDifferenz = 7;
                     break;
             }
+
+        spielerArr[0] = null;
+        spielerArr[1] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
+        spielerArr[2] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
+        spielerArr[3] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
+        spielerArr[4] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz-1);
+        spielerArr[5] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz-1);
 
 
         // Gebäude vom Index 0 existiert nicht!
@@ -204,7 +208,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
        if(nameSpieler == null || passwort == null){
            return false;
        }else{
-           Spieler spieler = new Spieler(nameSpieler,passwort,false,false,false);
+           Spieler spieler = new Spieler(nameSpieler,passwort,false,false,false,null);
        }
        return true;
     }
@@ -225,11 +229,15 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielStarten() {
+        //TODO Spieler müssen noch Karten bekommen (Missionskarten)
 
         //Gebäude müssen final den Spielern zugewiesen werden
         for(int i = 1; i<gebaeudeArr.length;i++){
             gebaeudeArr[i].Besitzer = spielerArr[gebaeudeArr[i].spielerArrPos].Name;
         }
+        //AnzahlZuVerteilendeErtsies muss an die Spieler übergeben werden
+
+
 
         return false;
     }
@@ -258,7 +266,13 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public String[] spielerNamen() {
 
-        return new String[0];
+        String[] spielerNamenArr = new String[6];
+        spielerNamenArr[0]=null;
+        for(int i = 1;i<spielerArr.length;i++) {
+            spielerNamenArr[i] = spielerArr[i].Name;
+            i++;
+        }
+        return spielerNamenArr;
     }
 
     @Override
@@ -271,7 +285,17 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     }
 
     @Override
+    public boolean spielerAusgestiegen(String nameSpieler) {
+        for(int i = 0;i<spielerArr.length;i++){
+            if(nameSpieler == spielerArr[i].Name){spielerArr[i].bereit = false;}
+        }
+
+        return true;
+    }
+
+    @Override
     public String[] ipAdressen() {
+        //TODO warten bis hannes was brauchbares liefert
         return new String[0];
     }
 
@@ -287,21 +311,25 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public Integer[] anzahlBonuskarten(String nameSpieler) {
+        //TODO Warum hier ein Array Bonuskarten ? Klären
         return new Integer[0];
     }
 
     @Override
     public Integer[] farbeSpieler() {
+        //TODO Klären was das hier bringen soll
         return new Integer[0];
     }
 
     @Override
     public Integer anzahlZuVerteilendeErsties(String nameSpieler) {
+        //TODO muss noch implementiert werden
         return null;
     }
 
     @Override
     public boolean anzahlZuVerteilendeErstiesAnpassen(String nameSpieler, Integer anzahlErsties) {
+        //TODO muss noch implementiert werden
         return false;
     }
 
@@ -312,6 +340,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public String aktuellePhase() {
+        //TODO Prof fragen -> Brauchen wir das in den Daten
         return null;
     }
 
@@ -333,16 +362,19 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public String aktuellerSpieler() {
+        //TODO Prof fragen -> Brauchen wir das in den Daten
         return null;
     }
 
     @Override
     public Zustand spielZustandHolen() {
+        //TODO Prof fragen -> Brauchen wir das in den Daten
         return null;
     }
 
     @Override
     public boolean spielZustandSetzen(Zustand aktuellerZustand) {
+        //TODO Prof fragen -> Brauchen wir das in den Daten
         return false;
     }
 
@@ -358,11 +390,13 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean anzahlDerBonuskartenAnpassen(String nameSpieler, Bonuskarte typBonuskarte, Integer anzahlBonuskarten) {
+        //TODO Warten auf anzahlBonuskarten klärung
         return false;
     }
 
     @Override
     public Integer anzahlDerBonuskarten(String nameSpieler, Bonuskarte typBonuskarte) {
+        //TODO Klasse Spieler brauch noch datentyp Bonuskarten
         return null;
     }
 

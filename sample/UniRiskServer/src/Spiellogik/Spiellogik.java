@@ -13,6 +13,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         this.daten = daten;
     }
 
+    String spielerNamen[] = daten.spielerNamen();
+    //[0]=null - [1]=etti - [2]=spo - [3]=wow - [4]=aero - [5]=bau
 
     boolean istSpielGeladen(){
         return true;
@@ -116,9 +118,6 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         return false; //daten.naechsterSpieler();
     }
 
-    boolean vergleicheNameSpieler(Integer gebaeudeUrsprung, Integer gebaeudeZiel, String nameSpieler){
-        return (daten.besitzerGebaeude(gebaeudeUrsprung).equals(nameSpieler) && daten.besitzerGebaeude(gebaeudeZiel).equals(nameSpieler));
-    }
 
     Integer erstiesFuerBonuskarten(Integer vorErsties, Integer zusatzErsties, String nameSpieler){
 
@@ -133,16 +132,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
         }
         return false;
     }
-/*
-    boolean istNachbargebaeude(Integer gebaeudeUrsprung, Integer gebaeudeZiel){
-        Integer [] nachbarUrsprung = daten.nachbarGebaeude(gebaeudeUrsprung);
-        for(int i = 0; i < nachbarUrsprung.length; i++){
-            if(nachbarUrsprung[i].equals(gebaeudeZiel))
-                return true;
-        }
-        return false;
-    }
-*/
+
     boolean mindEinErstieGebaeude(Integer gebaeude, Integer anzahlErsties){
         return (daten.anzahlErstiesGebaeude(gebaeude) - anzahlErsties) >= 1;
     }
@@ -151,15 +141,19 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
         switch (missionskarte){
             case BefreienVonStudiengangETTI:
-                //Wie bekomme ich den Studiengang auf einem Gebäude
+                return (daten.anzahlGebaeudeSpieler(spielerNamen[1]) == 0);
 
             case BefreienVonStudiengangSPO:
+                return (daten.anzahlGebaeudeSpieler(spielerNamen[2]) == 0);
 
             case BefreienVonStudiengangWOW:
+                return (daten.anzahlGebaeudeSpieler(spielerNamen[3]) == 0);
 
             case BefreienVonStudiengangBAU:
+                return (daten.anzahlGebaeudeSpieler(spielerNamen[4]) == 0);
 
             case BefreienVonStudiengangAero:
+                return (daten.anzahlGebaeudeSpieler(spielerNamen[5]) == 0);
 
             case ZweiFachbereicheEinnehmen:
                 return (daten.anzahlFachbereicheSpieler(nameSpieler) >= 2);
@@ -207,14 +201,13 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean spielerAusgestiegen(String nameSpieler) {
-        return false;
-        //return daten.spielerAusgestiegen(nameSpieler);
+        //return false;
+        return daten.spielerAusgestiegen(nameSpieler);
     }
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) {
-        return false;
-        //return daten.spielerBereitMelden(nameSpieler);
+        return daten.spielerBereitMelden(nameSpieler);
     }
 
     @Override
@@ -286,6 +279,7 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
                 daten.anzahlErstiesAnpassen(gebaeudeZiel, daten.anzahlErstiesGebaeude(gebaeudeZiel) + anzahlUrsprung);
             }
         }
+
         return false;
     }
 
