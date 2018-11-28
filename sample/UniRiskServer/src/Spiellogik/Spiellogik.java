@@ -25,6 +25,9 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     private Integer zuVerteilendeErsties = 0;
     boolean hatGetauscht = false;
 
+    IKommunikationServerCallback beobachterMerkerKom = null;
+    IGUIServerCallback beobachterMerkerServer = null;
+
 
     boolean istSpielGeladen(){
         return true;
@@ -165,7 +168,12 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean spielerAnmelden(String nameSpieler, String passwort) {
-        return daten.spielerAnmelden(nameSpieler, passwort);
+        if(daten.spielerAnmelden(nameSpieler, passwort)) {
+            beobachterMerkerServer.aktualisierung();
+            beobachterMerkerKom.aktualisierenLobby();
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -302,11 +310,13 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) {
+        beobachterMerkerKom = beobachter;
         return false;
     }
 
     @Override
     public boolean beobachterHinzufuegen(IGUIServerCallback beobachter) {
+        beobachterMerkerServer = beobachter;
         return false;
     }
 
