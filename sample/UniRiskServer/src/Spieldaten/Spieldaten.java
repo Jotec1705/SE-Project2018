@@ -3,8 +3,8 @@ package Spieldaten;
 public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
 
-    Gebaeude[] gebaeudeArr = new Gebaeude[34];
-    Spieler[] spielerArr = new Spieler[6];
+    public Gebaeude[] gebaeudeArr = new Gebaeude[34];
+    public Spieler[] spielerArr = new Spieler[6];
     //Zustand zustand = new Zustand();
 
     @Override
