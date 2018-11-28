@@ -9,6 +9,8 @@ import Spiellogik.ISpiellogik;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.Naming;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class KommunikationServer{
@@ -36,6 +38,9 @@ public class KommunikationServer{
 
     public static void main(String[] args) {
 
+        Map clients = new HashMap();
+
+
         System.setProperty("sun.rmi.transport.connectionTimeout", "5000");
         System.getProperties().forEach((key, value) -> System.out.println(key + " : " + value));
 
@@ -52,6 +57,7 @@ public class KommunikationServer{
             String name1 = "SpiellogikUndAnzeige";
             ISpiellogikAnzeigedatenRMI logikUndAnzeige = new SpiellogikAnzeigedatenRMI();
             //rufe die beiden Settermethoden auf. mit Parameter von Bosin.
+            ((SpiellogikAnzeigedatenRMI) logikUndAnzeige).setMap(clients);
             ((SpiellogikAnzeigedatenRMI) logikUndAnzeige).setSpiellogik(logik);
             ((SpiellogikAnzeigedatenRMI) logikUndAnzeige).setAnzeige(anzeige);
 

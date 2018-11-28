@@ -4,9 +4,10 @@ import Spieldaten.Bonuskarte;
 import Spieldaten.Missionskarte;
 import Spieldaten.Zustand;
 
+
 public class SpiellogikSpieldatenDummy {
 
-    IKommunikationServerCallback zumClient;
+    ICallbackRMI zumClient;
 
     public SpiellogikSpieldatenDummy(){
 
@@ -58,7 +59,7 @@ public class SpiellogikSpieldatenDummy {
     /*Valide Parameterwerte 8, "Horst"*/
     boolean besitzerGebaeudeAnpassen(Integer gebaeude, String nameSpieler){
         //Ruft aktualisiereKarte auf
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return (gebaeude == 8) && (nameSpieler == "Horst"); //Wenn als Gebäude 8 und als Name Horst getestet wird, true.
     }
 
@@ -107,7 +108,7 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte 9, 3*/
     boolean anzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return (gebaeude == 9) && (anzahlErsties == 3); //Wenn als Gebäude 8 und als Anzahl 3 getestet wird, true.
     }
 
@@ -137,7 +138,7 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte 8, "Horst"*/
     boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return (fachbereich == 1) && (nameSpieler == "Horst"); //Wenn als Fachbereich 1 und als Name Horst getestet wird, true.
     }
 
@@ -158,7 +159,7 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte "P3t3r", Bonuskarte.Studenten, 3*/
     boolean anzahlDerBonuskartenAnpassen(String nameSpieler, Bonuskarte typBonuskarte, Integer anzahlBonuskarten){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return (nameSpieler == "P3t3r") && (typBonuskarte == Bonuskarte.Studenten) &&
                 (anzahlBonuskarten == 3);
     }
@@ -187,14 +188,14 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte "PhaseII"*/
     boolean aktuellePhaseSetzen(String phase){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return phase == "PhaseII";
     }
 
 
     boolean naechsterSpieler(){
 
-        zumClient.zugZuteilung("P3t3r");
+        //zumClient.zugZuteilung("P3t3r");
         return true;
     }
 
@@ -218,7 +219,7 @@ public class SpiellogikSpieldatenDummy {
         bereit[3] = true;
         bereit[4] = true;
 
-        zumClient.aktualisierenLobby();
+        //zumClient.aktualisierenLobby();
         return bereit;
     }
 
@@ -236,7 +237,7 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte "Zustand.Aktiv"*/
     boolean spielZustandSetzen(Zustand aktuellerZustand){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return aktuellerZustand == Zustand.Aktiv;
     }
 
@@ -244,31 +245,45 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte "Horst", "blutwurst1"*/
     boolean spielerAnmelden(String nameSpieler, String passwort){
-        zumClient.aktualisierenLobby();
-        return (nameSpieler == "Horst") && (passwort == "blutwurst1");
+        boolean result = false;
+        try{
+            result = zumClient.aktualisierenLobby();
+            System.out.println("Lobby aktualisiert:" + result);
+        }catch (Exception e){
+            System.err.println("Callback exception:");
+            e.printStackTrace();
+        }
+        System.out.println(nameSpieler);
+        System.out.println(passwort);
+        return (nameSpieler.equals("Horst") ) && (passwort.equals("blutwurst1"));
+        /*if(nameSpieler == "Horst" && passwort == "blutwurst1"){
+            return true;
+        }
+        else
+        return false;*/
     }
 
     /*Valide Parameterwerte "Piet"*/
     boolean spielerAusgestiegen(String nameSpieler){
-        zumClient.aktualisierenLobby();
+        //zumClient.aktualisierenLobby();
         return nameSpieler == "Piet";
     }
 
     /*Valide Parameterwerte "Horst"*/
     boolean spielerBereitMelden(String nameSpieler){
-        zumClient.aktualisierenLobby();
+        //zumClient.aktualisierenLobby();
         return nameSpieler == "Horst";
     }
 
     /*Valide Parameterwerte 9, "Horst"*/
     boolean erstiesAnzahlErhoehen(Integer gebaeude, String nameSpieler){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return (gebaeude == 9) && (nameSpieler == "Horst");
     }
 
     /*Valide Parameterwerte 14, 5, 15, "P3t3r"*/
     boolean angriffVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler){
-        zumClient.angriffAbwehren(besitzerGebaeude(15), 15);
+        //zumClient.angriffAbwehren(besitzerGebaeude(15), 15);
         return (gebaeudeUrsprung == 14) && (anzahlUrsprung == 5) && (gebaeudeZiel == 15) && (nameSpieler == "P3t3r");
 
     }
@@ -276,7 +291,7 @@ public class SpiellogikSpieldatenDummy {
 
     /*Valide Parameterwerte 15, 1, 14, "P3t3r"*/
     boolean versetzenVonNach (Integer gebaeudeUrsprung, Integer anzahlUrsprung, Integer gebaeudeZiel, String nameSpieler){
-        zumClient.aktualisierenKarte();
+        //zumClient.aktualisierenKarte();
         return (gebaeudeUrsprung == 15) && (anzahlUrsprung == 1) && (gebaeudeZiel == 14) && (nameSpieler == "P3t3r");
     }
 
@@ -290,7 +305,7 @@ public class SpiellogikSpieldatenDummy {
     boolean gewuerfelt(String nameSpieler){
         int [] vertWuerfel = {2, 5};
         int [] angrWuerfel = {3, 6, 1};
-        zumClient.wuerfelErgebnis(nameSpieler, vertWuerfel, angrWuerfel, 3, 0 );
+        //zumClient.wuerfelErgebnis(nameSpieler, vertWuerfel, angrWuerfel, 3, 0 );
         return nameSpieler == "M@rianne";
     }
 
@@ -414,7 +429,7 @@ public class SpiellogikSpieldatenDummy {
         return adressen;
     }
 
-    public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) {
+    public boolean beobachterHinzufuegen(ICallbackRMI beobachter) {
 
         zumClient = beobachter;
 
