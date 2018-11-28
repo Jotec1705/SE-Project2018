@@ -1,7 +1,6 @@
 package KommunikationClient;
 
-import GUIClient.IGUIClientCallback;
-import KommunikationServer.IKommunikationServerCallback;
+import KommunikationServer.ICallbackRMI;
 import KommunikationServer.ISpiellogikAnzeigedatenRMI;
 
 import java.rmi.Naming;
@@ -9,6 +8,8 @@ import java.rmi.Naming;
 public class ClientKommunikationNachServer implements IClientKommunikation{
 
     ISpiellogikAnzeigedatenRMI server;
+
+    boolean result = false;
 
     public void setRMIObjekt(ISpiellogikAnzeigedatenRMI logikUndAnzeige){
 
@@ -19,7 +20,7 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
     public boolean spielerAnmelden(String nameSpieler, String passwort, String ipAdresse) {
 
         //Server Location sieht so aus: "127.0.0.1:1099"
-        String serverLokation = ipAdresse;
+        String serverLokation = ipAdresse + ":1099";
 
         try {
 
@@ -29,13 +30,13 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
             ISpiellogikAnzeigedatenRMI logikUndAnzeige = (ISpiellogikAnzeigedatenRMI) Naming.lookup("//" + serverLokation + "/" + name1);
             System.out.println("Das Objekt SpiellogikUndAnzeige vom Host geholt.");
 
+            //Die Klasse ClientKommunikationNachServer mit dem entfernten Objekt "versorgen"
+            //ClientKommunikationNachServer zumServer = new ClientKommunikationNachServer();
+            setRMIObjekt(logikUndAnzeige);
+
             //Remote Interface an den Server übergeben, um die Callback Funktionalität zu ermöglichen.
             ICallbackRMI beobachter = new CallbackRMIAufLokal();
-            logikUndAnzeige.beobachterHinzufuegen((IKommunikationServerCallback) beobachter);
-
-            //Die Klasse ClientKommunikationNachServer mit dem entfernten Objekt "versorgen"
-            ClientKommunikationNachServer zumServer = new ClientKommunikationNachServer();
-            zumServer.setRMIObjekt(logikUndAnzeige);
+            beobachterHinzufuegen(beobachter);
 
 
         } catch (Exception e) {
@@ -44,13 +45,14 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
         }
 
         try {
-            return server.spielerAnmelden(nameSpieler, passwort);
+            result = server.spielerAnmelden(nameSpieler, passwort);
+            System.out.println(result);
         }catch (Exception e){
             System.err.println("Methodenaufruf beim Server exception:");
             e.printStackTrace();
         }
         //Das hier wird nicht ausgeführt wenn keine Exception auftritt
-        return false;
+        return result;
 
     }
 
@@ -221,10 +223,10 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
     }
 
     @Override
-    public boolean beobachterHinzufuegen(IGUIClientCallback beobachter) {
+    public boolean beobachterHinzufuegen(ICallbackRMI beobachter) {
 
         try {
-            return server.beobachterHinzufuegen((IKommunikationServerCallback) beobachter);
+            return server.beobachterHinzufuegen(beobachter);
         }catch (Exception e){
             System.err.println("Methodenaufruf beim Server exception:");
             e.printStackTrace();

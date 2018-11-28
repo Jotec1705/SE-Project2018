@@ -5,7 +5,8 @@ import Spiellogik.ISpiellogik;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements ISpiellogikAnzeigedatenRMI {
@@ -15,8 +16,15 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     SpiellogikSpieldatenDummy dummy = new SpiellogikSpieldatenDummy();
 
+    ICallbackRMI clientObjekt;
+
     ISpiellogik logik;
     IAnzeigedaten anzeige;
+    Map clients;
+
+    public void setMap(Map clients){
+        this.clients = clients;
+    }
 
     public void setSpiellogik(ISpiellogik logik){
 
@@ -32,7 +40,10 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     @Override
     public boolean spielerAnmelden(String nameSpieler, String passwort) throws RemoteException {
+        clients.put(nameSpieler, clientObjekt);
+        System.out.println(clients);
         return dummy.spielerAnmelden(nameSpieler, passwort);
+
     }
 
     @Override
@@ -131,9 +142,10 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
     }
 
     @Override
-    public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) throws RemoteException {
+    public boolean beobachterHinzufuegen(ICallbackRMI beobachter) throws RemoteException {
         //Remote Interface vom Client hierüber übergeben
         dummy.beobachterHinzufuegen(beobachter);
+        this.clientObjekt = beobachter;
         //dummy.beobachterhinzufügen(beobachter);
         return true;
     }

@@ -3,6 +3,8 @@ package KommunikationServer;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+
+
 public interface ISpiellogikAnzeigedatenRMI extends Remote {
 
     //######################################################ISPIELLOGIK#########################################################
@@ -87,7 +89,7 @@ public interface ISpiellogikAnzeigedatenRMI extends Remote {
      * @param beobachter Ist der Observer, der hinzugefügt  wird.
      * @return gibt zurück ob erfolgreich.
      */
-    boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) throws RemoteException;
+    boolean beobachterHinzufuegen(ICallbackRMI beobachter) throws RemoteException;
 
     //###############################IANZEIGEDATEN######################################################################
 

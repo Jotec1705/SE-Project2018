@@ -3,7 +3,7 @@ package KommunikationClient;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ICallbackRMI extends Remote {
+public interface ICallbackRMIC extends Remote {
 
     /**
      * Diese Methode wird aufgerufen, wenn die Lobby verändert wurde.

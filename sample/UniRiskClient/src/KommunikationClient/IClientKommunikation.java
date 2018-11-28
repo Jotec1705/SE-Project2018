@@ -2,6 +2,8 @@ package KommunikationClient;
 
 import GUIClient.GUIClient;
 import GUIClient.IGUIClientCallback;
+import KommunikationServer.KommunikationServer;
+import KommunikationServer.ICallbackRMI;
 
 public interface IClientKommunikation {
 
@@ -135,7 +137,7 @@ public interface IClientKommunikation {
      */
     boolean zugBeendet(String nameSpieler);
 
-    boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
+    boolean beobachterHinzufuegen(ICallbackRMI beobachter);
 
     /**
      * Diese Methode soll die Farben aller Spieler als Int-Wert zurückgeben

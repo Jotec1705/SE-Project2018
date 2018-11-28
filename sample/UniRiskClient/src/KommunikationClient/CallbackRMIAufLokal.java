@@ -1,9 +1,11 @@
 package KommunikationClient;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import KommunikationServer.ICallbackRMI;
 
-public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbackRMI {
+public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbackRMI, Serializable {
 
     public CallbackRMIAufLokal() throws RemoteException {
     }
