@@ -16,6 +16,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import GUIServer.Controller.Slots;
@@ -44,6 +45,7 @@ public class Anzeige {
     private GridPane gridSpielLaden;
     private Label ausgewaehlteDatei;
     private Button laden;
+    private FileChooser fileChooser;
     private Button dateiAuswaehlen;
     private ListView<String> benoetigteMitspieler;
     private ObservableList<String> items;
@@ -80,7 +82,7 @@ public class Anzeige {
         ipAdresseServer.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         gridStart.add(ipAdresseServer, 0, 3, 2, 1);
 
-        sceneStart = new Scene(gridStart, 400, 150);
+        sceneStart = new Scene(gridStart, 400, 250);
         //Layout Spiel anlegen Scene
         gridSpielAnlegen = new GridPane();
         gridSpielAnlegen.setAlignment(Pos.TOP_CENTER);
@@ -105,7 +107,7 @@ public class Anzeige {
         spielAnlegen = new Button("Spiel anlegen");
         gridSpielAnlegen.add(spielAnlegen,2, 1, 1, 1);
 
-        sceneSpielAnlegen = new Scene(gridSpielAnlegen, 400, 150);
+        sceneSpielAnlegen = new Scene(gridSpielAnlegen, 400, 250);
         //Layout Spiel laden Scene
         gridSpielLaden = new GridPane();
         gridSpielLaden.setAlignment(Pos.TOP_CENTER);
@@ -122,6 +124,7 @@ public class Anzeige {
         gridSpielLaden.add(dateiAuswaehlen,0, 1, 1, 1);
 
         laden = new Button("Spiel laden");
+        fileChooser = new FileChooser();
         gridSpielLaden.add(laden,1, 1, 1, 1);
 
         ausgewaehlteDatei = new Label("Ausgewählte Datei : \n");
@@ -142,7 +145,7 @@ public class Anzeige {
         benoetigteMitspieler.setItems(items);
         gridSpielLaden.add(benoetigteMitspieler,1,3,1,1);
 
-        sceneSpielLaden = new Scene(gridSpielLaden, 400, 250);
+        sceneSpielLaden = new Scene(gridSpielLaden,400, 250);
         //Layout Lobby
         gridLobby = new GridPane();
         gridLobby.setAlignment(Pos.TOP_CENTER);
@@ -163,45 +166,38 @@ public class Anzeige {
         GridPane.setHalignment(spielStarten, HPos.CENTER);
         gridLobby.add(spielStarten, 0, 1 ,1 ,1);
 
-        sceneLobby = new Scene(gridLobby, 400, 250);
+        sceneLobby = new Scene(gridLobby,400,250);
     }
 
 
 
     public void showStart(Stage primaryStage) {
         primaryStage.setTitle("Server Anwendung");
-        primaryStage.setMinWidth(420);
-        primaryStage.setMaxWidth(420);
-        primaryStage.setMaxHeight(285);
-        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneStart);
+
+
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
     public void showSpielAnlegen(Stage primaryStage) {
         primaryStage.setTitle("Neues Spiel anlegen");
-        primaryStage.setMinWidth(420);
-        primaryStage.setMaxWidth(420);
-        primaryStage.setMaxHeight(285);
-        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneSpielAnlegen);
+
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
     public void showSpielLaden(Stage primaryStage) {
         primaryStage.setTitle("Spiel laden");
-        primaryStage.setMinWidth(420);
-        primaryStage.setMaxWidth(420);
-        primaryStage.setMaxHeight(285);
-        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneSpielLaden);
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
     public void showLobby(Stage primaryStage) {
         primaryStage.setTitle("Lobby(Host)");
-        primaryStage.setMinWidth(420);
-        primaryStage.setMaxWidth(420);
-        primaryStage.setMaxHeight(285);
-        primaryStage.setMinHeight(285);
         primaryStage.setScene(sceneLobby);
+
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
@@ -225,6 +221,12 @@ public class Anzeige {
         return spielStarten;
     }
 
+    public Button getSpielAnlegen(){return spielAnlegen;}
+
+    public Button getNeuesSpielAnlegen(){return neuesSpielAnlegen;}
+
+    public Button getSpielLaden(){return spielLaden;}
+
     public void setAusgewaehlteDatei(String ausgewaehlteDatei) {
         this.ausgewaehlteDatei.setText(ausgewaehlteDatei);
     }
@@ -237,5 +239,9 @@ public class Anzeige {
     public void setSlots(ObservableList<Slots> slots) {
         this.slots = slots;
         tabelle.setItems(this.slots);
+    }
+
+    public FileChooser getFileChooser() {
+        return fileChooser;
     }
 }

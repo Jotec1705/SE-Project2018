@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 
 public class Controller {
     private DatenModell daten;
-    private Anzeige anzeige;
+    public Anzeige anzeige;
     public Spieldaten spieldaten;
     public Spiellogik logik;
 
@@ -18,6 +18,24 @@ public class Controller {
         this.daten = daten;
         this.anzeige = new Anzeige();
         this.anzeige.setIpAdresseServer("Server IP : " + this.daten.getServerIP());
+
+        this.anzeige.getNeuesSpielAnlegen().setOnAction(e -> buttonNeuesSpielAnlegenOnClick());
+        this.anzeige.getSpielLaden().setOnAction(e -> buttonSpielLadenOnClick());
+        this.anzeige.getDateiAuswaehlen().setOnAction(e -> buttonDateiAuswaehlenOnClick());
+    }
+
+    public void buttonNeuesSpielAnlegenOnClick(){
+        showSpielAnlegen();
+    }
+
+    public void buttonSpielLadenOnClick(){
+        showSpielLaden();
+    }
+
+    public void buttonDateiAuswaehlenOnClick(){
+        daten.setAusgewaehlteDateiZumLaden(anzeige.getFileChooser().showOpenDialog(daten.getPrimaryStage()));
+        anzeige.setAusgewaehlteDatei("Ausgewählte Datei : \n" + daten.getAusgewaehlteDateiZumLaden().getName());
+        logik.spielLaden(daten.getAusgewaehlteDateiZumLaden().getPath());
     }
 
     public void showStart(){
@@ -36,6 +54,8 @@ public class Controller {
         anzeige.showLobby(daten.getPrimaryStage());
     }
 
+
+
     class Slots {
         private String ipAdresse;
         private String name;
@@ -48,6 +68,7 @@ public class Controller {
         }
 
     }
+
 
     private void benoetigteMitspielerCreateAndView(){
         ObservableList<String> benoetigteMitspieler = null;
@@ -76,18 +97,22 @@ public class Controller {
     }
 
     private void setSpielerIPInDatenModell(){
-
+        daten.setSpielerIP(spieldaten.ipAdressen());
     }
 
     private void setSpielerBereitInDatenModell(){
-
+        daten.setSpielerBereit(spieldaten.spielerBereit());
     }
 
     private void setbenoetigteMitspielerInDatenModell(){
 
     }
 
-    public boolean datenModellAktualisieren(){
+    public boolean datenModellAktualisierenSpielLaden(){
+
+        return true;
+    }
+    public boolean datenModellAktualisierenLobby(){
 
         return true;
     }
