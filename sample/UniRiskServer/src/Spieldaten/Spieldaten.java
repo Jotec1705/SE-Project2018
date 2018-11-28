@@ -3,8 +3,8 @@ package Spieldaten;
 public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
 
-    Gebaeude[] gebaeudeArr = new Gebaeude[34];
-    Spieler[] spielerArr = new Spieler[6];
+    public Gebaeude[] gebaeudeArr = new Gebaeude[34];
+    public Spieler[] spielerArr = new Spieler[6];
 
 
     @Override
@@ -89,6 +89,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler) {
+        //TODO
         return false;
     }
 
@@ -225,6 +226,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielStarten() {
+        //TODO Spieler müssen noch Karten bekommen (Missionskarten)
 
         //Gebäude müssen final den Spielern zugewiesen werden
         for(int i = 1; i<gebaeudeArr.length;i++){
