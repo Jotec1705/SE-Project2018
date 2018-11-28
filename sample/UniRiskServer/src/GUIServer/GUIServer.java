@@ -23,18 +23,26 @@ public class GUIServer extends Application implements IGUIServerCallback {
 
     @Override
     public void start(Stage primaryStage) {
-        kommunikation = new KommunikationServer();
+
         spieldaten = new Spieldaten();
         logik = new Spiellogik();
-
+        logik.setSpieldaten(spieldaten);
+        kommunikation = new KommunikationServer();
+        kommunikation.setSpiellogik(logik);
+        kommunikation.setAnzeige(spieldaten);
         daten = new DatenModell(primaryStage);
         controller = new Controller(daten, spieldaten, logik);
-        controller.showLobby();
+        controller.showStart();
     }
 
     @Override
     public boolean aktualisierung() {
-
-        return controller.datenModellAktualisieren();
+         if(daten.getPrimaryStage().getTitle() == "Spiel laden"){
+             return controller.datenModellAktualisierenSpielLaden();
+         }
+         if(daten.getPrimaryStage().getTitle() == "Lobby(Host)"){
+             return controller.datenModellAktualisierenLobby();
+         }
+         return true;
     }
 }
