@@ -207,6 +207,13 @@ public interface ISpieldaten {
      */
     boolean[] spielerBereit();
 
+    /**
+     * Gibt an die Spiellogik weiter, dass ein Spieler auf den Button Aussteigen am GUIClient gedrückt hat
+     * und somit aus dem Spiel ausgestiegen ist.
+     * @param nameSpieler ist der name des Spielers.
+     * @return ob Aktion erfolgreich
+     */
+    boolean spielerAusgestiegen(String nameSpieler);
 
     /**
      * Diese Methode soll die Namen aller Spieler zurückgeben
