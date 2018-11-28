@@ -3,9 +3,9 @@ package Spieldaten;
 public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
 
-    public Gebaeude[] gebaeudeArr = new Gebaeude[34];
-    public Spieler[] spielerArr = new Spieler[6];
-    //Zustand zustand = new Zustand();
+    Gebaeude[] gebaeudeArr = new Gebaeude[34];
+    Spieler[] spielerArr = new Spieler[6];
+    Zustand zustand = null;
 
     @Override
     public Integer anzahlGebaeudeSpieler(String nameSpieler) {
@@ -111,6 +111,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielAnlegen(int spielerAnzahl) {
+
         //Missionskarten verteilen an die Spieler (per Zufall)(Spieler sind die Studiengänge)
         //Anlegen nur zulässig wenn mindestens 3 und höchstens 5 Spieler angemeldet sind
 
@@ -147,7 +148,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
                     zuVerteilendeErstiesDifferenz = 7;
                     break;
             }
-
+        // Spieler vom Index 0 existiert nicht!
         spielerArr[0] = null;
         spielerArr[1] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
         spielerArr[2] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
@@ -158,8 +159,6 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
         // Gebäude vom Index 0 existiert nicht!
         gebaeudeArr[0] = null;
-
-
         gebaeudeArr[1] = new Gebaeude("Hotel Alpenblick",       1,1,null ,zufallsArray[0], Fachbereiche.B,new Integer[] {2, 3, 12, 13});
         gebaeudeArr[2] = new Gebaeude("Parkplatz Ost",          2,1,null ,zufallsArray[1], Fachbereiche.B,new Integer[] {1,3,16,22,27,33});
         gebaeudeArr[3] = new Gebaeude("Freizeit-Area",          3,1,null ,zufallsArray[2], Fachbereiche.B,new Integer[] {1,2,4,6,7,13});
@@ -193,7 +192,9 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         gebaeudeArr[31] = new Gebaeude("Fliegerpuff",           31,1,null ,zufallsArray[30], Fachbereiche.AERO,new Integer[] {32,33});
         gebaeudeArr[32] = new Gebaeude("Hirschkäfer",           32,1,null ,zufallsArray[31], Fachbereiche.AERO,new Integer[] {31,33});
         gebaeudeArr[33] = new Gebaeude("Wache",                 33,1,null ,zufallsArray[32], Fachbereiche.AERO,new Integer[] {2,16,22,27,31,32});
-        
+
+        //Zustand wird auf initial gesetzt.
+        zustand = Zustand.Initial;
         return true;
 
     }
@@ -205,12 +206,15 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielerAnmelden(String nameSpieler, String passwort) {
-       if(nameSpieler == null || passwort == null){
-           return false;
-       }else{
-           Spieler spieler = new Spieler(nameSpieler,passwort,false,false,false,null);
-       }
-       return true;
+      for(int i = 1; i< spielerArr.length;i++){
+          if(spielerArr[i].Name==null){
+              spielerArr[i].Name = nameSpieler;
+              spielerArr[i].Passwort = passwort;
+              return true;
+          } i++;
+
+      }
+       return false;
     }
 
     @Override
@@ -231,15 +235,13 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     public boolean spielStarten() {
         //TODO Spieler müssen noch Karten bekommen (Missionskarten)
 
-        //Gebäude müssen final den Spielern zugewiesen werden
+        //Gebäude werden final den Spielern zugewiesen
         for(int i = 1; i<gebaeudeArr.length;i++){
             gebaeudeArr[i].Besitzer = spielerArr[gebaeudeArr[i].spielerArrPos].Name;
         }
-        //AnzahlZuVerteilendeErtsies muss an die Spieler übergeben werden
-
-
-
-        return false;
+        //Zustand wird auf das initiale Ersties verteilen gesetzt
+        zustand = Zustand.ErstiesVerteilen;
+        return true;
     }
 
     @Override

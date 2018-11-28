@@ -9,10 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test der ISpieldaten Schnittstelle")
 class SpieldatenISpieldatenTest {
 
-    ISpieldaten spieldaten = null;
+    ISpieldaten spieldaten = new Spieldaten();
 
     @BeforeAll
     public void initVorAllenTests(){
+
 
     }
 
@@ -37,8 +38,14 @@ class SpieldatenISpieldatenTest {
      */
     @Test
     void testAnzahlGebaeudeSpieler(String nameSpieler){
-        Integer gebaeudeSpieler = 5;
-        assertEquals(gebaeudeSpieler, spieldaten.anzahlGebaeudeSpieler("David"),"Ungleich");
+        spieldaten.spielAnlegen(3);
+        spieldaten.spielerAnmelden("Tom","pw1");
+        spieldaten.spielerAnmelden("Max","pw1");
+        spieldaten.spielerAnmelden("Moritz","pw1");
+        spieldaten.spielStarten();
+        Integer gebaeudeSpieler = 11;
+        assertEquals(gebaeudeSpieler, spieldaten.anzahlGebaeudeSpieler("Max"));
+
     }
 
     /**
