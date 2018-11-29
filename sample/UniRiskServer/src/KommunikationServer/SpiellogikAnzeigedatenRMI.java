@@ -5,9 +5,7 @@ import Spiellogik.ISpiellogik;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.HashMap;
 import java.util.Map;
-
 
 public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements ISpiellogikAnzeigedatenRMI {
 
@@ -20,7 +18,7 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     ISpiellogik logik;
     IAnzeigedaten anzeige;
-    Map clients;
+    Map<String, ICallbackRMI> clients;
 
     public void setMap(Map clients){
         this.clients = clients;
@@ -43,6 +41,7 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
         clients.put(nameSpieler, clientObjekt);
         System.out.println(clients);
         return dummy.spielerAnmelden(nameSpieler, passwort);
+        //return logik.spielerAnmelden(nameSpieler, passwort);
 
     }
 
@@ -146,7 +145,18 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
         //Remote Interface vom Client hierüber übergeben
         dummy.beobachterHinzufuegen(beobachter);
         this.clientObjekt = beobachter;
-        //dummy.beobachterhinzufügen(beobachter);
+
+        //Setze das Clientobjekt in das Objekt, welches via RMI kommuniziert
+        ICallbackRMI callbackObjektOnline = new CallbackRMI();
+        ((CallbackRMI) callbackObjektOnline).setClientObjekt(beobachter);
+        ((CallbackRMI) callbackObjektOnline).setMap(clients);
+
+        //Setze das Objekt, dass via RMI kommuniziert in das Objekt welches lokal zur verfügung steht und nicht kommuniziert.
+        IKommunikationServerCallback callbackObjektOffline = new KommunikationServerCallback();
+        ((KommunikationServerCallback) callbackObjektOffline).setOnlineObjekt(callbackObjektOnline);
+
+        //Setze das Callbackobjekt in die Spiellogik
+        //logik.beobachterHinzufuegen(callbackObjektOffline);
         return true;
     }
 }

@@ -3,6 +3,8 @@ package KommunikationClient;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+
+import GUIClient.IGUIClientCallback;
 import KommunikationServer.ICallbackRMI;
 
 public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbackRMI, Serializable {
@@ -12,14 +14,18 @@ public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbac
 
     GUIClientDummy dummy = new GUIClientDummy();
 
+    IGUIClientCallback guiClient;
+
     @Override
     public boolean aktualisierenLobby() throws RemoteException {
         return dummy.aktualisierenLobby();
+        //return guiClient.aktualisierenLobby();
     }
 
     @Override
     public boolean aktualisierenKarte() throws RemoteException {
         return dummy.aktualisierenKarte();
+        //return guiClient.aktualisierenKarte();
     }
 
     @Override

@@ -38,7 +38,7 @@ public class KommunikationServer{
 
     public static void main(String[] args) {
 
-        Map clients = new HashMap();
+        Map<String, ICallbackRMI> clients = new HashMap<>();
 
 
         System.setProperty("sun.rmi.transport.connectionTimeout", "5000");
