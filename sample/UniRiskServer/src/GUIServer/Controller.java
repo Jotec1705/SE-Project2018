@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.json.*;
+//import javax.json.*;
 
 
 public class Controller {
@@ -60,7 +60,7 @@ public class Controller {
 
     public void spielSpeichern(){
 
-
+/*
         JsonObjectBuilder builder = Json.createObjectBuilder();
         builder.add("vorname", "Paul");
         builder.add("nachname", "Schmitz");
@@ -90,7 +90,7 @@ public class Controller {
             fw.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
