@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cc02c09e-a8fe-4a14-b9dd-103de4d1ec5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/AnzeigeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/AnzeigeClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/ControllerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/ControllerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/GUIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/GUIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/GUIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/GUIClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" afterDir="false" />
     </list>
@@ -21,7 +17,7 @@
     <session id="1570473789">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -49,13 +45,13 @@
         <counts>
           <entry key="fxml" value="1108" />
           <entry key="java" value="14273" />
-          <entry key="txt" value="59" />
+          <entry key="txt" value="157" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="14273" />
-          <entry key="PLAIN_TEXT" value="59" />
+          <entry key="PLAIN_TEXT" value="157" />
           <entry key="XML" value="1108" />
         </counts>
       </usages-collector>
@@ -257,7 +253,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543604444719" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543604451875" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -350,7 +346,7 @@
       <workItem from="1543388591341" duration="9175000" />
       <workItem from="1543399492905" duration="15860000" />
       <workItem from="1543516486448" duration="5414000" />
-      <workItem from="1543589232619" duration="13337000" />
+      <workItem from="1543589232619" duration="13440000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'Bearbeitung' of https://github.com/Jotec1705/SE-Project2018 into Bearbeitung&#10;&#10;# Conflicts:&#10;#&#9;sample/UniRiskClient/.idea/workspace.xml">
       <created>1542640927811</created>
@@ -380,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543589612699</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Da die Karte nicht so umsetzen geht, wie ich mir das wünsche hier mal mit auskommentierter Karte">
+      <created>1543604461955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543604461955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -389,7 +392,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60439000" />
+    <option name="totallyTimeSpent" value="60542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -435,7 +438,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'Bearbeitung' of https://github.com/Jotec1705/SE-Project2018 into Bearbeitung&#10;&#10;# Conflicts:&#10;#&#9;sample/UniRiskClient/.idea/workspace.xml" />
     <MESSAGE value="Mal ein bisschen was gemacht. Aber noch geht nicht alles..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mal ein bisschen was gemacht. Aber noch geht nicht alles..." />
+    <MESSAGE value="Da die Karte nicht so umsetzen geht, wie ich mir das wünsche hier mal mit auskommentierter Karte" />
+    <option name="LAST_COMMIT_MESSAGE" value="Da die Karte nicht so umsetzen geht, wie ich mir das wünsche hier mal mit auskommentierter Karte" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/UniRiskClient/test/KommunikationClient/IClientKommunikationTest.java">
