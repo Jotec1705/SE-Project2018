@@ -1,6 +1,7 @@
 package GUIClient;
 
 import KommunikationClient.IClientKommunikation;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,6 +20,8 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class AnzeigeClient {
     public IClientKommunikation kommunikation;
@@ -130,9 +133,29 @@ public class AnzeigeClient {
 
         sceneLobby = new Scene(gridLobby, 400, 250);
 
-        //KARTE:------------------------------------------------------------------------------------------------
+    }
+
+    public void showAnmelden(Stage stage){
+        stage.setTitle("Client Anwendung");
+        stage.setResizable(false);
+        stage.setScene(sceneAnmelden);
+        stage.show();
+    }
+
+    public void showLobbyClient(Stage stage){
+        stage.setTitle("Lobby (Client)");
+        stage.setResizable(false);
+        stage.setScene(sceneLobby);
+        stage.show();
+    }
+/*
+    public void karte(FXMLLoader karteLoader) throws IOException {
         //BorderPane --> übergeordnete Unterteilung des Fensters:
         BorderPane borderPane = new BorderPane();
+
+        //Parent für links, die komplette Karte:
+        karte = karteLoader.load();
+        //Parent karte = FXMLLoader.load(getClass().getResource("/GUIClient/Karte.fxml"));
 
         //GridPane rechts für Spieler und Farbgebung:
         GridPane rechts = new GridPane();
@@ -363,28 +386,15 @@ public class AnzeigeClient {
         sceneKarte = new Scene(borderPane);
     }
 
-    public void showAnmelden(Stage stage){
-        stage.setTitle("Client Anwendung");
-        stage.setResizable(false);
-        stage.setScene(sceneAnmelden);
-        stage.show();
-    }
-
-    public void showLobbyClient(Stage stage){
-        stage.setTitle("Lobby (Client)");
-        stage.setResizable(false);
-        stage.setScene(sceneLobby);
-        stage.show();
-    }
-
-    public void showKarte(Stage stage){
+    public void showKarte(Stage stage, FXMLLoader karteLoader) throws IOException {
+        karte(karteLoader);
         stage.setTitle("UniRisk");
         stage.setResizable(false);
         stage.setScene(sceneKarte);
         stage.show();
     }
-
-    public void setKarte(Parent karte){
+*/
+    public void getKarte(Parent karte){
         this.karte = karte;
     }
 
@@ -407,6 +417,10 @@ public class AnzeigeClient {
         return true;//kommunikation.spielerBereitMelden(nameSpieler);
     }
 
+    public boolean getAusgestiegen(){
+        return true;//kommunikation.spielerAusgestiegen(nameSpieler);
+    }
+
     public Button getSpielerAusgestiegen(){
         return aussteigen;
     }
@@ -416,6 +430,6 @@ public class AnzeigeClient {
     }
 
     public  void getErstiesAnzahl(Integer ID){
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        //kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
     }
 }
