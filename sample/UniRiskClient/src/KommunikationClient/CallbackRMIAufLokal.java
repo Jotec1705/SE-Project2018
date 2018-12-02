@@ -13,7 +13,7 @@ public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbac
     public GUIClient guiClient;
 
     public CallbackRMIAufLokal() throws RemoteException {
-        guiClient.setClient(this);
+
     }
 
     GUIClientDummy dummy = new GUIClientDummy();
