@@ -36,7 +36,7 @@ public class KommunikationServer{
         this.anzeige = anzeige;
     }
 
-    public static void main(String[] args) {
+    public static void main() {
 
         Map<String, ICallbackRMI> clients = new HashMap<>();
 
