@@ -1,5 +1,6 @@
 package KommunikationClient;
 
+import GUIClient.GUIClient;
 import KommunikationServer.ICallbackRMI;
 import KommunikationServer.ISpiellogikAnzeigedatenRMI;
 
@@ -8,12 +9,17 @@ import java.rmi.Naming;
 public class ClientKommunikationNachServer implements IClientKommunikation{
 
     ISpiellogikAnzeigedatenRMI server;
+    GUIClient client;
 
     boolean result = false;
 
     public void setRMIObjekt(ISpiellogikAnzeigedatenRMI logikUndAnzeige){
 
         this.server = logikUndAnzeige;
+    }
+
+    public void setClient(GUIClient client){
+        this.client = client;
     }
 
     @Override
@@ -36,6 +42,7 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
 
             //Remote Interface an den Server übergeben, um die Callback Funktionalität zu ermöglichen.
             ICallbackRMI beobachter = new CallbackRMIAufLokal();
+            ((CallbackRMIAufLokal) beobachter).setClient(client);
             beobachterHinzufuegen(beobachter);
 
 

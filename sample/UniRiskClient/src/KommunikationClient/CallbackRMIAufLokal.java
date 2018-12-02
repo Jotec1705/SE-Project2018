@@ -20,7 +20,9 @@ public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbac
 
 
 
-
+    public void setClient(GUIClient client){
+        this.guiClient = client;
+    }
 
 
     @Override
