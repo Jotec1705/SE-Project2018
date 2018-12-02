@@ -39,7 +39,7 @@ import java.io.IOException;
 
 public class GUIClient extends Application implements IGUIClientCallback{
     private ControllerClient controllerClient;
-    public IClientKommunikation kommunikation = new ClientKommunikationNachServer();
+    public ClientKommunikationNachServer kommunikation = new ClientKommunikationNachServer();
     private DatenClient datenClient;
 
     private Scene sceneAnmelden;
@@ -117,6 +117,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
     public void start(Stage stage) throws IOException {
         datenClient = new DatenClient(stage);
         controllerClient = new ControllerClient(datenClient);
+        kommunikation.setClient(this);
         controllerClient.setKommunikation(kommunikation);
         //karteLoader = new FXMLLoader(getClass().getResource("@Karte.fxml"));
         controllerClient.showAnmelden();

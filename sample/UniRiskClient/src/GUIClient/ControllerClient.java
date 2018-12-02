@@ -1,5 +1,6 @@
 package GUIClient;
 
+import KommunikationClient.ClientKommunikationNachServer;
 import KommunikationClient.IClientKommunikation;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,7 +29,7 @@ public class ControllerClient {
         });
     }
 
-    public void setKommunikation(IClientKommunikation kommunikation){
+    public void setKommunikation(ClientKommunikationNachServer kommunikation){
         anzeige.setClientKommunikation(kommunikation);
     }
 

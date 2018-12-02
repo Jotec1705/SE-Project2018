@@ -1,5 +1,6 @@
 package GUIClient;
 
+import KommunikationClient.ClientKommunikationNachServer;
 import KommunikationClient.IClientKommunikation;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
@@ -24,9 +25,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AnzeigeClient {
-    public IClientKommunikation kommunikation;
+    public ClientKommunikationNachServer kommunikation;
     //Erstellt das Objekt Hannes oder ich?
-    public void setClientKommunikation(IClientKommunikation kommunikation){
+    public void setClientKommunikation(ClientKommunikationNachServer kommunikation){
         this.kommunikation = kommunikation;
     }
 
