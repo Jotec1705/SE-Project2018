@@ -6,6 +6,14 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     Gebaeude[] gebaeudeArr = new Gebaeude[34];
     Spieler[] spielerArr = new Spieler[6];
     Zustand zustand = null;
+    Missionskarte[] MissionskarteArr = new  Missionskarte[11];
+    int Mission1 = 0;
+    int Mission2 = 0;
+    int Mission3 = 0;
+    int Mission4 = 0;
+    int Mission5 = 0;
+
+
 
     @Override
     public Integer anzahlGebaeudeSpieler(String nameSpieler) {
@@ -112,11 +120,31 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public boolean spielAnlegen(int spielerAnzahl) {
 
+        MissionskarteArr[0] = Missionskarte.BefreienVonStudiengangETTI;
+        MissionskarteArr[1] = Missionskarte.BefreienVonStudiengangSPO;
+        MissionskarteArr[2] = Missionskarte.BefreienVonStudiengangWOW;
+        MissionskarteArr[3] = Missionskarte.ZweiFachbereicheEinnehmen;
+        MissionskarteArr[4] = Missionskarte.ZweiFachbereicheEinnehmen;
+        MissionskarteArr[5] = Missionskarte.ZweiFachbereicheEinnehmen;
+        MissionskarteArr[6] = Missionskarte.ZweiFachbereicheEinnehmen;
+        MissionskarteArr[7] = Missionskarte.FuenfzehnGebaeudeEinnehmen;
+        MissionskarteArr[8] = Missionskarte.ZehnGebaeudeEinnehmenUndZweiEinheitenJeweils;
+        MissionskarteArr[9] = Missionskarte.BefreienVonStudiengangAero;
+        MissionskarteArr[10] = Missionskarte.BefreienVonStudiengangBAU;
+
+
+        Missionskarte MissionSpieler1 = MissionskarteArr[1];
+        Missionskarte MissionSpieler2 = MissionskarteArr[2];
+        Missionskarte MissionSpieler3 = MissionskarteArr[3];
+        Missionskarte MissionSpieler4 = MissionskarteArr[4];
+        Missionskarte MissionSpieler5 = MissionskarteArr[5];
+
+
         //Missionskarten verteilen an die Spieler (per Zufall)(Spieler sind die Studiengänge)
         //Anlegen nur zulässig wenn mindestens 3 und höchstens 5 Spieler angemeldet sind
 
         if(spielerAnzahl >5 || spielerAnzahl <3){
-            return false;  //hier vieleicht noch nacch NaN testen?
+            return false;
         }
             Integer[] zufallsArray3 = { 1,1,1,1,1,1,1,1,1,1,1,
                                         2,2,2,2,2,2,2,2,2,2,2,
@@ -140,21 +168,29 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
             switch(spielerAnzahl) {
                 case 3: zufallsArray = arrayMischen(zufallsArray3);
                         zuVerteilendeErstiesDifferenz =15;//15 ist die Differenz zwischen 26(AnzahlErstiesInitial) und 11 Gebäude
+
+
+                        //Missionskarte MissionSpieler1 = MissionskarteArr[randomMission(0,0,0,0,0,8)];
+
                     break;
                 case 4: zufallsArray = arrayMischen(zufallsArray4);
                         zuVerteilendeErstiesDifferenz = 14;
                     break;
                 case 5: zufallsArray = arrayMischen(zufallsArray5);
-                    zuVerteilendeErstiesDifferenz = 7;
+                        zuVerteilendeErstiesDifferenz = 7;
                     break;
             }
+
+
+            //Missionsziel muss noch vergeben werden
+
         // Spieler vom Index 0 existiert nicht!
         spielerArr[0] = null;
-        spielerArr[1] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
-        spielerArr[2] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
-        spielerArr[3] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz+0);
-        spielerArr[4] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz-1);
-        spielerArr[5] = new Spieler(null,null,false,false,false,zuVerteilendeErstiesDifferenz-1);
+        spielerArr[1] = new Spieler(null,null,false,false,false,MissionSpieler1,zuVerteilendeErstiesDifferenz+0);
+        spielerArr[2] = new Spieler(null,null,false,false,false,MissionSpieler2,zuVerteilendeErstiesDifferenz+0);
+        spielerArr[3] = new Spieler(null,null,false,false,false,MissionSpieler3,zuVerteilendeErstiesDifferenz+0);
+        spielerArr[4] = new Spieler(null,null,false,false,false,MissionSpieler4,zuVerteilendeErstiesDifferenz-1);
+        spielerArr[5] = new Spieler(null,null,false,false,false,MissionSpieler5,zuVerteilendeErstiesDifferenz-1);
 
 
         // Gebäude vom Index 0 existiert nicht!
@@ -221,11 +257,11 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     public Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler) {
         Integer[] nachbargebaeudeArr = gebaeudeArr[gebaeude].hatNachbargebaeude;
         int k = 0;
-        for(int i = 0 ; i<= nachbargebaeudeArr.length;i++){
+        for(int i = 0 ; i< nachbargebaeudeArr.length;i++){
             if(gebaeudeArr[nachbargebaeudeArr[i]].Besitzer != nameSpieler){k++;}
         }
         Integer[] angreifbareNachbarArr = new Integer[k];
-        for(int i = 0 ; i<= nachbargebaeudeArr.length;i++){
+        for(int i = 0 ; i< nachbargebaeudeArr.length;i++){
             if(gebaeudeArr[nachbargebaeudeArr[i]].Besitzer != nameSpieler){angreifbareNachbarArr[i] = nachbargebaeudeArr[i];}
         }
         return angreifbareNachbarArr;
@@ -249,14 +285,14 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         Integer[] nachbargebaeudeArr = gebaeudeArr[gebaeude].hatNachbargebaeude;//
         int j = 0;
         int k = 0;
-        for(int i = 0; i >= nachbargebaeudeArr.length;i++){
+        for(int i = 0; i > nachbargebaeudeArr.length;i++){
             if(gebaeudeArr[i].Besitzer == nameSpieler){
                 k++;
             }
         }
         Integer[] eigeneNachbarArr = new Integer[k];
 
-        for(int i = 0; i >= nachbargebaeudeArr.length;i++){
+        for(int i = 0; i > nachbargebaeudeArr.length;i++){
             if(gebaeudeArr[i].Besitzer == nameSpieler){
                eigeneNachbarArr[i] = gebaeudeArr[i].ID;
             }
@@ -325,13 +361,19 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public Integer anzahlZuVerteilendeErsties(String nameSpieler) {
-        //TODO muss noch implementiert werden
+             Integer anzahlZuVerteilendeErsties = 0;
+        for(int i =1; i<spielerArr.length;i++){
+            if(spielerArr[i].Name==nameSpieler){anzahlZuVerteilendeErsties = spielerArr[i].zuVerteilendeErsties;}
+        }
+
         return null;
     }
 
     @Override
     public boolean anzahlZuVerteilendeErstiesAnpassen(String nameSpieler, Integer anzahlErsties) {
-        //TODO muss noch implementiert werden
+                for(int i =1; i<spielerArr.length;i++){
+            if(spielerArr[i].Name==nameSpieler){spielerArr[i].setZuVerteilendeErsties(anzahlErsties);}
+        }
         return false;
     }
 
@@ -349,11 +391,11 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public Integer[] eigeneGebaeude(String nameSpieler) {
         int j = 0;
-        for(int i = 1;i <=gebaeudeArr.length;i++) {
+        for(int i = 1;i <gebaeudeArr.length;i++) {
             if (gebaeudeArr[i].Besitzer == nameSpieler) { j++;}
         }
         Integer[] eigeneGebaudeArr = new Integer[j];
-        for(int i = 1;i <=gebaeudeArr.length;i++) {
+        for(int i = 1;i <gebaeudeArr.length;i++) {
             if (gebaeudeArr[i].Besitzer == nameSpieler) {
                 eigeneGebaudeArr[i] = gebaeudeArr[i].ID;
 
@@ -429,4 +471,12 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         }
         return zufallsArrayZurueck;
     }
+/*
+   public int randomMission(int spieler1,int spieler2, int spieler3, int spieler4,int spieler5 , int high){
+       int random = (int)Math.random()*high;
+        if(random == spieler1 || random == spieler2 || random == spieler4 || random == spieler4 || random == spieler5){
+            return randomMission(spieler1,spieler2,spieler3,spieler4,spieler5 ,high);
+        }
+          return random;
+   }*/
 }
