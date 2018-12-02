@@ -146,6 +146,7 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
         if(beobachter == null){
             System.out.println("Fehler2");
         }
+        System.out.println("bin hier0");
         dummy.beobachterHinzufuegen(beobachter);
         this.clientObjekt = beobachter;
 
