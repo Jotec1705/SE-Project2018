@@ -143,6 +143,9 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
     @Override
     public boolean beobachterHinzufuegen(ICallbackRMI beobachter) throws RemoteException {
         //Remote Interface vom Client hierüber übergeben
+        if(beobachter == null){
+            System.out.println("Fehler2");
+        }
         dummy.beobachterHinzufuegen(beobachter);
         this.clientObjekt = beobachter;
 

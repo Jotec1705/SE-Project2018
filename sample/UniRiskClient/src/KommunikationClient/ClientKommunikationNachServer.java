@@ -42,7 +42,13 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
 
             //Remote Interface an den Server übergeben, um die Callback Funktionalität zu ermöglichen.
             ICallbackRMI beobachter = new CallbackRMIAufLokal();
+            if(beobachter == null){
+                System.out.println("Fehler0");
+            }
             ((CallbackRMIAufLokal) beobachter).setClient(client);
+            if(beobachter == null){
+                System.out.println("Fehler1");
+            }
             beobachterHinzufuegen(beobachter);
 
 
