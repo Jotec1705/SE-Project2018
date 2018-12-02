@@ -255,7 +255,8 @@ public class SpiellogikSpieldatenDummy {
         }
         System.out.println(nameSpieler);
         System.out.println(passwort);
-        return (nameSpieler.equals("Horst") ) && (passwort.equals("blutwurst1"));
+        //return (nameSpieler.equals("Horst") ) && (passwort.equals("blutwurst1"));
+        return true;
         /*if(nameSpieler == "Horst" && passwort == "blutwurst1"){
             return true;
         }
