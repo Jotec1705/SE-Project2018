@@ -4,22 +4,29 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import GUIClient.GUIClient;
 import GUIClient.IGUIClientCallback;
 import KommunikationServer.ICallbackRMI;
 
 public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbackRMI, Serializable {
 
+    public GUIClient guiClient;
+
     public CallbackRMIAufLokal() throws RemoteException {
+        guiClient.setClient(this);
     }
 
     GUIClientDummy dummy = new GUIClientDummy();
 
-    public IGUIClientCallback guiClient;
+
+
+
+
 
     @Override
     public boolean aktualisierenLobby() throws RemoteException {
-        return dummy.aktualisierenLobby();
-        //return guiClient.aktualisierenLobby();
+        //return dummy.aktualisierenLobby();
+        return guiClient.aktualisierenLobby();
     }
 
     @Override
