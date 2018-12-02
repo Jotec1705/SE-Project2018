@@ -39,6 +39,7 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
             beobachterHinzufuegen(beobachter);
 
 
+
         } catch (Exception e) {
             System.err.println("Verbindungs exception");
             e.printStackTrace();
