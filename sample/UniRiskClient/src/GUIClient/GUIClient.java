@@ -79,7 +79,8 @@ public class GUIClient extends Application implements IGUIClientCallback{
 
     @Override
     public boolean aktualisierenLobby() {
-        return false;
+        System.out.println("Lobby aktualisiert");
+        return true;
     }
 
     @Override
