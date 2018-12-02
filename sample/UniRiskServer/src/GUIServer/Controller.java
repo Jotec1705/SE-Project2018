@@ -4,6 +4,8 @@ import Spieldaten.Spieldaten;
 import Spiellogik.Spiellogik;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -24,12 +26,29 @@ public class Controller {
         this.anzeige.setIpAdresseServer("Server IP : " + this.daten.getServerIP());
 
         this.anzeige.getNeuesSpielAnlegen().setOnAction(e -> buttonNeuesSpielAnlegenOnClick());
+        this.anzeige.getSpielAnlegen().setOnAction(e -> buttonSpielAnlegenOnClick());
         this.anzeige.getSpielLaden().setOnAction(e -> buttonSpielLadenOnClick());
         this.anzeige.getDateiAuswaehlen().setOnAction(e -> buttonDateiAuswaehlenOnClick());
+        this.anzeige.getSpielStarten().setOnAction(e -> buttonSpielStartenOnClick());
     }
 
     public void buttonNeuesSpielAnlegenOnClick(){
         showSpielAnlegen();
+    }
+
+    public void  buttonSpielAnlegenOnClick(){
+        String spielerAnzahl = anzeige.getspielerAnzahlEingabe();
+        if(spielerAnzahl.equals("3") || spielerAnzahl.equals("4") || spielerAnzahl.equals("5")){
+            logik.spielAnlegen(Integer.parseInt(spielerAnzahl));
+            showLobby();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Falsche Spieleranzahl eingegeben");
+            alert.setContentText("Bitte eine Spieleranzahl von 3-5 Spielern eingeben");
+            alert.showAndWait();
+        }
+
     }
 
     public void buttonSpielLadenOnClick(){
@@ -40,6 +59,10 @@ public class Controller {
         daten.setAusgewaehlteDateiZumLaden(anzeige.getFileChooser().showOpenDialog(daten.getPrimaryStage()));
         anzeige.setAusgewaehlteDatei("Ausgewählte Datei : \n" + daten.getAusgewaehlteDateiZumLaden().getName());
         logik.spielLaden(daten.getAusgewaehlteDateiZumLaden().getPath());
+    }
+
+    public void buttonSpielStartenOnClick(){
+        logik.spielStarten();
     }
 
     public void showStart(){
@@ -148,11 +171,19 @@ public class Controller {
     }
 
     public boolean datenModellAktualisierenSpielLaden(){
-
+        setbenoetigteMitspielerInDatenModell();
         return true;
     }
     public boolean datenModellAktualisierenLobby(){
-
-        return true;
+        try {
+            setSpielerNamenInDatenModell();
+            setSpielerIPInDatenModell();
+            setSpielerBereitInDatenModell();
+            slotsCreateAndView();
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 }

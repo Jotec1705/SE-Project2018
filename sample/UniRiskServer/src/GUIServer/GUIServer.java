@@ -27,6 +27,7 @@ public class GUIServer extends Application implements IGUIServerCallback {
         spieldaten = new Spieldaten();
         logik = new Spiellogik();
         logik.setSpieldaten(spieldaten);
+        logik.beobachterHinzufuegen(this);
         kommunikation = new KommunikationServer();
         kommunikation.setSpiellogik(logik);
         kommunikation.setAnzeige(spieldaten);
@@ -37,10 +38,10 @@ public class GUIServer extends Application implements IGUIServerCallback {
 
     @Override
     public boolean aktualisierung() {
-         if(daten.getPrimaryStage().getTitle() == "Spiel laden"){
+         if(daten.getPrimaryStage().getTitle().equals("Spiel laden")){
              return controller.datenModellAktualisierenSpielLaden();
          }
-         if(daten.getPrimaryStage().getTitle() == "Lobby(Host)"){
+         if(daten.getPrimaryStage().getTitle().equals("Lobby(Host)")){
              return controller.datenModellAktualisierenLobby();
          }
          return true;
