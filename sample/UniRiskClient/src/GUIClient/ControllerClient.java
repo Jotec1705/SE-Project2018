@@ -1,5 +1,6 @@
 package GUIClient;
 
+import KommunikationClient.IClientKommunikation;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -25,6 +26,10 @@ public class ControllerClient {
         this.anzeige.getSpielerAusgestiegen().setOnAction(e -> {
             this.anzeige.getAusgestiegen();
         });
+    }
+
+    public void setKommunikation(IClientKommunikation kommunikation){
+        anzeige.setClientKommunikation(kommunikation);
     }
 
     public void showAnmelden() {

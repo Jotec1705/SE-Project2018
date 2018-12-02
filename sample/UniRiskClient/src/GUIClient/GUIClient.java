@@ -117,6 +117,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
     public void start(Stage stage) throws IOException {
         datenClient = new DatenClient(stage);
         controllerClient = new ControllerClient(datenClient);
+        controllerClient.setKommunikation(kommunikation);
         //karteLoader = new FXMLLoader(getClass().getResource("@Karte.fxml"));
         controllerClient.showAnmelden();
         /*

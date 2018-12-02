@@ -426,7 +426,10 @@ public class AnzeigeClient {
     }
 
     public boolean getAngemeldet(){
-        return true;//kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse);
+        nameSpieler = nameEingabe.getText();
+        passwort = pwdEingabe.getText();
+        ipAdresse = ipEingabe.getText();
+        return kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse);
     }
 
     public  void getErstiesAnzahl(Integer ID){
