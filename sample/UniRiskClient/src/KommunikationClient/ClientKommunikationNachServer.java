@@ -39,17 +39,20 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
             //Die Klasse ClientKommunikationNachServer mit dem entfernten Objekt "versorgen"
             //ClientKommunikationNachServer zumServer = new ClientKommunikationNachServer();
             setRMIObjekt(logikUndAnzeige);
-
+            System.out.println("Hier1");
             //Remote Interface an den Server übergeben, um die Callback Funktionalität zu ermöglichen.
             ICallbackRMI beobachter = new CallbackRMIAufLokal();
             if(beobachter == null){
                 System.out.println("Fehler0");
             }
+            System.out.println("Hier2");
             ((CallbackRMIAufLokal) beobachter).setClient(client);
             if(beobachter == null){
                 System.out.println("Fehler1");
             }
-            logikUndAnzeige.beobachterHinzufuegen(beobachter);
+            System.out.println("hier3");
+            beobachterHinzufuegen(beobachter);
+            System.out.println("hier4");
 
 
 
