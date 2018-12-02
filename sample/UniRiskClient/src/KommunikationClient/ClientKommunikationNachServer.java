@@ -49,7 +49,7 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
             if(beobachter == null){
                 System.out.println("Fehler1");
             }
-            beobachterHinzufuegen(beobachter);
+            logikUndAnzeige.beobachterHinzufuegen(beobachter);
 
 
 
