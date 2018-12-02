@@ -1,6 +1,10 @@
 package GUIClient;
 
+import KommunikationClient.CallbackRMIAufLokal;
+import KommunikationClient.ClientKommunikationNachServer;
+import KommunikationClient.ICallbackRMIC;
 import KommunikationClient.IClientKommunikation;
+import KommunikationServer.ICallbackRMI;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -35,14 +39,8 @@ import java.io.IOException;
 
 public class GUIClient extends Application implements IGUIClientCallback{
     private ControllerClient controllerClient;
-    public IClientKommunikation kommunikation;
+    public IClientKommunikation kommunikation = new ClientKommunikationNachServer();
     private DatenClient datenClient;
-
-    //Erstellt das Objekt Hannes oder ich?
-    /*public void setClientKommunikation(IClientKommunikation kommunikation){
-        this.kommunikation = kommunikation;
-    }*/
-    //private ListView<String> mitspieler;
 
     private Scene sceneAnmelden;
     private Scene sceneLobby;
@@ -107,6 +105,10 @@ public class GUIClient extends Application implements IGUIClientCallback{
     @Override
     public boolean spielBeendet() {
         return false;
+    }
+
+    public void setClient(CallbackRMIAufLokal callbackRMI){
+        callbackRMI.guiClient = this;
     }
 
     //kleiner Test:
