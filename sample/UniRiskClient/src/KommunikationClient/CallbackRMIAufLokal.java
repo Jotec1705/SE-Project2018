@@ -14,7 +14,7 @@ public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbac
 
     GUIClientDummy dummy = new GUIClientDummy();
 
-    IGUIClientCallback guiClient;
+    public IGUIClientCallback guiClient;
 
     @Override
     public boolean aktualisierenLobby() throws RemoteException {
