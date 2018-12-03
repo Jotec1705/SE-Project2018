@@ -308,14 +308,14 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         spielerNamenArr[0]=null;
         for(int i = 1;i<spielerArr.length;i++) {
             spielerNamenArr[i] = spielerArr[i].Name;
-            i++;
+
         }
         return spielerNamenArr;
     }
 
     @Override
     public boolean[] spielerBereit() {
-        boolean[] bereit = new boolean[5];
+        boolean[] bereit = new boolean[6];
         for(int i = 1 ; i<spielerArr.length;i++){
             bereit[i] = spielerArr[i].bereit;
         }
@@ -334,7 +334,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public String[] ipAdressen() {
         //TODO warten bis hannes was brauchbares liefert
-        return new String[0];
+        return new String[6];
     }
 
     @Override

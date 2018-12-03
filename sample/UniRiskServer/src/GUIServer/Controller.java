@@ -124,9 +124,17 @@ public class Controller {
         private boolean status;
 
         public Slots(String ipAdresse, String name, boolean status){
+
             this.ipAdresse = ipAdresse;
             this.name = name;
             this.status = status;
+
+            if(ipAdresse == null){
+                this.ipAdresse = "0";
+            }
+            if(name == null){
+                this.name = "1";
+            }
         }
 
     }

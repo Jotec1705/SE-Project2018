@@ -322,13 +322,13 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
     @Override
     public boolean beobachterHinzufuegen(IKommunikationServerCallback beobachter) {
         beobachterMerkerKom = beobachter;
-        return false;
+        return true;
     }
 
     @Override
     public boolean beobachterHinzufuegen(IGUIServerCallback beobachter) {
         beobachterMerkerServer = beobachter;
-        return false;
+        return true;
     }
 
 

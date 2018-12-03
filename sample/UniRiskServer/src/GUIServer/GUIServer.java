@@ -4,6 +4,7 @@ import KommunikationServer.KommunikationServer;
 import Spieldaten.Spieldaten;
 import Spiellogik.Spiellogik;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 
 
@@ -31,19 +32,24 @@ public class GUIServer extends Application implements IGUIServerCallback {
         kommunikation = new KommunikationServer();
         kommunikation.setSpiellogik(logik);
         kommunikation.setAnzeige(spieldaten);
+        kommunikation.main();
         daten = new DatenModell(primaryStage);
         controller = new Controller(daten, spieldaten, logik);
         controller.showStart();
+
     }
 
     @Override
     public boolean aktualisierung() {
-         if(daten.getPrimaryStage().getTitle().equals("Spiel laden")){
-             return controller.datenModellAktualisierenSpielLaden();
-         }
-         if(daten.getPrimaryStage().getTitle().equals("Lobby(Host)")){
-             return controller.datenModellAktualisierenLobby();
-         }
+
+        Platform.runLater(()->{
+            if(daten.getPrimaryStage().getTitle().equals("Spiel laden")){
+                controller.datenModellAktualisierenSpielLaden();
+        }
+            //if(daten.getPrimaryStage().getTitle().equals("Lobby(Host)")){
+                controller.datenModellAktualisierenLobby();
+            /*}*/});
+
          return true;
     }
 }

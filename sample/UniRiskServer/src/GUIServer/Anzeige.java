@@ -52,7 +52,7 @@ public class Anzeige {
 
     //Elemente in Lobby Scene
     private GridPane gridLobby;
-    private TableView tabelle;
+    public TableView<Slots> tabelle;
     private ObservableList<Slots> slots;
     private TableColumn ipAdresse;
     private TableColumn spielerName;

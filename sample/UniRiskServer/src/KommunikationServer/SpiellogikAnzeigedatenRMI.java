@@ -40,8 +40,8 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
     public boolean spielerAnmelden(String nameSpieler, String passwort) throws RemoteException {
         clients.put(nameSpieler, clientObjekt);
         System.out.println(clients);
-        return dummy.spielerAnmelden(nameSpieler, passwort);
-        //return logik.spielerAnmelden(nameSpieler, passwort);
+        //return dummy.spielerAnmelden(nameSpieler, passwort);
+        return logik.spielerAnmelden(nameSpieler, passwort);
 
     }
 
@@ -160,7 +160,7 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
         ((KommunikationServerCallback) callbackObjektOffline).setOnlineObjekt(callbackObjektOnline);
 
         //Setze das Callbackobjekt in die Spiellogik
-        //logik.beobachterHinzufuegen(callbackObjektOffline);
+        logik.beobachterHinzufuegen(callbackObjektOffline);
         return true;
     }
 }
