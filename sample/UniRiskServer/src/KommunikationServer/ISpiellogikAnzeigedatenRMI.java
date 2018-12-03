@@ -172,4 +172,6 @@ public interface ISpiellogikAnzeigedatenRMI extends Remote {
      * @return Int-Array
      */
     Integer[] eigeneGebaeude(String nameSpieler) throws RemoteException;
+
+
 }

@@ -144,4 +144,26 @@ public interface IClientKommunikation {
      * @return Array mit Farben der Spieler als Int-Wert. Array Index entspricht der Gebäude ID
      */
     Integer[] farbeSpieler();
+
+    //AB HIER DIE METHODEN VON IANZEIGEDATEN#################################################################
+
+    /**
+     * Diese Methode soll die Namen aller Spieler zurückgeben
+     * @return Array mit dem Namen aller Spieler als String
+     */
+    String[] spielerNamen();
+
+    /**
+     * Diese Methode soll zurückgeben ob Spieler bereit ist
+     * @return true wenn Spieler bereit zum Spiel
+     */
+    boolean[] spielerBereit();
+
+    /**
+     * Diese Methode soll die IP-Adressen der Spieler zurückgeben
+     * @return Array mit IP-Adressen der Spieler
+     */
+    String[] ipAdressen();
+
+
 }

@@ -92,17 +92,17 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     @Override
     public String[] spielerNamen() throws RemoteException {
-        return dummy.spielerNamen();
+        return anzeige.spielerNamen();
     }
 
     @Override
     public boolean[] spielerBereit() throws RemoteException {
-        return dummy.spielerBereit();
+        return anzeige.spielerBereit();
     }
 
     @Override
     public String[] ipAdressen() throws RemoteException {
-        return dummy.ipAdressen();
+        return anzeige.ipAdressen();
     }
 
     @Override
