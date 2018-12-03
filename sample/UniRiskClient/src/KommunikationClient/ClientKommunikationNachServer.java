@@ -261,4 +261,37 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
         }
         return new Integer[0];
     }
+
+    @Override
+    public String[] spielerNamen() {
+        try {
+            return server.spielerNamen();
+        }catch (Exception e){
+            System.err.println("Methodenaufruf beim Server exception:");
+            e.printStackTrace();
+        }
+        return new String[0];
+    }
+
+    @Override
+    public boolean[] spielerBereit() {
+        try {
+            return server.spielerBereit();
+        }catch (Exception e){
+            System.err.println("Methodenaufruf beim Server exception:");
+            e.printStackTrace();
+        }
+        return new boolean[0];
+    }
+
+    @Override
+    public String[] ipAdressen() {
+        try {
+            return server.ipAdressen();
+        }catch (Exception e){
+            System.err.println("Methodenaufruf beim Server exception:");
+            e.printStackTrace();
+        }
+        return new String[0];
+    }
 }
