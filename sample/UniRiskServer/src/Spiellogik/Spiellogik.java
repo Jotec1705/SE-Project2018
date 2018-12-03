@@ -74,6 +74,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
             if(istgefunden == false)
                 return false;
         }
+        beobachterMerkerServer.aktualisierung();
+        beobachterMerkerKom.aktualisierenKarte();
         return true;
     }
 
@@ -178,8 +180,9 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean spielAnlegen(int spielerAnzahl) {
-        if(spielerAnzahl>=3 && spielerAnzahl<=5)
+        if(spielerAnzahl>=3 && spielerAnzahl<=5) {
             return daten.spielAnlegen(spielerAnzahl);
+        }
         return false;
     }
 
@@ -190,18 +193,21 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean spielerAusgestiegen(String nameSpieler) {
+        beobachterMerkerServer.aktualisierung();
+        beobachterMerkerKom.aktualisierenLobby();
         return daten.spielerAusgestiegen(nameSpieler);
     }
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) {
+        beobachterMerkerServer.aktualisierung();
+        beobachterMerkerKom.aktualisierenLobby();
         return daten.spielerBereitMelden(nameSpieler);
     }
 
     @Override
     public boolean spielStarten() {
         if(alleSpielerBereit()) {
-            //erstiesSetzen();
             return true;
         }
         return false;
@@ -263,6 +269,9 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
                 daten.anzahlZuVerteilendeErstiesAnpassen(nameSpieler, zusetzendeErsties + 10);
                 hatGetauscht = true;
             }
+            beobachterMerkerServer.aktualisierung();
+            beobachterMerkerKom.aktualisierenKarte();
+            return true;
         }
         return false;
     }
@@ -292,6 +301,8 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
                 missionskarte = daten.missionskarteSpieler(nameSpieler);
                 if(vergleicheMissionskarte(missionskarte, nameSpieler))
                     return true; //Sieg
+                beobachterMerkerServer.aktualisierung();
+                beobachterMerkerKom.aktualisierenKarte();
                 return true;
             }
         }
