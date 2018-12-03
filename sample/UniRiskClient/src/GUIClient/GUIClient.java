@@ -6,8 +6,6 @@ import KommunikationClient.ICallbackRMIC;
 import KommunikationClient.IClientKommunikation;
 import KommunikationServer.ICallbackRMI;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -23,7 +21,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -51,10 +48,10 @@ public class GUIClient extends Application implements IGUIClientCallback{
     private Scene scenePopupWuerfelnVerteidiger;
     private Scene scenePopupVerschiebenVonNach;
 
-    private String nameSpieler = "Alicia";
+    private String nameSpieler;
     private String passwort;
     private String ipAdresse;
-    private String nameSpieler1 = "Bob";
+    private String nameSpieler1;
     private String nameSpieler2;
     private String nameSpieler3;
     private String nameSpieler4;
@@ -66,9 +63,6 @@ public class GUIClient extends Application implements IGUIClientCallback{
     private String anzahlBprofessoren = "2x";
     private String anzahlZuVerteilen = "10x";
     private String textMissionskarte = "Alle Fachbereiche einnehmen";
-
-    private Parent karte;
-    private FXMLLoader karteLoader;
 
     int i = 0;
     private Button anmelden;
@@ -85,6 +79,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
 
     @Override
     public boolean aktualisierenKarte() {
+        karteAnzeigen();
         return false;
     }
 
@@ -119,22 +114,11 @@ public class GUIClient extends Application implements IGUIClientCallback{
         controllerClient = new ControllerClient(datenClient);
         kommunikation.setClient(this);
         controllerClient.setKommunikation(kommunikation);
-        //karteLoader = new FXMLLoader(getClass().getResource("@Karte.fxml"));
+        karte();
         controllerClient.showAnmelden();
-        /*
-        anmelden();
-        showAnmelden(stage);
-
-        if(i == 1){
-            lobbyClient();
-            showLobbyClient(stage);
-        }
-*/
-        //karte();
-        //showKarte(stage);
-        //controllerClient.setKarte(karte);
-        //controllerClient.showKarte(karteLoader);
 /*
+        showKarte(stage);
+
         popupBonuskarten();
         showBonuskarten(stage);
 
@@ -143,7 +127,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
 
         popupWuerfelnAngreifer();
         showPopupWuerfelnAngreifer(stage);
-        popupWuerfelnVerteidiger();
+       popupWuerfelnVerteidiger();
         showPopupWuerfelnVerteidiger(stage);
 
         popupVerschiebenVonNach();
@@ -151,93 +135,8 @@ public class GUIClient extends Application implements IGUIClientCallback{
 */
     }
 
-//--------------------------------------Layout Anmelden:----------------------------------------------------------------
-    public void anmelden(){
-        try {
-            GridPane gridPane = new GridPane();
-            gridPane.setAlignment(Pos.TOP_CENTER);
-            gridPane.setHgap(10);
-            gridPane.setVgap(10);
-            gridPane.setMinSize(450, 200);
-            gridPane.setMaxSize(450, 200);
-            gridPane.setPadding(new Insets(10, 10, 10, 10));
-
-            Text uniRisk = new Text("UniRisk");
-            uniRisk.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-            GridPane.setHalignment(uniRisk, HPos.CENTER);
-            gridPane.add(uniRisk, 0, 0, 4, 1);
-
-            Text name = new Text("Benutzername:");
-            TextField nameEingabe = new TextField();
-            Text pwd = new Text("Passwort:");
-            PasswordField pwdEingabe = new PasswordField();
-            Text ip = new Text("Server IP:");
-            TextField ipEingabe = new TextField();
-            gridPane.add(name, 0, 2, 1, 1);
-            gridPane.add(nameEingabe, 1, 2, 1, 1);
-            gridPane.add(pwd, 0, 3, 1, 1);
-            gridPane.add(pwdEingabe, 1, 3, 1, 1);
-            gridPane.add(ip, 2, 2, 1, 1);
-            gridPane.add(ipEingabe, 3, 2, 1, 1);
-
-            anmelden = new Button("Am Server anmelden");
-            anmelden.setOnAction(event -> {
-                kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse);
-                i = 1;
-            });
-            GridPane.setHalignment(anmelden, HPos.CENTER);
-            gridPane.add(anmelden, 2, 4, 2, 1);
-
-            sceneAnmelden = new Scene(gridPane, 450, 200);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void showAnmelden(Stage stage){
-        stage.setTitle("Client Anwendung");
-        stage.setResizable(false);
-        stage.setScene(sceneAnmelden);
-        stage.show();
-    }
-
-//-------------------------------------Layout Lobby Client:-------------------------------------------------------------
-    public void lobbyClient(){
-        GridPane gridLobby = new GridPane();
-        gridLobby.setAlignment(Pos.TOP_CENTER);
-        gridLobby.setHgap(10);
-        gridLobby.setVgap(10);
-        gridLobby.setPadding(new Insets(5, 5, 5, 5));
-
-        TableView tabelle = new TableView();
-        tabelle.setEditable(true);
-        tabelle.setMinSize(250, 200);
-
-        TableColumn ipAdresse = new TableColumn("IP-Adresse");
-        TableColumn spielerName = new TableColumn("Name");
-        TableColumn status = new TableColumn("Status");
-        tabelle.getColumns().addAll(ipAdresse, spielerName, status);
-        GridPane.setHalignment(tabelle, HPos.CENTER);
-
-        gridLobby.add(tabelle,0, 0, 4, 1);
-
-        Button bereit = new Button("Bereit");
-        Button aussteigen = new Button("Aussteigen");
-        bereit.setStyle("-fx-background-color: LIGHTGREEN");
-        aussteigen.setStyle("-fx-background-color: TOMATO");
-        GridPane.setHalignment(bereit, HPos.CENTER);
-        GridPane.setHalignment(aussteigen, HPos.CENTER);
-        gridLobby.add(bereit, 0, 1 ,2 ,1);
-        gridLobby.add(aussteigen, 2, 1, 2, 1);
-
-        sceneLobby = new Scene(gridLobby, 400, 250);
-    }
-
-    public void showLobbyClient(Stage stage){
-        stage.setTitle("Lobby (Client)");
-        stage.setResizable(false);
-        stage.setScene(sceneLobby);
-        stage.show();
+    public void karteAnzeigen(){
+        showKarte(datenClient.getStage());
     }
 
 //---------------------------------------Layout der Karte:--------------------------------------------------------------
@@ -246,7 +145,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
         BorderPane borderPane = new BorderPane();
 
         //Parent für links, die komplette Karte:
-        //Parent karte = FXMLLoader.load(getClass().getResource("/GUIClient/Karte.fxml"));
+        Parent karte = FXMLLoader.load(getClass().getResource("/GUIClient/Karte.fxml"));
 
         //GridPane rechts für Spieler und Farbgebung:
         GridPane rechts = new GridPane();
@@ -577,54 +476,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
     }
 
 //-------------------------------------Layout Bonuskarten eintauschen:--------------------------------------------------
-    public void popupBonuskarten(){
-        GridPane bonuskarten = new GridPane();
-        bonuskarten.setAlignment(Pos.TOP_CENTER);
-        bonuskarten.setHgap(10);
-        bonuskarten.setVgap(10);
-        bonuskarten.setMinSize(550,270);
-        bonuskarten.setMaxSize(550,270);
-        bonuskarten.setPadding(new Insets(10, 10, 10, 10));
 
-        Image ersties = new Image(getClass().getResourceAsStream("fragezeichen.png"));
-        Image studenten = new Image(getClass().getResourceAsStream("ausrufezeichen.png"));
-        Image professoren = new Image(getClass().getResourceAsStream("professor.png"));
-        ImageView imageViewErsties = new ImageView(ersties);
-        ImageView imageViewStudenten = new ImageView(studenten);
-        ImageView imageViewProfessoren = new ImageView(professoren);
-        TextField anzahlErsties = new TextField();
-        anzahlErsties.setMaxWidth(50);
-        GridPane.setHalignment(anzahlErsties, HPos.CENTER);
-        TextField anzahlStudenten = new TextField();
-        anzahlStudenten.setMaxWidth(50);
-        GridPane.setHalignment(anzahlStudenten, HPos.CENTER);
-        TextField anzahlProfessoren = new TextField();
-        anzahlProfessoren.setMaxWidth(50);
-        GridPane.setHalignment(anzahlProfessoren, HPos.CENTER);
-        Button tauschen = new Button("tauschen");
-        tauschen.setStyle("-fx-background-color: LIGHTGREEN");
-        GridPane.setHalignment(tauschen, HPos.CENTER);
-
-        bonuskarten.add(imageViewErsties, 0,0, 1, 1);
-        bonuskarten.add(imageViewStudenten, 1,0,1,1);
-        bonuskarten.add(imageViewProfessoren, 2, 0, 1, 1);
-        bonuskarten.add(anzahlErsties, 0, 1, 1, 1);
-        bonuskarten.add(anzahlStudenten, 1, 1, 1, 1);
-        bonuskarten.add(anzahlProfessoren, 2, 1, 1, 1);
-        bonuskarten.add(tauschen, 0, 2, 4, 1);
-
-        scenePopupBonuskarten = new Scene(bonuskarten);
-    }
-
-    public void showBonuskarten(Stage stage){
-        Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initOwner(stage);
-        dialog.setTitle("Bonuskarten eintauschen");
-        dialog.setResizable(false);
-        dialog.setScene(scenePopupBonuskarten);
-        dialog.show();
-    }
 
 //-------------------------------------Layout Würfel Angreifer:---------------------------------------------------------
     public void popupWuerfelnAngreifer(){
@@ -653,166 +505,166 @@ public class GUIClient extends Application implements IGUIClientCallback{
 //--------------------------------Gebäude Buttons Handler Methoden:-----------------------------------------------------
     public void onclicked1(MouseEvent mouseEvent) {
         Integer ID = 1;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked2(MouseEvent mouseEvent) {
         Integer ID = 2;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked3(MouseEvent mouseEvent) {
         Integer ID = 3;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked4(MouseEvent mouseEvent) {
         Integer ID = 4;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked5(MouseEvent mouseEvent) {
         Integer ID = 5;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked6(MouseEvent mouseEvent) {
         Integer ID = 6;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked7(MouseEvent mouseEvent) {
         Integer ID = 7;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked8(MouseEvent mouseEvent) {
         Integer ID = 8;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked9(MouseEvent mouseEvent) {
         Integer ID = 9;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked10(MouseEvent mouseEvent) {
         Integer ID = 10;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked11(MouseEvent mouseEvent) {
         Integer ID = 11;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked12(MouseEvent mouseEvent) {
         Integer ID = 12;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked13(MouseEvent mouseEvent) {
         Integer ID = 13;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked14(MouseEvent mouseEvent) {
         Integer ID = 14;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked15(MouseEvent mouseEvent) {
         Integer ID = 15;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked16(MouseEvent mouseEvent) {
         Integer ID = 16;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked17(MouseEvent mouseEvent) {
         Integer ID = 17;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked18(MouseEvent mouseEvent) {
         Integer ID = 18;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked19(MouseEvent mouseEvent) {
         Integer ID = 19;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked20(MouseEvent mouseEvent) {
         Integer ID = 20;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked21(MouseEvent mouseEvent) {
         Integer ID = 21;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked22(MouseEvent mouseEvent) {
         Integer ID = 22;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked23(MouseEvent mouseEvent) {
         Integer ID = 23;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked24(MouseEvent mouseEvent) {
         Integer ID = 24;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked25(MouseEvent mouseEvent) {
         Integer ID = 25;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked26(MouseEvent mouseEvent) {
         Integer ID = 26;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked27(MouseEvent mouseEvent) {
         Integer ID = 27;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked28(MouseEvent mouseEvent) {
         Integer ID = 28;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked29(MouseEvent mouseEvent) {
         Integer ID = 29;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked30(MouseEvent mouseEvent) {
         Integer ID = 30;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked31(MouseEvent mouseEvent) {
         Integer ID = 31;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked32(MouseEvent mouseEvent) {
         Integer ID = 32;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 
     public void onclicked33(MouseEvent mouseEvent) {
         Integer ID = 33;
-        kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+        controllerClient.getClickGebaeude(ID);
     }
 }

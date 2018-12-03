@@ -1,11 +1,6 @@
 package GUIClient;
 
 import KommunikationClient.ClientKommunikationNachServer;
-import KommunikationClient.IClientKommunikation;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-
-import java.io.IOException;
 
 public class ControllerClient {
     private DatenClient datenClient;
@@ -39,14 +34,6 @@ public class ControllerClient {
 
     public void showLobbyClient() {
         anzeige.showLobbyClient(datenClient.getStage());
-    }
-
-    public void showKarte(FXMLLoader karteLoader) throws IOException {
-       //anzeige.showKarte(datenClient.getStage(), karteLoader);
-    }
-
-    public void setKarte(Parent karte){
-        this.anzeige.getKarte(karte);
     }
 
     public void getClickGebaeude(Integer ID) {
