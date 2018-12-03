@@ -73,13 +73,16 @@ public class GUIClient extends Application implements IGUIClientCallback{
 
     @Override
     public boolean aktualisierenLobby() {
+        controllerClient.setSpielerNamenInTabelle(kommunikation.spielerNamen());
+        controllerClient.setSpielerIPInTabelle(kommunikation.ipAdressen());
+        controllerClient.setSpielerBereitInTabelle(kommunikation.spielerBereit());
+        controllerClient.slotsAnlegenUndAnzeigen();
         System.out.println("Lobby aktualisiert");
         return true;
     }
 
     @Override
     public boolean aktualisierenKarte() {
-        karteAnzeigen();
         return false;
     }
 
@@ -115,6 +118,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
         kommunikation.setClient(this);
         controllerClient.setKommunikation(kommunikation);
         karte();
+        this.controllerClient.setKartenScene(sceneKarte);
         controllerClient.showAnmelden();
 /*
         showKarte(stage);
@@ -133,10 +137,6 @@ public class GUIClient extends Application implements IGUIClientCallback{
         popupVerschiebenVonNach();
         showPopupVerschiebenVonNach(stage);
 */
-    }
-
-    public void karteAnzeigen(){
-        showKarte(datenClient.getStage());
     }
 
 //---------------------------------------Layout der Karte:--------------------------------------------------------------
@@ -374,13 +374,6 @@ public class GUIClient extends Application implements IGUIClientCallback{
         borderPane.setRight(rechts);
         borderPane.setBottom(gridPane);
         sceneKarte = new Scene(borderPane);
-    }
-
-    public void showKarte(Stage stage){
-        stage.setTitle("UniRisk");
-        stage.setResizable(false);
-        stage.setScene(sceneKarte);
-        stage.show();
     }
 
 //-------------------------------------Layout Angriff von nach:---------------------------------------------------------

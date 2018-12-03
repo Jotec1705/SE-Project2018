@@ -1,6 +1,8 @@
 package GUIClient;
 
 import KommunikationClient.ClientKommunikationNachServer;
+import GUIClient.ControllerClient.Slots;
+import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,6 +26,7 @@ public class AnzeigeClient {
     private Scene sceneAnmelden;
     private Scene sceneLobby;
     private Scene scenePopupBonuskarten;
+    private Scene sceneKarte;
     private Scene sceneAngriff;
     private Scene scenePopupWuerfelnAngreifer;
     private Scene scenePopupWuerfelnVerteidiger;
@@ -40,6 +43,9 @@ public class AnzeigeClient {
     private TextField nameEingabe;
     private TextField pwdEingabe;
     private TextField ipEingabe;
+
+    private ObservableList<Slots> slots;
+    private TableView tabelle;
 
 
     public AnzeigeClient(){
@@ -85,7 +91,7 @@ public class AnzeigeClient {
         gridLobby.setVgap(10);
         gridLobby.setPadding(new Insets(5, 5, 5, 5));
 
-        TableView tabelle = new TableView();
+        tabelle = new TableView();
         tabelle.setEditable(true);
         tabelle.setMinSize(250, 200);
 
@@ -94,7 +100,6 @@ public class AnzeigeClient {
         TableColumn status = new TableColumn("Status");
         tabelle.getColumns().addAll(ipAdresse, spielerName, status);
         GridPane.setHalignment(tabelle, HPos.CENTER);
-
         gridLobby.add(tabelle,0, 0, 4, 1);
 
         bereit = new Button("Bereit");
@@ -171,6 +176,16 @@ public class AnzeigeClient {
         dialog.show();
     }
 
+    public void showKarte(Stage stage){
+        stage.setTitle("UniRisk");
+        stage.setResizable(false);
+        stage.setScene(sceneKarte);
+        stage.show();
+    }
+
+    public void getKartenScene(Scene sceneKarte){
+        this.sceneKarte = sceneKarte;
+    }
 
     public Button getSpielerAnmelden(){
         return anmelden;
@@ -201,5 +216,10 @@ public class AnzeigeClient {
 
     public  void getErstiesAnzahl(Integer ID){
         kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
+    }
+
+    public void setSlots(ObservableList<Slots> slots) {
+        this.slots = slots;
+        tabelle.setItems(this.slots);
     }
 }
