@@ -6,6 +6,7 @@ import KommunikationClient.ICallbackRMIC;
 import KommunikationClient.IClientKommunikation;
 import KommunikationServer.ICallbackRMI;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -73,10 +74,12 @@ public class GUIClient extends Application implements IGUIClientCallback{
 
     @Override
     public boolean aktualisierenLobby() {
-        controllerClient.setSpielerNamenInTabelle(kommunikation.spielerNamen());
-        controllerClient.setSpielerIPInTabelle(kommunikation.ipAdressen());
-        controllerClient.setSpielerBereitInTabelle(kommunikation.spielerBereit());
-        controllerClient.slotsAnlegenUndAnzeigen();
+        Platform.runLater(()-> {
+                    controllerClient.setSpielerNamenInTabelle(kommunikation.spielerNamen());
+                    controllerClient.setSpielerIPInTabelle(kommunikation.ipAdressen());
+                    controllerClient.setSpielerBereitInTabelle(kommunikation.spielerBereit());
+                    controllerClient.slotsAnlegenUndAnzeigen();
+                });
         System.out.println("Lobby aktualisiert");
         return true;
     }
