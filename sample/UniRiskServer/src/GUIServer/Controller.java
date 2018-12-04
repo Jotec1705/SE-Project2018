@@ -152,7 +152,7 @@ public class Controller {
         Slots[] slots = new Slots[daten.getSpielerNamen().length];
 
         for(int i = 0; i < daten.getSpielerNamen().length;i++){
-            slots[i] = new Slots(daten.getSpielerIP()[i], daten.getSpielerNamen()[i], daten.getSpielerBereit()[i]);
+            slots[i] = new Slots(daten.getSpielerIP()[i + 1], daten.getSpielerNamen()[i + 1], daten.getSpielerBereit()[i + 1]);
         }
 
         slotsList = FXCollections.observableArrayList(slots);

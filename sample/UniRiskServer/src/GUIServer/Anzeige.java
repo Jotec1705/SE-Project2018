@@ -153,12 +153,13 @@ public class Anzeige {
         gridLobby.setVgap(10);
         gridLobby.setPadding(new Insets(5, 5, 5, 5));
 
-        tabelle = new TableView();
+        tabelle = new TableView<>();
         tabelle.setEditable(true);
 
         ipAdresse = new TableColumn("IP-Adresse");
         spielerName = new TableColumn("Name");
         status = new TableColumn("Status");
+        tabelle.setItems(slots);
         tabelle.getColumns().addAll(ipAdresse, spielerName, status);
         gridLobby.add(tabelle,0, 0, 1, 1);
 
