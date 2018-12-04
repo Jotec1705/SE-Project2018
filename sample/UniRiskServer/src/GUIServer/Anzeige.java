@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.GridPane;
@@ -156,9 +157,13 @@ public class Anzeige {
         tabelle = new TableView<>();
         tabelle.setEditable(true);
 
-        ipAdresse = new TableColumn("IP-Adresse");
-        spielerName = new TableColumn("Name");
-        status = new TableColumn("Status");
+        ipAdresse = new TableColumn<Slots, String>("IP-Adresse");
+        ipAdresse.setCellValueFactory(new PropertyValueFactory<Slots, String>("ipAdresse"));
+        spielerName = new TableColumn<Slots, String>("Name");
+        spielerName.setCellValueFactory(new PropertyValueFactory<Slots, String>("name"));
+        status = new TableColumn<Slots, Boolean>("Status");
+        status.setCellValueFactory(new PropertyValueFactory<Slots, Boolean>("status"));
+        slots = FXCollections.observableArrayList();
         tabelle.setItems(slots);
         tabelle.getColumns().addAll(ipAdresse, spielerName, status);
         gridLobby.add(tabelle,0, 0, 1, 1);
@@ -242,6 +247,11 @@ public class Anzeige {
         tabelle.setItems(this.slots);
     }
 
+
+    public ObservableList<Slots> getSlots() {
+        return this.slots;
+
+    }
     public FileChooser getFileChooser() {
         return fileChooser;
     }

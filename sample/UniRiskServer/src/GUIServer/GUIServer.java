@@ -45,9 +45,10 @@ public class GUIServer extends Application implements IGUIServerCallback {
         Platform.runLater(()->{
             if(daten.getPrimaryStage().getTitle().equals("Spiel laden")){
                 controller.datenModellAktualisierenSpielLaden();
-        }
+            }
             //if(daten.getPrimaryStage().getTitle().equals("Lobby(Host)")){
                 controller.datenModellAktualisierenLobby();
+
             /*}*/});
 
          return true;

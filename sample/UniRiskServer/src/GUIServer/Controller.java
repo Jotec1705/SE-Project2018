@@ -2,6 +2,10 @@ package GUIServer;
 
 import Spieldaten.Spieldaten;
 import Spiellogik.Spiellogik;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -118,25 +122,61 @@ public class Controller {
 
 
 
-    class Slots {
-        private String ipAdresse;
-        private String name;
-        private boolean status;
+    public class Slots {
+        private StringProperty ipAdresse;
+        private StringProperty name;
+        private BooleanProperty status;
 
-        public Slots(String ipAdresse, String name, boolean status){
+        public Slots(String ipAdresse, String name, Boolean status){
 
-            this.ipAdresse = ipAdresse;
-            this.name = name;
-            this.status = status;
+            this.ipAdresse = new SimpleStringProperty(ipAdresse);
+
+            this.name = new SimpleStringProperty(name);
+            this.status = new SimpleBooleanProperty(status);
 
             if(ipAdresse == null){
-                this.ipAdresse = "0";
+                this.ipAdresse = new SimpleStringProperty("o");
             }
             if(name == null){
-                this.name = "1";
+                this.name = new SimpleStringProperty("2");
             }
         }
 
+        public String getIpAdresse() {
+            return ipAdresse.get();
+        }
+
+        public StringProperty ipAdresseProperty() {
+            return ipAdresse;
+        }
+
+        public void setIpAdresse(String ipAdresse) {
+            this.ipAdresse.set(ipAdresse);
+        }
+
+        public String getName() {
+            return name.get();
+        }
+
+        public StringProperty nameProperty() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name.set(name);
+        }
+
+        public boolean isStatus() {
+            return status.get();
+        }
+
+        public BooleanProperty statusProperty() {
+            return status;
+        }
+
+        public void setStatus(boolean status) {
+            this.status.set(status);
+        }
     }
 
 
@@ -147,16 +187,14 @@ public class Controller {
     }
 
     private void slotsCreateAndView(){
-        ObservableList<Slots> slotsList = null;
+        ObservableList<Slots> slotsList = anzeige.getSlots();
+        slotsList.clear();
 
-        Slots[] slots = new Slots[daten.getSpielerNamen().length];
 
-        for(int i = 0; i < daten.getSpielerNamen().length;i++){
-            slots[i] = new Slots(daten.getSpielerIP()[i + 1], daten.getSpielerNamen()[i + 1], daten.getSpielerBereit()[i + 1]);
+        for(int i = 1; i < daten.getSpielerNamen().length;i++){
+            slotsList.add(new Slots(daten.getSpielerIP()[i], daten.getSpielerNamen()[i], daten.getSpielerBereit()[i]));
         }
 
-        slotsList = FXCollections.observableArrayList(slots);
-        anzeige.setSlots(slotsList);
 
     }
 
