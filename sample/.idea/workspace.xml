@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc02c09e-a8fe-4a14-b9dd-103de4d1ec5c" name="Default Changelist" comment="">
+    <list default="true" id="cc02c09e-a8fe-4a14-b9dd-103de4d1ec5c" name="Default Changelist" comment="Fehler in Spieldaten entfernt Anzeige war fehlerhaft">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieldaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieldaten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieler.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/AnzeigeClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/AnzeigeClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/ControllerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/ControllerClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/DatenClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/DatenClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/GUIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/GUIClient/GUIClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/KommunikationClient/ClientKommunikationNachServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/KommunikationClient/ClientKommunikationNachServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskClient/KommunikationClient/IClientKommunikation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskClient/KommunikationClient/IClientKommunikation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/Anzeige.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/Anzeige.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/Controller$Slots.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/Controller$Slots.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/GUIServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/GUIServer/GUIServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/KommunikationServer/KommunikationServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/KommunikationServer/SpiellogikAnzeigedatenRMI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/KommunikationServer/SpiellogikAnzeigedatenRMI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/Spieldaten/Spieldaten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/Spieldaten/Spieldaten.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/Spieldaten/Spieler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/Spieldaten/Spieler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/Spiellogik/Spiellogik$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/Spiellogik/Spiellogik$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UniRiskServer/Spiellogik/Spiellogik.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UniRiskServer/Spiellogik/Spiellogik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/UniRiskServer/GUIServer/GUIServerICallbackTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/UniRiskServer/GUIServer/GUIServerICallbackTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,6 +26,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1570473789">
@@ -78,90 +103,73 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-713056350">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="28" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="28" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="331" />
+          <entry key="txt" value="52" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="331" />
+          <entry key="PLAIN_TEXT" value="52" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte.fxml">
+        <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/GUIServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/GUIClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/KommunikationClient/ClientKommunikationNachServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/KommunikationClient/CallbackRMIAufLokal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="322">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/AnzeigeClient.java">
+        <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2726">
-              <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+            <state relative-caret-position="1734">
+              <caret line="145" column="35" lean-forward="true" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#16921#16922#0" expanded="true" />
-                <element signature="e#16997#16998#0" expanded="true" />
-                <element signature="e#17036#17037#0" expanded="true" />
-                <element signature="e#17112#17113#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/KommunikationClient/IClientKommunikation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/ControllerClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4596#4597#0" expanded="true" />
+                <element signature="e#4642#4643#0" expanded="true" />
+                <element signature="e#4695#4696#0" expanded="true" />
+                <element signature="e#4735#4736#0" expanded="true" />
+                <element signature="e#4789#4790#0" expanded="true" />
+                <element signature="e#4842#4843#0" expanded="true" />
+                <element signature="e#4877#4878#0" expanded="true" />
+                <element signature="e#4918#4919#0" expanded="true" />
+                <element signature="e#4966#4967#0" expanded="true" />
+                <element signature="e#5001#5002#0" expanded="true" />
+                <element signature="e#5045#5046#0" expanded="true" />
+                <element signature="e#5088#5089#0" expanded="true" />
+                <element signature="e#5125#5126#0" expanded="true" />
+                <element signature="e#5168#5169#0" expanded="true" />
+                <element signature="e#5219#5220#0" expanded="true" />
+                <element signature="e#5256#5257#0" expanded="true" />
+                <element signature="e#5305#5306#0" expanded="true" />
+                <element signature="e#5352#5353#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,9 +194,7 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/KommunikationClient/ClientKommunikationNachServer.java" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte.java" />
-        <option value="$PROJECT_DIR$/UniRiskServer/src/GUIServer/GUIServer.java" />
         <option value="$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/ISpiellogikAnzeigedatenRMI.java" />
-        <option value="$PROJECT_DIR$/UniRiskServer/src/GUIServer/Controller.java" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/Anzeige.java" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/DatenClient.java" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/ClientController.java" />
@@ -200,6 +206,10 @@
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/GUIClient.java" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/AnzeigeClient.java" />
         <option value="$PROJECT_DIR$/UniRiskClient/src/GUIClient/ControllerClient.java" />
+        <option value="$PROJECT_DIR$/UniRiskServer/src/GUIServer/GUIServer.java" />
+        <option value="$PROJECT_DIR$/UniRiskServer/src/GUIServer/Anzeige.java" />
+        <option value="$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieldaten.java" />
+        <option value="$PROJECT_DIR$/UniRiskServer/src/GUIServer/Controller.java" />
       </list>
     </option>
   </component>
@@ -209,8 +219,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="541" />
+    <option name="y" value="136" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -220,6 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,7 +293,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -384,6 +395,7 @@
       <workItem from="1543589232619" duration="13440000" />
       <workItem from="1543745413922" duration="5730000" />
       <workItem from="1543751937214" duration="606000" />
+      <workItem from="1543949521210" duration="8753000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'Bearbeitung' of https://github.com/Jotec1705/SE-Project2018 into Bearbeitung&#10;&#10;# Conflicts:&#10;#&#9;sample/UniRiskClient/.idea/workspace.xml">
       <created>1542640927811</created>
@@ -441,7 +453,28 @@
       <option name="project" value="LOCAL" />
       <updated>1543749683846</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="versuch2">
+      <created>1543957506486</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543957506486</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fehler in Spieldaten entfernt Anzeige war fehlerhaft">
+      <created>1543957567808</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1543957567808</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fehler in Spieldaten entfernt Anzeige war fehlerhaft">
+      <created>1543958222621</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1543958222621</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -450,13 +483,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66878000" />
+    <option name="totallyTimeSpent" value="75631000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
-    <editor active="true" />
+    <frame x="959" y="0" width="974" height="1047" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0952381" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3774617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -466,8 +498,8 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3876698" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38730854" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39824945" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -475,15 +507,15 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3286334" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32822758" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.0" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
@@ -499,7 +531,32 @@
     <MESSAGE value="Da die Karte nicht so umsetzen geht, wie ich mir das wünsche hier mal mit auskommentierter Karte" />
     <MESSAGE value="versuch" />
     <MESSAGE value="versuch2" />
-    <option name="LAST_COMMIT_MESSAGE" value="versuch2" />
+    <MESSAGE value="Fehler in Spieldaten entfernt Anzeige war fehlerhaft" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fehler in Spieldaten entfernt Anzeige war fehlerhaft" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Anzeige.java</url>
+          <line>245</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/GUIServer.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Controller.java</url>
+          <line>194</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/UniRiskClient/test/KommunikationClient/IClientKommunikationTest.java">
@@ -528,34 +585,6 @@
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java" />
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/TextInputControl.java" />
     <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/Anzeige.java" />
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Anzeige.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="225" column="56" selection-start-line="225" selection-start-column="56" selection-end-line="225" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/GUIServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/DatenModell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-492">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/CallbackRMI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-475" />
@@ -582,31 +611,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/KommunikationServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1954">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/SpiellogikSpieldatenDummy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6799">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieldaten.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6833">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -647,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/Spiellogik/Spiellogik.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4759">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Gebaeude.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -677,28 +678,20 @@
     <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte2.fxml" />
     <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/KarteController.java" />
     <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/DatenClient.java" />
-    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte.fxml">
+    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/ControllerClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/GUIClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+        <state relative-caret-position="493">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/KommunikationClient/ClientKommunikationNachServer.java">
+    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/AnzeigeClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -725,26 +718,148 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/ControllerClient.java">
+    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/KommunikationClient/ClientKommunikationNachServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/AnzeigeClient.java">
+    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/GUIClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2726">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        <state relative-caret-position="829">
+          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16921#16922#0" expanded="true" />
-            <element signature="e#16997#16998#0" expanded="true" />
-            <element signature="e#17036#17037#0" expanded="true" />
-            <element signature="e#17112#17113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskClient/src/GUIClient/Karte.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/Spiellogik/Spiellogik.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2714">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/DatenModell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="e#1598#1599#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Anzeige.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="165" column="52" selection-start-line="165" selection-start-column="52" selection-end-line="165" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="8865" selection-start-line="8865" selection-end-line="8865" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.controls/javafx/scene/control/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.base/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="2613" selection-start-line="2613" selection-end-line="2613" />
+          <folding>
+            <element signature="e#70522#70523#0" expanded="true" />
+            <element signature="e#70568#70569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/GUIServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/KommunikationServerCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-542">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/SpiellogikAnzeigedatenRMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1734">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/KommunikationServer/KommunikationServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/Spieldaten/Spieldaten.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1326">
+          <caret line="249" column="11" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UniRiskServer/src/GUIServer/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="145" column="35" lean-forward="true" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
+          <folding>
+            <element signature="e#4596#4597#0" expanded="true" />
+            <element signature="e#4642#4643#0" expanded="true" />
+            <element signature="e#4695#4696#0" expanded="true" />
+            <element signature="e#4735#4736#0" expanded="true" />
+            <element signature="e#4789#4790#0" expanded="true" />
+            <element signature="e#4842#4843#0" expanded="true" />
+            <element signature="e#4877#4878#0" expanded="true" />
+            <element signature="e#4918#4919#0" expanded="true" />
+            <element signature="e#4966#4967#0" expanded="true" />
+            <element signature="e#5001#5002#0" expanded="true" />
+            <element signature="e#5045#5046#0" expanded="true" />
+            <element signature="e#5088#5089#0" expanded="true" />
+            <element signature="e#5125#5126#0" expanded="true" />
+            <element signature="e#5168#5169#0" expanded="true" />
+            <element signature="e#5219#5220#0" expanded="true" />
+            <element signature="e#5256#5257#0" expanded="true" />
+            <element signature="e#5305#5306#0" expanded="true" />
+            <element signature="e#5352#5353#0" expanded="true" />
           </folding>
         </state>
       </provider>
