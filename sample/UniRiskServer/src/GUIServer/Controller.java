@@ -134,12 +134,12 @@ public class Controller {
             this.name = new SimpleStringProperty(name);
             this.status = new SimpleBooleanProperty(status);
 
-            if(ipAdresse == null){
+            /*if(ipAdresse == null){
                 this.ipAdresse = new SimpleStringProperty("o");
             }
             if(name == null){
                 this.name = new SimpleStringProperty("2");
-            }
+            }*/
         }
 
         public String getIpAdresse() {
