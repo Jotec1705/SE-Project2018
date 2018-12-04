@@ -247,7 +247,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
               spielerArr[i].Name = nameSpieler;
               spielerArr[i].Passwort = passwort;
               return true;
-          } i++;
+          }
 
       }
        return false;
