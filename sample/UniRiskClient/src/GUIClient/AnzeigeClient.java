@@ -2,12 +2,15 @@ package GUIClient;
 
 import KommunikationClient.ClientKommunikationNachServer;
 import GUIClient.ControllerClient.Slots;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -32,9 +35,11 @@ public class AnzeigeClient {
     private Scene scenePopupWuerfelnVerteidiger;
     private Scene scenePopupVerschiebenVonNach;
 
+    private GridPane gridLobby;
+
     private String nameSpieler = null;
     private String passwort = null;
-    private String ipAdresse = null;
+    private String ipAdresse1 = null;
 
     private Button anmelden;
     private Button bereit;
@@ -45,8 +50,10 @@ public class AnzeigeClient {
     private TextField ipEingabe;
 
     private ObservableList<Slots> slots;
-    private TableView tabelle;
-
+    private TableView<Slots> tabelle;
+    private TableColumn<Slots, String> ipAdresse;
+    private TableColumn<Slots, String> spielerName;
+    private TableColumn<Slots, String> status;
 
     public AnzeigeClient(){
 
@@ -85,19 +92,24 @@ public class AnzeigeClient {
         sceneAnmelden = new Scene(gridPaneAnmelden, 450, 200);
 
         //LOBBY-CLIENT:-------------------------------------------------------------------------------------
-        GridPane gridLobby = new GridPane();
+        gridLobby = new GridPane();
         gridLobby.setAlignment(Pos.TOP_CENTER);
         gridLobby.setHgap(10);
         gridLobby.setVgap(10);
         gridLobby.setPadding(new Insets(5, 5, 5, 5));
 
         tabelle = new TableView();
+        slots = FXCollections.observableArrayList();
+        tabelle.setItems(slots);
         tabelle.setEditable(true);
         tabelle.setMinSize(250, 200);
 
-        TableColumn ipAdresse = new TableColumn("IP-Adresse");
-        TableColumn spielerName = new TableColumn("Name");
-        TableColumn status = new TableColumn("Status");
+        ipAdresse = new TableColumn<>("IP-Adresse");
+        ipAdresse.setCellValueFactory((p) -> p.getValue().ipProperty());
+        spielerName = new TableColumn<>("Name");
+        spielerName.setCellValueFactory((p) -> p.getValue().nameProperty());
+        status = new TableColumn<>("Status");
+        status.setCellValueFactory((p) -> p.getValue().statusProperty());
         tabelle.getColumns().addAll(ipAdresse, spielerName, status);
         GridPane.setHalignment(tabelle, HPos.CENTER);
         gridLobby.add(tabelle,0, 0, 4, 1);
@@ -210,16 +222,20 @@ public class AnzeigeClient {
     public boolean getAngemeldet(){
         nameSpieler = nameEingabe.getText();
         passwort = pwdEingabe.getText();
-        ipAdresse = ipEingabe.getText();
-        return kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse);
+        ipAdresse1 = ipEingabe.getText();
+        return kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse1);
     }
 
     public  void getErstiesAnzahl(Integer ID){
         kommunikation.erstiesAnzahlErhoehen(ID, nameSpieler);
     }
 
-    public void setSlots(ObservableList<Slots> slots) {
-        this.slots = slots;
+    public TableColumn getIpAdresse(){
+        return ipAdresse;
+    }
+
+    public void setSlots(Slots[] slotsVonDaten) {
+        slots = FXCollections.observableArrayList(slotsVonDaten);
         tabelle.setItems(this.slots);
     }
 }

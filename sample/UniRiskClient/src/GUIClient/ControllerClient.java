@@ -1,9 +1,13 @@
 package GUIClient;
 
 import KommunikationClient.ClientKommunikationNachServer;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+
+import java.util.logging.Level;
 
 public class ControllerClient {
     private DatenClient datenClient;
@@ -25,21 +29,53 @@ public class ControllerClient {
         this.anzeige.getSpielerAusgestiegen().setOnAction(e -> {
             this.anzeige.getAusgestiegen();
         });
+
     }
 
     class Slots {
-        private String name;
-        private String ipAdresse;
-        private boolean status;
+        private SimpleStringProperty ip;
+        private StringProperty name;
+        private StringProperty status;
+        private int i = 0;
 
-        public Slots(String name, String ipAdresse, boolean status) {
-            this.name = name;
-            this.ipAdresse = ipAdresse;
-            this.status = status;
-            if (name == null)
+        public Slots(String ipAdresse, String spielerName, String status) {
+            this.ip = new SimpleStringProperty(ipAdresse);
+            this.name = new SimpleStringProperty(spielerName);
+            this.status = new SimpleStringProperty(status);
+           /* if (spielerName == null)
                 this.name = "1";
             if (ipAdresse == null)
-                this.ipAdresse = "0";
+                this.ip = "0";*/
+        }
+
+        public String getIp(){
+            return ip.get();
+        }
+        public StringProperty ipProperty(){
+            if (ip == null && i > 0)
+                ip = new SimpleStringProperty("");
+            return ip;
+        }
+        public void setIp(String ip){
+            this.ip.set(ip);
+        }
+        public String getName(){
+            return name.get();
+        }
+        public StringProperty nameProperty(){
+            return name;
+        }
+        public void setName(String name){
+            this.name.set(name);
+        }
+        public String getStatus(){
+            return status.get();
+        }
+        public StringProperty statusProperty(){
+            return status;
+        }
+        public void setStatus(String status){
+            this.status.set(status);
         }
     }
 
@@ -58,18 +94,18 @@ public class ControllerClient {
     public void setSpielerIPInTabelle(String[] spielerIP){
         datenClient.setSpielerIP(spielerIP);
     }
+
     public void setSpielerBereitInTabelle(boolean[] spielerBereit){
         datenClient.setSpielerBereit(spielerBereit);
     }
+
     public void slotsAnlegenUndAnzeigen() {
-        ObservableList slotsList;
-        String[] slots = new String[datenClient.getSpielerNamen().length];
+        Slots[] slots = new Slots[datenClient.getSpielerNamen().length];
 
         for (int i = 0; i < datenClient.getSpielerNamen().length; i++){
-            slots[i] = String.valueOf(new String[]{datenClient.getSpielerNamen()[i], datenClient.getSpielerIP()[i], datenClient.getSpielerBereit()[i]});
+            slots[i] = new Slots(datenClient.getSpielerIP()[i], datenClient.getSpielerNamen()[i], datenClient.getSpielerBereit()[i]);
         }
-        slotsList = FXCollections.observableArrayList(slots);
-        anzeige.setSlots(slotsList);
+        anzeige.setSlots(slots);
     }
 
     public void showAnmelden() {
