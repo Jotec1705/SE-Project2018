@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test der Callbackschnittstelle Schnittstelle")
 class GUIServerICallbackTest {
 
-    GUIServerTest gui = null;
+    GUIServerTest gui = new GUIServerTest();
     ISpielkontrolle spielkontrolle = null;
 
     @BeforeAll

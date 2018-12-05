@@ -381,6 +381,18 @@ public class SpiellogikSpieldatenDummy {
         return farbe;
     }
 
+    String[] spielerNamen(){
+        String[] namen = {"Horst", "M@rianne", "Bartholomäus", "P3t3r", "Piet"};
+        return namen;
+    }
 
+    String missionskarteInhalt(String nameSpieler){
+        return "Nur Testtext: Bringe 15 Gebäude unter deine Herrschaft!";
+    }
+
+    String[] ipAdressen(){
+        String[] adressen = {"192.168.0.100", "192.168.0.101", "192.168.0.102", "192.168.0.103", "192.168.0.104"};
+        return adressen;
+    }
 
 }

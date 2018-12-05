@@ -2,6 +2,8 @@ package KommunikationClient;
 
 import GUIClient.GUIClient;
 import GUIClient.IGUIClientCallback;
+import KommunikationServer.KommunikationServer;
+import KommunikationServer.ICallbackRMI;
 
 public interface IClientKommunikation {
 
@@ -9,9 +11,10 @@ public interface IClientKommunikation {
      * Mit dieser Methode kann man sich anmelden. Man gibt einen Namen und ein Passwort ein.
      * @param nameSpieler ist der Name des Spielers.
      * @param passwort ist das Passwort dieses Spielers.
+     * @param ipAdresse hier wird die Adresse des Servers eingetragen.
      * @return gibt zurück, ob die Methode erfolgreich war.
      */
-    boolean spielerAnmelden(String nameSpieler, String passwort);
+    boolean spielerAnmelden(String nameSpieler, String passwort, String ipAdresse);
 
     /**
      * Mit dieser Methode kann ein Spieler aus dem Spiel aussteigen.
@@ -50,6 +53,14 @@ public interface IClientKommunikation {
      * @return gibt die Anzahlen der drei Bonuskarten zurück.Index 0 entspricht Wert Ersties, 1 Studenten, 2 Prof
      */
     Integer[] anzahlBonuskarten(String nameSpieler);
+
+    /**
+     * Diese Methoden gibt die ausgewählten Bonuskarten zum Tauschen weiter.
+     * @param nameSpieler aktueller Spieler
+     * @param bonuskarten ausgewählte Bonuskarten zum Tauschen
+     * @return ob die Methode erfolgreich war
+     */
+    boolean tauschBonuskarten(String nameSpieler, Integer[] bonuskarten);
 
     /**
      * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben.
@@ -126,11 +137,33 @@ public interface IClientKommunikation {
      */
     boolean zugBeendet(String nameSpieler);
 
-    boolean beobachterHinzufuegen(IGUIClientCallback beobachter);
+    boolean beobachterHinzufuegen(ICallbackRMI beobachter);
 
     /**
      * Diese Methode soll die Farben aller Spieler als Int-Wert zurückgeben
      * @return Array mit Farben der Spieler als Int-Wert. Array Index entspricht der Gebäude ID
      */
     Integer[] farbeSpieler();
+
+    //AB HIER DIE METHODEN VON IANZEIGEDATEN#################################################################
+
+    /**
+     * Diese Methode soll die Namen aller Spieler zurückgeben
+     * @return Array mit dem Namen aller Spieler als String
+     */
+    String[] spielerNamen();
+
+    /**
+     * Diese Methode soll zurückgeben ob Spieler bereit ist
+     * @return true wenn Spieler bereit zum Spiel
+     */
+    boolean[] spielerBereit();
+
+    /**
+     * Diese Methode soll die IP-Adressen der Spieler zurückgeben
+     * @return Array mit IP-Adressen der Spieler
+     */
+    String[] ipAdressen();
+
+
 }

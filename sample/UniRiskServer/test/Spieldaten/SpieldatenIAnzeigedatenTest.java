@@ -27,7 +27,7 @@ class SpieldatenIAnzeigedatenTest {
     Integer[] wertIntArr = {1,2};
     Integer wertIntOK = 1;
     Integer wertIntBAD = 2;
-
+    //testkommi
 
 
     @BeforeAll
@@ -56,31 +56,49 @@ class SpieldatenIAnzeigedatenTest {
 
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (int-Array) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testAngreifbareNachbarGebaeude() {
         System.out.println("[testAngreifbareNachbarGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, anzeige.angreifbareNachbarGebaeude(1,"Horst"),"Fehler return angreifbareNachbarGebaeude");
+        daten.besitzerGebaeudeAnpassen(1,"tom");
+        daten.besitzerGebaeudeAnpassen(2,"tom");
+        daten.besitzerGebaeudeAnpassen(3,"tom");
+        daten.besitzerGebaeudeAnpassen(12,"tom");
+        daten.besitzerGebaeudeAnpassen(13,"Horst");
+        Integer[] wertTestAngreifbareNachbargebaeude ={13};
+        assertArrayEquals(wertTestAngreifbareNachbargebaeude, anzeige.angreifbareNachbarGebaeude(1,"tom"),"Fehler return angreifbareNachbarGebaeude");
 
     }
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (int-Array) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testEigeneNachbarGebaeude() {
         System.out.println("[testEigeneNachbarGebaeude] Läuft..");
+        daten.besitzerGebaeudeAnpassen(1,"Horst");
+        daten.besitzerGebaeudeAnpassen(2,"tom");
+        daten.besitzerGebaeudeAnpassen(3,"tom");
+        daten.besitzerGebaeudeAnpassen(12,"Horst");
+        daten.besitzerGebaeudeAnpassen(13,"Horst");
+        Integer[] wertTestAngreifbareNachbargebaeude ={12,13};
         assertArrayEquals(wertIntArr, anzeige.eigeneNachbarGebaeude(1,"Horst"),"Fehler return eigeneNachbarGebaeude");
     }
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (String-Array) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testSpielerNamen() {
         System.out.println("[testSpielerNamen] Läuft..");
-        assertArrayEquals(wertStrArr, anzeige.spielerNamen(),"Fehler return spielerNamen#");
+        daten.spielerAnmelden("tom","passwort");
+        daten.spielerAnmelden("tim","passwort");
+        daten.spielerAnmelden("tum","passwort");
+        daten.spielerAnmelden("tam","passwort");
+        daten.spielerAnmelden("tem","passwort");
+        String[] namenDerSpielerArr = {"tam","tem","tim","tom","tum"};
+        assertArrayEquals(namenDerSpielerArr, anzeige.spielerNamen(),"Fehler return spielerNamen");
     }
 
 
@@ -89,33 +107,46 @@ class SpieldatenIAnzeigedatenTest {
      */
     @Test
     public void testSpielerBereit() {
-        System.out.println("Hallo liebe Testumgebung");
+        System.out.println("[testSpielerBereit] Läuft..");
+        daten.spielerAnmelden("tom","passwort");
+        daten.spielerBereit();
         assertArrayEquals(wertBool, anzeige.spielerBereit(),"Fehlgeschlagen");
 
     }
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (String-Array) mit dem Wert im Testfall übereinstimmmt
+     * ZU KLÄREN wann werden IP-Adressen eingepflegt
      */
     @Test
     public void testIpAdressen() {
         System.out.println("[testIpAdressen] Läuft..");
+        daten.spielerAnmelden("tom","passwort");
+        daten.spielerAnmelden("tim","passwort");
+        daten.spielerAnmelden("tum","passwort");
+        daten.spielerAnmelden("tam","passwort");
+        daten.spielerAnmelden("tem","passwort");
         assertArrayEquals(wertStrArr, anzeige.ipAdressen(),"Fehler return IpAdressen");
     }
 
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (Int-Array) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testAnzahlErstiesAufGebaeude() {
         System.out.println("[testAnzahlErstiesAufGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, anzeige.anzahlErstiesAufGebaeude(),"Fehler return anzahlErstiesAufGebaeude");
+        Integer[] anzahlErsties1Arr = new Integer[0];
+        for(int i =1 ; i<=32;i++){
+            anzahlErsties1Arr[i] = 1;
+            daten.anzahlErstiesAnpassen(i,1);
+        }
+
+        assertArrayEquals(anzahlErsties1Arr, anzeige.anzahlErstiesAufGebaeude(),"Fehler return anzahlErstiesAufGebaeude");
     }
 
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (Int-Array) mit dem Wert im Testfall übereinstimmmt
+     * ZU KLÄREN wie wird Frabe vergeben
      */
     @Test
     public void testFarbeSpieler() {
@@ -124,17 +155,18 @@ class SpieldatenIAnzeigedatenTest {
     }
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (Int) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testAnzahlZuVerteilendeErsties() {
         System.out.println("[testAnzahlZuVerteilendeErsties] Läuft..");
+
         assertEquals(wertIntOK, anzeige.anzahlZuVerteilendeErsties("Horst"),"Fehler return anzahZuVerteilendeErsties");
         assertNotEquals(wertIntBAD, anzeige.anzahlZuVerteilendeErsties("Horst"),"Fehler return anzahZuVerteilendeErsties");
     }
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (String) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testMissionskarteInhalt() {
@@ -145,13 +177,15 @@ class SpieldatenIAnzeigedatenTest {
 
 
     /**
-     * Dieser Test prüft ob der Rückgabewert im Dummy (String) mit dem Wert im Testfall übereinstimmmt
+     *
      */
     @Test
     public void testAktuellePhase() {
         System.out.println("[testAktuellePhase] Läuft..");
-        assertEquals(wertStrOK, anzeige.aktuellePhase(),"Fehler return aktuellePhase");
-        assertNotEquals(wertStrBAD, anzeige.aktuellePhase(),"Fehler return aktuellePhase");
+        daten.aktuellePhaseSetzen("Phase I");
+        String phase1Str = "Phase I";
+        assertEquals(phase1Str, anzeige.aktuellePhase(),"Fehler return aktuellePhase");
+
     }
 
 
@@ -161,7 +195,19 @@ class SpieldatenIAnzeigedatenTest {
     @Test
     public void testEigeneGebaeude() {
         System.out.println("[testEigeneGebaeude] Läuft..");
-        assertArrayEquals(wertIntArr, anzeige.eigeneGebaeude("Horst"),"Fehler return eigeneGebaeude");
+        Integer[] maxGebaeude = new Integer[0];
+        Integer[] moritzGebaeude = {33};
+
+        for(int i =1 ; i<=32;i++){
+            maxGebaeude[i-1] = 1;
+
+           daten.besitzerGebaeudeAnpassen(i,"max");
+
+        }
+
+        daten.besitzerGebaeudeAnpassen(33,"moritz");
+    //Kommetar zum puschen1233
+        assertArrayEquals(moritzGebaeude, anzeige.eigeneGebaeude("moritz"),"Fehler return eigeneGebaeude");
     }
 
 }

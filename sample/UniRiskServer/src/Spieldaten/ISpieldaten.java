@@ -11,6 +11,14 @@ public interface ISpieldaten {
 
 
     /**
+     * Diese Methode gibt ein Array zurück mit den IDs der Gebäude, welche dem übergebenene Spieler gehören
+     * @param nameSpieler Name des Spielers als String
+     * @return Int-Array
+     */
+    Integer[] eigeneGebaeude(String nameSpieler);
+//Doppelt
+
+    /**
      * Diese Methode soll den Namen des Besitzers eines Gebäudes zurückgeben
      * @param gebaeude ID des Gebäudes
      * @return Name des Besitzers als String
@@ -36,6 +44,24 @@ public interface ISpieldaten {
 
 
     /**
+     * Diese Methode soll die ID´s eigenen Nachbargebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der Nachbargebäude zurück welche dem nameSpieler gehören
+     */
+    Integer[] eigeneNachbarGebaeude(Integer gebaeude, String nameSpieler);
+
+
+    /**
+     * Diese Methode soll die ID´s der angreifbaren Gebäude eines Spieler zurückgeben
+     * @param gebaeude ID des Gebäudes
+     * @param nameSpieler Name des Spielers als String
+     * @return gibt ein Array mit den GebäudeIDs der angreifbaren Nachbargebäude zurück
+     */
+    Integer[] angreifbareNachbarGebaeude(Integer gebaeude, String nameSpieler);
+
+
+    /**
      * Diese Methode soll die Anzahl der Ersties auf den jeweiligen Gebäuden zurückgeben.
      * @param gebaeude ID als Integer des Gebäudes das überprüft werden soll
      * @return Anzahl der Ersties auf dem Gebäude als Integer
@@ -51,6 +77,29 @@ public interface ISpieldaten {
      */
     boolean anzahlErstiesAnpassen(Integer gebaeude, Integer anzahlErsties);
 
+    /**
+     * Diese Methode soll die Anzahl der Ersties auf einem Gebäude zurückgeben
+     * @return Int-Array mit Anzahl der Ersties pro Gebäude ( Index entspricht Gebäude ID)
+     */
+    Integer[] anzahlErstiesAufGebaeude();
+//Macht die überhaupt Sinn
+
+
+    /**
+     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers zurückgeben
+     * @param nameSpieler Name des Spielers als String
+     * @return Anzahl der zu verteilenden Ersties als Int
+     */
+    Integer anzahlZuVerteilendeErsties(String nameSpieler);
+
+
+    /**
+     * Diese Methode soll die Anzahl der noch zu verteilenden Ersties eines Spielers anpassen
+     * @param nameSpieler Name des Spielers als String
+     * @param anzahlErsties Anzahl der Ersties die noch zu verteilen sind
+     * @return ob die Methode erfolgreich war
+     */
+    boolean anzahlZuVerteilendeErstiesAnpassen(String nameSpieler, Integer anzahlErsties);
 
 
     /**
@@ -69,6 +118,13 @@ public interface ISpieldaten {
      */
     boolean besitzerFachbereichAnpassen(Integer fachbereich, String nameSpieler);
 
+    /**
+     * Diese Methode soll die Anzahl der Bonuskarten eines Spieler zurückgeben
+     * @param nameSpieler Name des Spielers als String
+     * @return Int-Array mit Anzahl der Bonuskarten
+     */
+    Integer[] anzahlBonuskarten(String nameSpieler);
+//Doppelt
 
     /**
      * Diese Methode soll die Anzahl der Bonuskarten des jeweiligen Spielers zurückgeben.
@@ -98,18 +154,18 @@ public interface ISpieldaten {
 
 
     /**
+     * Diese Methode soll die aktuelle Phase zurückgeben
+     * @return Aktuelle Phase als String
+     */
+    String aktuellePhase();
+
+
+    /**
      * Diese Methode soll die aktuelle Phase setzen.
      * @param phase jeweiligen Phasenbeschreibung als String
      * @return ob Setzen der Phase erfolgreich war
      */
     boolean aktuellePhaseSetzen(String phase);
-
-
-    /**
-     * Die Methode soll den nächsten Spieler als durchführenden Spieler setzen
-     * @return ob nächster Spieler erfolgreich war
-     */
-    boolean naechsterSpieler();
 
 
     /**
@@ -119,6 +175,22 @@ public interface ISpieldaten {
      */
     boolean spielAnlegen(int spielerAnzahl);
 
+    /**
+     * Diese Methode wird der Komponente "GUIServer" angeboten.
+     * Über den Aufruf dieser Methode wird über die Komponente "Spiellogik" die Komponente "Spieldaten"
+     * zum Laden eines Spieles aus einer Datei aufgefordert.
+     * Es wird der Methode der Pfad der zuladenen Datei übergeben.
+     * @param dateipfad
+     * @return Gibt True zurück wenn Spiel von "Spieldaten" erfolgreich geladen. Sonnst False.
+     */
+    boolean spielLaden(String dateipfad);
+
+    /**
+     * Gebäude den Spielern zuweisen, Initial Ersties berechnen.
+     * Diese Methode wird der Komponente "GUIServer" angeboten.
+     * Über den Aufruf dieser Methode wird das angelegte oder geladene Spiel gestartet.
+     */
+    boolean spielStarten();
 
     /**
      * Diese Methode meldet einen Spieler an.
@@ -135,12 +207,40 @@ public interface ISpieldaten {
      */
     boolean[] spielerBereit();
 
+    /**
+     * Gibt an die Spiellogik weiter, dass ein Spieler auf den Button Aussteigen am GUIClient gedrückt hat
+     * und somit aus dem Spiel ausgestiegen ist.
+     * @param nameSpieler ist der name des Spielers.
+     * @return ob Aktion erfolgreich
+     */
+    boolean spielerAusgestiegen(String nameSpieler);
+
+    /**
+     * Diese Methode soll die Namen aller Spieler zurückgeben
+     * @return Array mit dem Namen aller Spieler als String
+     */
+    String[] spielerNamen();
+
 
     /**
      * Die Methode soll den aktuellen Spieler zurückgeben
      * @return gibt aktuellen Spieler als String zurück
      */
     String aktuellerSpieler();
+
+
+    /**
+     * Die Methode soll den nächsten Spieler als durchführenden Spieler setzen
+     * @return ob nächster Spieler erfolgreich war
+     */
+    boolean naechsterSpieler();
+
+
+    /**
+     * Diese Methode soll die Farben aller Spieler als Int-Wert zurückgeben
+     * @return Array mit Farben der Spieler als Int-Wert. Array Index entspricht der Gebäude ID
+     */
+    Integer[] farbeSpieler();
 
 
     /**
@@ -156,5 +256,12 @@ public interface ISpieldaten {
      * @return ob Setzen des Zustandes erfolgreich war
      */
     boolean spielZustandSetzen(Zustand aktuellerZustand);
+
+    /**
+     * Diese Methode meldet der Spiellogik, dass sich ein Spieler bereit gemeldet hat.
+     * @param nameSpieler ist der name des Spielers
+     * @return gibt True zurück.
+     */
+    boolean spielerBereitMelden(String nameSpieler);
 
 }

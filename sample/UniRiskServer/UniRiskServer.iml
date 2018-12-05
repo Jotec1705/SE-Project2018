@@ -20,5 +20,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javax.json-api-1.1.4" level="project" />
   </component>
 </module>
