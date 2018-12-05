@@ -36,7 +36,6 @@ public class ControllerClient {
         private SimpleStringProperty ip;
         private StringProperty name;
         private StringProperty status;
-        private int i = 0;
 
         public Slots(String ipAdresse, String spielerName, String status) {
             this.ip = new SimpleStringProperty(ipAdresse);
@@ -52,7 +51,7 @@ public class ControllerClient {
             return ip.get();
         }
         public StringProperty ipProperty(){
-            if (ip == null && i > 0)
+            if (ip == null)
                 ip = new SimpleStringProperty("");
             return ip;
         }
