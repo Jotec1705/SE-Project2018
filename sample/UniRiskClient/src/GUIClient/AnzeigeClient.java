@@ -234,8 +234,7 @@ public class AnzeigeClient {
         return ipAdresse;
     }
 
-    public void setSlots(Slots[] slotsVonDaten) {
-        slots = FXCollections.observableArrayList(slotsVonDaten);
-        tabelle.setItems(this.slots);
+    public ObservableList<Slots> getSlots() {
+        return this.slots;
     }
 }

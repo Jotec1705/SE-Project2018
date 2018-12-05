@@ -41,10 +41,6 @@ public class ControllerClient {
             this.ip = new SimpleStringProperty(ipAdresse);
             this.name = new SimpleStringProperty(spielerName);
             this.status = new SimpleStringProperty(status);
-           /* if (spielerName == null)
-                this.name = "1";
-            if (ipAdresse == null)
-                this.ip = "0";*/
         }
 
         public String getIp(){
@@ -62,6 +58,8 @@ public class ControllerClient {
             return name.get();
         }
         public StringProperty nameProperty(){
+            if (name == null)
+                name = new SimpleStringProperty("");
             return name;
         }
         public void setName(String name){
@@ -71,6 +69,8 @@ public class ControllerClient {
             return status.get();
         }
         public StringProperty statusProperty(){
+            if (status == null)
+                status = new SimpleStringProperty("");
             return status;
         }
         public void setStatus(String status){
@@ -99,12 +99,12 @@ public class ControllerClient {
     }
 
     public void slotsAnlegenUndAnzeigen() {
-        Slots[] slots = new Slots[datenClient.getSpielerNamen().length];
+        ObservableList<Slots> slotsList = anzeige.getSlots();
+        slotsList.clear();
 
-        for (int i = 0; i < datenClient.getSpielerNamen().length; i++){
-            slots[i] = new Slots(datenClient.getSpielerIP()[i], datenClient.getSpielerNamen()[i], datenClient.getSpielerBereit()[i]);
+        for (int i = 1; i < datenClient.getSpielerNamen().length; i++){
+            slotsList.add(new Slots(datenClient.getSpielerIP()[i], datenClient.getSpielerNamen()[i], datenClient.getSpielerBereit()[i]));
         }
-        anzeige.setSlots(slots);
     }
 
     public void showAnmelden() {
