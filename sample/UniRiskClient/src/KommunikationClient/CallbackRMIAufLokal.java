@@ -33,8 +33,8 @@ public class CallbackRMIAufLokal extends UnicastRemoteObject implements ICallbac
 
     @Override
     public boolean aktualisierenKarte() throws RemoteException {
-        return dummy.aktualisierenKarte();
-        //return guiClient.aktualisierenKarte();
+        //return dummy.aktualisierenKarte();
+        return guiClient.aktualisierenKarte();
     }
 
     @Override

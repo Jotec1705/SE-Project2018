@@ -47,12 +47,14 @@ public class SpiellogikAnzeigedatenRMI extends UnicastRemoteObject implements IS
 
     @Override
     public boolean spielerAusgestiegen(String nameSpieler) throws RemoteException {
-        return dummy.spielerAusgestiegen(nameSpieler);
+        //return dummy.spielerAusgestiegen(nameSpieler);
+        return logik.spielerAusgestiegen(nameSpieler);
     }
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) throws RemoteException {
-        return dummy.spielerBereitMelden(nameSpieler);
+        //return dummy.spielerBereitMelden(nameSpieler);
+        return logik.spielerBereitMelden(nameSpieler);
     }
 
     @Override

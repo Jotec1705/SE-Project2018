@@ -109,6 +109,7 @@ public class AnzeigeClient {
         spielerName = new TableColumn<>("Name");
         spielerName.setCellValueFactory((p) -> p.getValue().nameProperty());
         status = new TableColumn<>("Status");
+        //status.setStyle("-fx-text-fill: RED");
         status.setCellValueFactory((p) -> p.getValue().statusProperty());
         tabelle.getColumns().addAll(ipAdresse, spielerName, status);
         GridPane.setHalignment(tabelle, HPos.CENTER);
@@ -188,19 +189,19 @@ public class AnzeigeClient {
         dialog.show();
     }
 
-    public void showKarte(Stage stage){
-        stage.setTitle("UniRisk");
-        stage.setResizable(false);
-        stage.setScene(sceneKarte);
-        stage.show();
-    }
-
     public void getKartenScene(Scene sceneKarte){
         this.sceneKarte = sceneKarte;
     }
 
     public Button getSpielerAnmelden(){
         return anmelden;
+    }
+
+    public boolean getAngemeldet(){
+        nameSpieler = nameEingabe.getText();
+        passwort = pwdEingabe.getText();
+        ipAdresse1 = ipEingabe.getText();
+        return kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse1);
     }
 
     public Button getSpielerBereit(){
@@ -217,13 +218,6 @@ public class AnzeigeClient {
 
     public Button getSpielerAusgestiegen(){
         return aussteigen;
-    }
-
-    public boolean getAngemeldet(){
-        nameSpieler = nameEingabe.getText();
-        passwort = pwdEingabe.getText();
-        ipAdresse1 = ipEingabe.getText();
-        return kommunikation.spielerAnmelden(nameSpieler, passwort, ipAdresse1);
     }
 
     public  void getErstiesAnzahl(Integer ID){

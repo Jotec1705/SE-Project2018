@@ -49,7 +49,7 @@ public class GUIClient extends Application implements IGUIClientCallback{
     private Scene scenePopupWuerfelnVerteidiger;
     private Scene scenePopupVerschiebenVonNach;
 
-    private String nameSpieler;
+    private String[] nameSpieler = {null, null, null, null, null, null};
     private String passwort;
     private String ipAdresse;
     private String nameSpieler1;
@@ -64,9 +64,6 @@ public class GUIClient extends Application implements IGUIClientCallback{
     private String anzahlBprofessoren = "2x";
     private String anzahlZuVerteilen = "10x";
     private String textMissionskarte = "Alle Fachbereiche einnehmen";
-
-    int i = 0;
-    private Button anmelden;
 
     public static void main (String[] args){
         launch(args);
@@ -86,7 +83,12 @@ public class GUIClient extends Application implements IGUIClientCallback{
 
     @Override
     public boolean aktualisierenKarte() {
-        return false;
+        Platform.runLater(()-> {
+            nameSpieler = kommunikation.spielerNamen();
+            showKarte(datenClient.getStage());
+        });
+        System.out.println("Karte aktualisiert");
+        return true;
     }
 
     @Override
@@ -113,7 +115,6 @@ public class GUIClient extends Application implements IGUIClientCallback{
         callbackRMI.guiClient = this;
     }
 
-    //kleiner Test:
     @Override
     public void start(Stage stage) throws IOException {
         datenClient = new DatenClient(stage);
@@ -173,35 +174,35 @@ public class GUIClient extends Application implements IGUIClientCallback{
         rechts.add(spieler, 0, 0, 3, 1);
         rechts.add(farbgebung, 0, 7, 3, 1);
 
-        Text spieler1 = new Text(nameSpieler1);
+        Text spieler1 = new Text(nameSpieler[1]);
         spieler1.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
         Circle circle1 = new Circle();
         circle1.setRadius(10.0f);
         circle1.setFill(Color.DARKGREEN);
         GridPane.setMargin(spieler1, new Insets(5, 5, 5, 5));
 
-        Text spieler2 = new Text(nameSpieler2);
+        Text spieler2 = new Text(nameSpieler[2]);
         spieler2.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
         Circle circle2 = new Circle();
         circle2.setRadius(10.0f);
         circle2.setFill(Color.PINK);
         GridPane.setMargin(spieler2, new Insets(5, 5, 5, 5));
 
-        Text spieler3 = new Text(nameSpieler3);
+        Text spieler3 = new Text(nameSpieler[3]);
         spieler3.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
         Circle circle3 = new Circle();
         circle3.setRadius(10.0f);
         circle3.setFill(Color.DARKBLUE);
         GridPane.setMargin(spieler3, new Insets(5, 5, 5, 5));
 
-        Text spieler4 = new Text(nameSpieler4);
+        Text spieler4 = new Text(nameSpieler[4]);
         spieler4.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
         Circle circle4 = new Circle();
         circle4.setRadius(10.0f);
         circle4.setFill(Color.YELLOW);
         GridPane.setMargin(spieler4, new Insets(5, 5, 5, 5));
 
-        Text spieler5 = new Text(nameSpieler5);
+        Text spieler5 = new Text(nameSpieler[5]);
         spieler5.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
         Circle circle5 = new Circle();
         circle5.setRadius(10.0f);
@@ -377,6 +378,13 @@ public class GUIClient extends Application implements IGUIClientCallback{
         borderPane.setRight(rechts);
         borderPane.setBottom(gridPane);
         sceneKarte = new Scene(borderPane);
+    }
+
+    public void showKarte(Stage stage){
+        stage.setTitle("UniRisk");
+        stage.setResizable(false);
+        stage.setScene(sceneKarte);
+        stage.show();
     }
 
 //-------------------------------------Layout Angriff von nach:---------------------------------------------------------

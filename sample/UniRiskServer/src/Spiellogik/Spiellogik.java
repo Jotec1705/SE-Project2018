@@ -193,24 +193,31 @@ public class Spiellogik implements ISpiellogik, ISpielkontrolle{
 
     @Override
     public boolean spielerAusgestiegen(String nameSpieler) {
-        beobachterMerkerServer.aktualisierung();
-        beobachterMerkerKom.aktualisierenLobby();
-        return daten.spielerAusgestiegen(nameSpieler);
+        if(daten.spielerAusgestiegen(nameSpieler)) {
+            beobachterMerkerServer.aktualisierung();
+            beobachterMerkerKom.aktualisierenLobby();
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) {
-        beobachterMerkerServer.aktualisierung();
-        beobachterMerkerKom.aktualisierenLobby();
-        return daten.spielerBereitMelden(nameSpieler);
+        if(daten.spielerBereitMelden(nameSpieler)) {
+            beobachterMerkerServer.aktualisierung();
+            beobachterMerkerKom.aktualisierenLobby();
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean spielStarten() {
-        if(alleSpielerBereit()) {
+       // if(daten.spielStarten()) {
+            beobachterMerkerKom.aktualisierenKarte();
             return true;
-        }
-        return false;
+        //}
+        //return false;
     }
 
     @Override

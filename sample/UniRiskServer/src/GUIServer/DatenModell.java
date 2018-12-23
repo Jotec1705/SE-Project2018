@@ -56,8 +56,16 @@ public class DatenModell {
         return this.spielerIP;
     }
 
-    public boolean[] getSpielerBereit() {
-        return this.spielerBereit;
+    public String[] getSpielerBereit() {
+        String[] spielerBereit = {"", "", "", "", "", ""};
+        for( int i = 0; i < this.spielerBereit.length; i++) {
+            if(this.spielerBereit[i] == true){
+                spielerBereit[i] = "\u2713";
+            } else {
+                spielerBereit[i] = "\u2718";
+            }
+        }
+        return spielerBereit;
     }
 
     public String getServerIP() {

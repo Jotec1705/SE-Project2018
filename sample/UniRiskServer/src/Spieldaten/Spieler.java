@@ -24,5 +24,5 @@ public class Spieler {
     public void setSpielerBereit() {
         bereit = true;
     }
-    public void setZuVerteilendeErsties(Integer zuVerteilendeErsties){this.zuVerteilendeErsties= zuVerteilendeErsties;}
+    public void setZuVerteilendeErsties(Integer zuVerteilendeErsties){this.zuVerteilendeErsties = zuVerteilendeErsties;}
 }

@@ -77,23 +77,23 @@ public class ClientKommunikationNachServer implements IClientKommunikation{
     public boolean spielerAusgestiegen(String nameSpieler) {
 
         try {
-            return server.spielerAusgestiegen(nameSpieler);
+            result = server.spielerAusgestiegen(nameSpieler);
         }catch (Exception e){
             System.err.println("Methodenaufruf beim Server exception:");
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) {
         try {
-            return server.spielerBereitMelden(nameSpieler);
+            result = server.spielerBereitMelden(nameSpieler);
         }catch (Exception e){
             System.err.println("Methodenaufruf beim Server exception:");
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override

@@ -22,13 +22,11 @@ public class ControllerClient {
                 showLobbyClient();
         });
 
-        this.anzeige.getSpielerBereit().setOnAction(e -> {
-            this.anzeige.getBereit();
-        });
+        this.anzeige.getSpielerBereit().setOnAction(e ->
+            this.anzeige.getBereit());
 
-        this.anzeige.getSpielerAusgestiegen().setOnAction(e -> {
-            this.anzeige.getAusgestiegen();
-        });
+        this.anzeige.getSpielerAusgestiegen().setOnAction(e ->
+            this.anzeige.getAusgestiegen());
 
     }
 

@@ -125,14 +125,14 @@ public class Controller {
     public class Slots {
         private StringProperty ipAdresse;
         private StringProperty name;
-        private BooleanProperty status;
+        private StringProperty status;
 
-        public Slots(String ipAdresse, String name, Boolean status){
+        public Slots(String ipAdresse, String name, String status){
 
             this.ipAdresse = new SimpleStringProperty(ipAdresse);
 
             this.name = new SimpleStringProperty(name);
-            this.status = new SimpleBooleanProperty(status);
+            this.status = new SimpleStringProperty(status);
 
             /*if(ipAdresse == null){
                 this.ipAdresse = new SimpleStringProperty("o");
@@ -166,15 +166,15 @@ public class Controller {
             this.name.set(name);
         }
 
-        public boolean isStatus() {
+        public String isStatus() {
             return status.get();
         }
 
-        public BooleanProperty statusProperty() {
+        public StringProperty statusProperty() {
             return status;
         }
 
-        public void setStatus(boolean status) {
+        public void setStatus(String status) {
             this.status.set(status);
         }
     }
@@ -190,12 +190,9 @@ public class Controller {
         ObservableList<Slots> slotsList = anzeige.getSlots();
         slotsList.clear();
 
-
-        for(int i = 1; i < daten.getSpielerNamen().length;i++){
+        for(int i = 1; i < daten.getSpielerNamen().length;i++) {
             slotsList.add(new Slots(daten.getSpielerIP()[i], daten.getSpielerNamen()[i], daten.getSpielerBereit()[i]));
         }
-
-
     }
 
 

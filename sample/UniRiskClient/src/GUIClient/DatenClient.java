@@ -46,7 +46,7 @@ public class DatenClient {
     }
 
     public String[] getSpielerBereit(){
-        String[] spielerBereit = {"","","","","",""};
+        String[] spielerBereit = {"", "", "", "", "", ""};
         for(int i = 0; i < this.spielerBereit.length; i++){
             if(this.spielerBereit[i] == true) {
                 spielerBereit[i] = "\u2713";

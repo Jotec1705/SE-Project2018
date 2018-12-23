@@ -272,7 +272,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
         //TODO Spieler müssen noch Karten bekommen (Missionskarten)
 
         //Gebäude werden final den Spielern zugewiesen
-        for(int i = 1; i<gebaeudeArr.length;i++){
+        for(int i = 1; i < gebaeudeArr.length; i++){
             gebaeudeArr[i].Besitzer = spielerArr[gebaeudeArr[i].spielerArrPos].Name;
         }
         //Zustand wird auf das initiale Ersties verteilen gesetzt
@@ -305,10 +305,9 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     public String[] spielerNamen() {
 
         String[] spielerNamenArr = new String[6];
-        spielerNamenArr[0]=null;
-        for(int i = 1;i<spielerArr.length;i++) {
+        spielerNamenArr[0] = null;
+        for(int i = 1; i < spielerArr.length; i++) {
             spielerNamenArr[i] = spielerArr[i].Name;
-
         }
         return spielerNamenArr;
     }
@@ -316,7 +315,7 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
     @Override
     public boolean[] spielerBereit() {
         boolean[] bereit = new boolean[6];
-        for(int i = 1 ; i<spielerArr.length;i++){
+        for(int i = 1 ; i < spielerArr.length; i++){
             bereit[i] = spielerArr[i].bereit;
         }
         return bereit;
@@ -324,8 +323,10 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielerAusgestiegen(String nameSpieler) {
-        for(int i = 0;i<spielerArr.length;i++){
-            if(nameSpieler == spielerArr[i].Name){spielerArr[i].bereit = false;}
+        for(int i = 1; i < spielerArr.length; i++){
+            if(nameSpieler.equals(spielerArr[i].Name)){
+                spielerArr[i].bereit = false;
+            }
         }
 
         return true;
@@ -424,12 +425,13 @@ public class Spieldaten implements ISpieldaten, IAnzeigedaten{
 
     @Override
     public boolean spielerBereitMelden(String nameSpieler) {
-        for(int i = 1 ; i<spielerArr.length;i++) {
-            if (spielerArr[i].Name == nameSpieler) {
-                spielerArr[i].setSpielerBereit();
+        for(int i = 1 ; i < spielerArr.length; i++) {
+            if (spielerArr[i].Name.equals(nameSpieler)) {
+                spielerArr[i].bereit = true;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     @Override

@@ -176,34 +176,29 @@ public class Anzeige {
     }
 
 
-
     public void showStart(Stage primaryStage) {
         primaryStage.setTitle("Server Anwendung");
-        primaryStage.setScene(sceneStart);
-
-
         primaryStage.setResizable(false);
+        primaryStage.setScene(sceneStart);
         primaryStage.show();
     }
+
     public void showSpielAnlegen(Stage primaryStage) {
         primaryStage.setTitle("Neues Spiel anlegen");
-        primaryStage.setScene(sceneSpielAnlegen);
-
         primaryStage.setResizable(false);
+        primaryStage.setScene(sceneSpielAnlegen);
         primaryStage.show();
     }
     public void showSpielLaden(Stage primaryStage) {
         primaryStage.setTitle("Spiel laden");
-        primaryStage.setScene(sceneSpielLaden);
         primaryStage.setResizable(false);
-
+        primaryStage.setScene(sceneSpielLaden);
         primaryStage.show();
     }
     public void showLobby(Stage primaryStage) {
         primaryStage.setTitle("Lobby(Host)");
-        primaryStage.setScene(sceneLobby);
-
         primaryStage.setResizable(false);
+        primaryStage.setScene(sceneLobby);
         primaryStage.show();
     }
 
